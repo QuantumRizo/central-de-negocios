@@ -59,6 +59,7 @@
   font-size: 1.6rem;
   margin-bottom: 0.2rem;
   font-weight: 800;
+  color: white;
 }
 
 .stat-item p {
@@ -94,7 +95,7 @@
   font-weight: 800;
   letter-spacing: 2px;
   font-size: 0.95rem;
-  color: var(--primary);
+  color: var(--accent);
   background-color: white;
   text-align: center;
   width: 100%;
@@ -136,6 +137,7 @@
   margin-bottom: 0;
   text-transform: uppercase;
   letter-spacing: -1px;
+  color: white;
 }
 
 .ceo-member p {

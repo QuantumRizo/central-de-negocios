@@ -1,5 +1,5 @@
 .value-prop {
-  padding: 6rem 0;
+  padding: 3rem 0;
   overflow: hidden;
   background-color: var(--bg-secondary);
 }
@@ -34,15 +34,14 @@
   color: var(--text-main);
   font-weight: 500;
   line-height: 1.5;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .vp-cta-card {
   background: white;
-  padding: 2.5rem;
+  padding: 1.5rem 1.8rem;
   border-radius: var(--radius-lg);
   box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  border-top: 4px solid var(--accent);
 }
 
 .vp-cta-card h3 {
@@ -67,16 +66,16 @@
 .vp-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .vp-modern-item {
   background: white;
-  padding: 2rem 2.5rem;
+  padding: 1.2rem 1.8rem;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 15px rgba(0,0,0,0.02);
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: flex-start;
   transition: all 0.3s ease;
   border: 1px solid rgba(0,0,0,0.02);
@@ -85,13 +84,12 @@
 .vp-modern-item:hover {
   transform: translateX(10px);
   box-shadow: 0 15px 30px rgba(242, 122, 101, 0.1);
-  border-left: 4px solid var(--accent);
 }
 
 .vp-modern-icon {
   background: var(--bg-secondary);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -159,12 +157,11 @@
   }
   .vp-modern-item {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
   }
   .vp-modern-item:hover {
     transform: translateY(-5px);
     border-left: 1px solid rgba(0,0,0,0.02);
-    border-bottom: 4px solid var(--accent);
   }
 }

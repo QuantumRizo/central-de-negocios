@@ -77,35 +77,35 @@ const Clients = () => {
   return (
     <section id="clients" className="partners section bg-secondary">
       <div className="container">
-        
-        <h2 className="partners-title scroll-animate-left" ref={el => elementsRef.current[0] = el}>
-          OUR<br/>PARTNERS
-        </h2>
+        <div className="partners-card">
+          <h2 className="partners-title scroll-animate-left" ref={el => elementsRef.current[0] = el}>
+            OUR<br/>PARTNERS
+          </h2>
 
-        <div className="partners-grid">
-          {partners.map((partner, index) => (
-            <div 
-              className={`partner-node scroll-animate-up delay-${(index % 3) * 100} ${partner.reverse ? 'reverse' : ''}`} 
-              key={index}
-              ref={el => elementsRef.current[index + 1] = el}
-            >
-              <div className={`partner-circle-wrapper ${partner.size}`}>
-                <div className="partner-circle-placeholder">
-                  <span className="placeholder-text">{partner.name[0]}</span>
+          <div className="partners-grid">
+            {partners.map((partner, index) => (
+              <div 
+                className={`partner-node scroll-animate-up delay-${(index % 3) * 100} ${partner.reverse ? 'reverse' : ''}`} 
+                key={index}
+                ref={el => elementsRef.current[index + 1] = el}
+              >
+                <div className={`partner-circle-wrapper ${partner.size}`}>
+                  <div className="partner-circle-placeholder">
+                    <span className="placeholder-text">{partner.name[0]}</span>
+                  </div>
+                </div>
+                <div className="partner-info">
+                  <h3>{partner.name}</h3>
+                  <ul>
+                    {partner.services.map((service, idx) => (
+                      <li key={idx}>{service}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <div className="partner-info">
-                <h3>{partner.name}</h3>
-                <ul>
-                  {partner.services.map((service, idx) => (
-                    <li key={idx}>{service}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   )

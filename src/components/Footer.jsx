@@ -7,7 +7,6 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-info">
             <img src="/Logo_CN_2025_Negro.webp" alt="Central MX" className="footer-logo" />
-            <p>Data-driven Media Ecosystem</p>
           </div>
           <div className="footer-contact">
             <h3>Contacto</h3>
