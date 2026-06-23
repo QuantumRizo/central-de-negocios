@@ -9,8 +9,14 @@
 
 .cases-title {
   font-size: 3.5rem;
+  line-height: 0.95;
   font-weight: 800;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #4b79a1, #80a6d1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
+  letter-spacing: -2px;
 }
 
 .tabs-container {

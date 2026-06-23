@@ -91,7 +91,7 @@ const SuccessStories = () => {
       <div className="container">
         
         <div className="cases-header text-center">
-          <h2 className="cases-title">CASOS DE <span className="text-accent">ÉXITO</span></h2>
+          <h2 className="cases-title">CASOS DE<br/>ÉXITO</h2>
           <p className="section-subtitle">Profundiza en las estrategias que han transformado a nuestros principales partners</p>
         </div>
 
