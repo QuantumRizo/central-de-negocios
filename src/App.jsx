@@ -8,6 +8,7 @@ import SuccessStories from './components/SuccessStories'
 import CentralSimi from './components/CentralSimi'
 import ValueProposition from './components/ValueProposition'
 import Footer from './components/Footer'
+import NetworkStatus from './components/NetworkStatus'
 
 function App() {
   const [currentView, setCurrentView] = useState('home')
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <>
+      <NetworkStatus />
       <Navbar currentView={currentView} />
       
       <main>
