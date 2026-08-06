@@ -224,25 +224,6 @@
   transform: translateX(4px);
 }
 
-/* Bottom Wave Divider */
-.hero-wave-divider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.hero-wave-svg {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 65px;
-}
-
 @media (max-width: 992px) {
   .hero {
     min-height: 75vh;
@@ -270,8 +251,5 @@
   }
   .hero-title {
     font-size: 3.4rem;
-  }
-  .hero-wave-svg {
-    height: 40px;
   }
 }

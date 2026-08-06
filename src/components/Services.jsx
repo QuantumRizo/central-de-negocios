@@ -6,10 +6,11 @@ const Services = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
+            obs.unobserve(entry.target)
           }
         })
       },
@@ -22,6 +23,21 @@ const Services = () => {
 
     return () => observer.disconnect()
   }, [])
+
+  const handleMouseMove = (e, cardEl) => {
+    if (!cardEl || !cardEl.classList.contains('is-visible')) return
+    const rect = cardEl.getBoundingClientRect()
+    const x = e.clientX - rect.left - rect.width / 2
+    const y = e.clientY - rect.top - rect.height / 2
+    const tiltX = (y / (rect.height / 2)) * -6
+    const tiltY = (x / (rect.width / 2)) * 6
+    cardEl.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-8px) scale(1.015)`
+  }
+
+  const handleMouseLeave = (cardEl) => {
+    if (!cardEl) return
+    cardEl.style.transform = ''
+  }
 
   return (
     <section id="services" className="services section">
@@ -39,17 +55,19 @@ const Services = () => {
         {/* Editorial Rhythm Layout */}
         <div className="services-editorial-layout">
           
-          {/* 01. FEATURED HERO CARD 1: Media Strategy & Planning */}
+          {/* 01. FEATURED HERO CARD 1: Media Strategy & Planning (WHITE) */}
           <div 
-            className="service-card featured-service-card scroll-animate-up delay-100"
+            className="service-card featured-service-card card-theme-white scroll-animate-up delay-100"
             ref={el => cardsRef.current[1] = el}
+            onMouseMove={(e) => handleMouseMove(e, cardsRef.current[1])}
+            onMouseLeave={() => handleMouseLeave(cardsRef.current[1])}
           >
             <div className="service-card-header">
               <div className="service-header-left">
                 <h3 className="service-title">Media Strategy & Business Planning</h3>
               </div>
               <div className="service-corner-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
               </div>
             </div>
 
@@ -82,20 +100,22 @@ const Services = () => {
             </div>
           </div>
 
-          {/* ROW 1: 2 MEDIUM CARDS (02 & 03) */}
+          {/* ROW 1: 2 MEDIUM CARDS (02: BLUE, 03: WHITE) */}
           <div className="services-grid-2col">
             
-            {/* 02. Media Buying & Negotiation */}
+            {/* 02. Media Buying & Negotiation (BLUE) */}
             <div 
-              className="service-card medium-service-card scroll-animate-up delay-100"
+              className="service-card medium-service-card card-theme-blue scroll-animate-up delay-100"
               ref={el => cardsRef.current[2] = el}
+              onMouseMove={(e) => handleMouseMove(e, cardsRef.current[2])}
+              onMouseLeave={() => handleMouseLeave(cardsRef.current[2])}
             >
               <div className="service-card-header">
                 <div className="service-header-left">
                   <h3 className="service-title">Media Buying & High-Value Negotiation</h3>
                 </div>
                 <div className="service-corner-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
                 </div>
               </div>
 
@@ -116,17 +136,19 @@ const Services = () => {
               </div>
             </div>
 
-            {/* 03. Data Analytics & Business Intelligence */}
+            {/* 03. Data Analytics & Business Intelligence (WHITE) */}
             <div 
-              className="service-card medium-service-card scroll-animate-up delay-200"
+              className="service-card medium-service-card card-theme-white scroll-animate-up delay-200"
               ref={el => cardsRef.current[3] = el}
+              onMouseMove={(e) => handleMouseMove(e, cardsRef.current[3])}
+              onMouseLeave={() => handleMouseLeave(cardsRef.current[3])}
             >
               <div className="service-card-header">
                 <div className="service-header-left">
                   <h3 className="service-title">Data Analytics & Performance BI</h3>
                 </div>
                 <div className="service-corner-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                 </div>
               </div>
 
@@ -149,20 +171,22 @@ const Services = () => {
 
           </div>
 
-          {/* ROW 2: 2 MEDIUM CARDS (04 & 05) */}
+          {/* ROW 2: 2 MEDIUM CARDS (04: WHITE, 05: ORANGE) */}
           <div className="services-grid-2col">
             
-            {/* 04. Creative & Brand Experience */}
+            {/* 04. Creative & Brand Experience (WHITE) */}
             <div 
-              className="service-card medium-service-card scroll-animate-up delay-100"
+              className="service-card medium-service-card card-theme-white scroll-animate-up delay-100"
               ref={el => cardsRef.current[4] = el}
+              onMouseMove={(e) => handleMouseMove(e, cardsRef.current[4])}
+              onMouseLeave={() => handleMouseLeave(cardsRef.current[4])}
             >
               <div className="service-card-header">
                 <div className="service-header-left">
                   <h3 className="service-title">Creative Strategy & Brand Assets</h3>
                 </div>
                 <div className="service-corner-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 </div>
               </div>
 
@@ -183,17 +207,19 @@ const Services = () => {
               </div>
             </div>
 
-            {/* 05. Social Media Ecosystem */}
+            {/* 05. Social Media Ecosystem (ORANGE) */}
             <div 
-              className="service-card medium-service-card scroll-animate-up delay-200"
+              className="service-card medium-service-card card-theme-orange scroll-animate-up delay-200"
               ref={el => cardsRef.current[5] = el}
+              onMouseMove={(e) => handleMouseMove(e, cardsRef.current[5])}
+              onMouseLeave={() => handleMouseLeave(cardsRef.current[5])}
             >
               <div className="service-card-header">
                 <div className="service-header-left">
                   <h3 className="service-title">Social Media Ecosystem & Engagement</h3>
                 </div>
                 <div className="service-corner-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </div>
               </div>
 
@@ -216,17 +242,19 @@ const Services = () => {
 
           </div>
 
-          {/* 06. FEATURED HERO CARD 2: Public Relations & Partnerships */}
+          {/* 06. FEATURED HERO CARD 2: Public Relations & Partnerships (BLUE) */}
           <div 
-            className="service-card featured-service-card scroll-animate-up delay-100"
+            className="service-card featured-service-card card-theme-blue scroll-animate-up delay-100"
             ref={el => cardsRef.current[6] = el}
+            onMouseMove={(e) => handleMouseMove(e, cardsRef.current[6])}
+            onMouseLeave={() => handleMouseLeave(cardsRef.current[6])}
           >
             <div className="service-card-header">
               <div className="service-header-left">
                 <h3 className="service-title">Public Relations, Sponsorships & Experiential</h3>
               </div>
               <div className="service-corner-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               </div>
             </div>
 

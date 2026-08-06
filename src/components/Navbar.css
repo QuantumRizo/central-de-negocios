@@ -17,6 +17,12 @@
   border-bottom: 1px solid var(--border-light);
 }
 
+.navbar.view-centralsimi {
+  background-color: rgba(255, 248, 244, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #F1DADA;
+}
+
 .navbar-content {
   display: flex;
   justify-content: space-between;
@@ -35,9 +41,14 @@
   transition: all var(--transition-normal);
 }
 
-/* White logo over dark hero when not scrolled */
-.navbar:not(.scrolled) .logo-img {
+/* White logo ONLY over dark hero when view-home and not scrolled */
+.navbar.view-home:not(.scrolled) .logo-img {
   filter: brightness(0) invert(1);
+}
+
+.navbar.view-centralsimi .logo-img,
+.navbar.scrolled .logo-img {
+  filter: none;
 }
 
 .logo:hover .logo-img {
@@ -56,17 +67,22 @@
   font-size: 0.95rem;
 }
 
-/* Nav link colors over dark hero vs scrolled */
-.navbar:not(.scrolled) .nav-links li a:not(.nav-highlight-link) {
+/* Nav link colors over dark hero vs light page / scrolled */
+.navbar.view-home:not(.scrolled) .nav-links li a:not(.nav-highlight-link) {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.navbar:not(.scrolled) .nav-links li a:not(.nav-highlight-link):hover {
+.navbar.view-home:not(.scrolled) .nav-links li a:not(.nav-highlight-link):hover {
   color: #FFFFFF;
 }
 
+.navbar.view-centralsimi .nav-links li a:not(.nav-highlight-link),
 .navbar.scrolled .nav-links li a:not(.nav-highlight-link) {
-  color: var(--text-muted);
+  color: var(--text-main);
+}
+
+.navbar.view-centralsimi .nav-links li a:not(.nav-highlight-link):hover {
+  color: #0B5EB7;
 }
 
 .navbar.scrolled .nav-links li a:not(.nav-highlight-link):hover {
@@ -81,7 +97,7 @@
   transition: all var(--transition-normal);
 }
 
-.navbar:not(.scrolled) .nav-highlight-link {
+.navbar.view-home:not(.scrolled) .nav-highlight-link {
   background-color: rgba(255, 255, 255, 0.15);
   color: #FFFFFF !important;
 }
@@ -91,8 +107,14 @@
   color: var(--primary) !important;
 }
 
-.nav-highlight-link:hover,
-.nav-highlight-link.active {
+.navbar.view-centralsimi .nav-highlight-link,
+.navbar.view-centralsimi .nav-highlight-link.active {
+  background-color: #0B5EB7 !important;
+  color: white !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-highlight-link:hover {
   background-color: var(--primary) !important;
   color: white !important;
   box-shadow: var(--shadow-sm);

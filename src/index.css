@@ -72,6 +72,13 @@ ul {
 
 .section {
   padding: 5.5rem 0;
+  position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+img {
+  content-visibility: auto;
 }
 
 .text-center {

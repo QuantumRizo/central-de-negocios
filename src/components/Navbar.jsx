@@ -5,15 +5,22 @@ const Navbar = ({ currentView = 'home' }) => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50)
+          ticking = false
+        })
+        ticking = true
+      }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} view-${currentView}`}>
       <div className="container navbar-content">
         <a href="#hero" className="logo">
           <img src="/Logo_CN_2025_Negro.webp" alt="Central MX" className="logo-img" />

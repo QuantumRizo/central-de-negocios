@@ -6,10 +6,11 @@ const CentralSimi = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
+            obs.unobserve(entry.target)
           }
         })
       },
@@ -43,43 +44,47 @@ const CentralSimi = () => {
     <section id="centralsimi" className="centralsimi-page section">
       <div className="container">
         
-        {/* Header Badge & Hero */}
+        {/* Header Hero Card with /centralsimihero.png background */}
         <div className="cs-hero-card animate-fade-in-up">
-          <div className="cs-hero-brand-header">
-            <img 
-              src="/centralsimi.webp" 
-              alt="Central Simi Logo" 
-              className="cs-hero-logo" 
-            />
-          </div>
+          <div className="cs-hero-card-overlay"></div>
           
-          <p className="cs-hero-subtext">
-            Ecosistema de medios dedicado a la gestión estratégica, compra e innovación publicitaria nacional de Farmacias Similares.
-          </p>
-
-          <div className="cs-stats-grid">
-            <div className="cs-stat-card stat-red">
-              <div className="cs-stat-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-              </div>
-              <div className="cs-stat-value val-red">+15</div>
-              <div className="cs-stat-label">Campañas anuales</div>
+          <div className="cs-hero-content-left">
+            <div className="cs-hero-brand-header">
+              <img 
+                src="/centralsimi.webp" 
+                alt="Central Simi Logo" 
+                className="cs-hero-logo" 
+              />
             </div>
+            
+            <p className="cs-hero-subtext">
+              Ecosistema de medios dedicado a la gestión estratégica, compra e innovación publicitaria nacional de Farmacias Similares.
+            </p>
 
-            <div className="cs-stat-card stat-blue">
-              <div className="cs-stat-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0B5EB7" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div className="cs-stats-grid">
+              <div className="cs-stat-card stat-red">
+                <div className="cs-stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                </div>
+                <div className="cs-stat-value val-red">+15</div>
+                <div className="cs-stat-label">Campañas anuales</div>
               </div>
-              <div className="cs-stat-value val-blue">+100</div>
-              <div className="cs-stat-label">Socios comerciales</div>
-            </div>
 
-            <div className="cs-stat-card stat-red">
-              <div className="cs-stat-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              <div className="cs-stat-card stat-blue">
+                <div className="cs-stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B5EB7" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div className="cs-stat-value val-blue">+100</div>
+                <div className="cs-stat-label">Socios comerciales</div>
               </div>
-              <div className="cs-stat-value val-red">100%</div>
-              <div className="cs-stat-label">Cobertura Nacional</div>
+
+              <div className="cs-stat-card stat-red">
+                <div className="cs-stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                </div>
+                <div className="cs-stat-value val-red">100%</div>
+                <div className="cs-stat-label">Cobertura Nacional</div>
+              </div>
             </div>
           </div>
         </div>

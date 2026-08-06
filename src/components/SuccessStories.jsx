@@ -1,219 +1,222 @@
 import { useState, useEffect, useRef } from 'react'
 import './SuccessStories.css'
 
-const caseStudies = {
-  simi: {
+const caseStudies = [
+  {
     id: 'simi',
     name: 'CentralSimi',
     themeClass: 'theme-simi',
     logo: '/centralsimi.webp',
     badge: 'Agencia Única Exclusiva',
     title: 'CentralSimi: Agencia Única & Ecosistema de Farmacias Similares',
-    isFeatured: true,
+    description: 'Ecosistema de medios dedicado a la gestión estratégica, compra e innovación publicitaria nacional de Farmacias Similares.',
+    ctaText: 'Ver Caso Completo CentralSimi & Mundial 2026 →',
+    ctaLink: '#centralsimi',
     metrics: [
-      { value: '+15', label: 'Campañas anuales estratégicas', isAlt: true, icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> },
-      { value: '+100', label: 'Socios comerciales gestionados', isAlt: false, icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
-      { value: '100%', label: 'Cobertura Nacional en Medios', isAlt: true, icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> }
+      { value: '+15', label: 'Campañas anuales estratégicas', isAlt: true },
+      { value: '+100', label: 'Socios comerciales gestionados', isAlt: false },
+      { value: '100%', label: 'Cobertura Nacional en Medios', isAlt: true }
     ],
-    subtitle: 'Gestión Integral del Portafolio de Medios Tradicionales & Especiales',
-    subtext: 'OOH, TV, RADIO, PRENSA, DERRAME DIGITAL, EVENTOS & PATROCINIOS',
-    bullets: [
-      'Planeación estratégica y gobernanza de medios',
-      'Compra e implementación de alta negociación',
-      'Proyectos de alto impacto (Mundial Monterrey 2026, activaciones, patrocinios)',
-      'Reporting en tiempo real, Data Analytics y Automatización'
-    ],
-    footer: 'Modelo de agencia dedicada highly eficiente que maximiza inversión, cobertura e impacto nacional',
-    layout: 'simi-layout'
+    visual: {
+      number: '01',
+      label: 'CASO EMBLEMÁTICO MUNDIAL 2026',
+      title: 'Host City Supporter Monterrey 2026 & Gobernanza de Medios',
+      description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
+      kpi: '2.1X Valor Comercial Obtenido',
+      image: '/centralsimihero.png',
+      isStacked: true
+    }
   },
-  sika: {
+  {
     id: 'sika',
     name: 'Sika',
     themeClass: 'theme-sika',
     logo: '/partners/sika.png',
-    badge: 'Patrocinio',
+    badge: 'Patrocinio Oficial',
     title: 'PATROCINIO SIKA × CLUB AMÉRICA',
+    description: 'Consultoría estratégica, coordinación y gestión operativa del patrocinio de SIKA con el Club América.',
     metrics: [
-      { value: '+12M', label: 'De Media Value en negociación' },
-      { value: '+11M', label: 'De impactos orgánicos en patrocinio' },
-      { value: '+115%', label: 'Incremental de impactos en patrocinio' }
+      { value: '+$12M', label: 'Media Value en negociación', isAlt: false },
+      { value: '+11M', label: 'Impactos orgánicos generados', isAlt: true },
+      { value: '+115%', label: 'Incremental de visibilidad', isAlt: false }
     ],
-    subtitle: 'Gestionamos el patrocinio de SIKA con Club América',
-    subtext: 'BRAND AWARENESS, ESTRATEGIA DIGITAL, POSICIONAMIENTO',
-    bullets: [
-      'Consultoría estratégica, análisis de impacto y rentabilidad',
-      'Coordinación y negociación de patrocinio',
-      'Gestión estratégica y operativa de patrocinio',
-      'Activaciones de producto y estrategia digital'
-    ],
-    footer: 'Gestión integral de campañas de medios, lanzamientos de producto, Data Analytics y Promotoría',
-    layout: 'sika-layout'
+    visual: {
+      number: '02',
+      label: 'SPONSORSHIP & BRAND AWARENESS',
+      title: 'Estrategia & Posicionamiento de Marca',
+      description: 'Negociación de patrocinio de alto rendimiento en la liga nacional, activaciones en estadio y amplificación digital.',
+      kpi: '+$12M Media Value en Negociación',
+      image: '/partners/sika.png',
+      isStacked: true
+    }
   },
-  waldos: {
+  {
     id: 'waldos',
     name: "Waldo's",
     themeClass: 'theme-waldos',
     logo: '/partners/waldos.webp',
-    badge: 'Aliado 4+ años',
+    badge: 'Aliado Estratégico 4+ Años',
     title: 'ESTRATEGIA RETAIL & MEDIOS DIGITALES WALDO\'S',
+    description: 'Gestión integral de campañas digitales always-on, formatos OFF y activaciones de tráfico a tiendas retail.',
     metrics: [
-      { value: '+5', label: 'Campañas anuales' },
-      { value: '+5%', label: 'De Brand Purchase' },
-      { value: '+50%', label: 'De visibilidad procedente de Media' }
+      { value: '+5', label: 'Campañas anuales ejecutadas', isAlt: false },
+      { value: '+5%', label: 'Crecimiento de Brand Purchase', isAlt: true },
+      { value: '+50%', label: 'Visibilidad procedente de Medios', isAlt: false }
     ],
-    subtitle: 'Gestionamos campañas digitales always on y campañas OFF',
-    subtext: 'META, GOOGLE ADS, TIK TOK, OOH',
-    bullets: [
-      'Planeación estratégica y compra de medios',
-      'Eventos especiales y activaciones retail',
-      'Data Analytics & Brand Tracking continuo'
-    ],
-    footer: 'Campañas de branding, retail geolocalizado, formatos interactivos y generación de tráfico a tienda',
-    layout: 'waldos-layout'
+    visual: {
+      number: '03',
+      label: 'RETAIL MEDIA & PERFORMANCE',
+      title: 'Campañas Always-On & Tráfico a Sucursales',
+      description: 'Estrategias geolocalizadas de gran formato y optimización continua en Meta, Google Ads y TikTok con atribución a tienda.',
+      kpi: '+5% Crecimiento en Brand Purchase',
+      image: '/partners/waldos.webp',
+      isStacked: true
+    }
   }
-}
+]
 
 const SuccessStories = () => {
-  const [activeTab, setActiveTab] = useState('simi')
-  const [isAnimating, setIsAnimating] = useState(false)
-  const elementsRef = useRef([])
+  const [activeIdx, setActiveIdx] = useState(0)
+  const [isFading, setIsFading] = useState(false)
+  const cardRefs = useRef([])
+  const rightColumnRef = useRef(null)
+  const activeIdxRef = useRef(0)
 
+  const activeCase = caseStudies[activeIdx]
+
+  // Smooth cross-fade transition helper
+  const triggerCaseChange = (newIdx) => {
+    if (newIdx === activeIdxRef.current) return
+    activeIdxRef.current = newIdx
+    setIsFading(true)
+    setTimeout(() => {
+      setActiveIdx(newIdx)
+      setTimeout(() => {
+        setIsFading(false)
+      }, 40)
+    }, 140)
+  }
+
+  // IntersectionObserver to auto-switch left panel content on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
+            const idx = Number(entry.target.getAttribute('data-case-idx'))
+            if (!isNaN(idx)) {
+              triggerCaseChange(idx)
+            }
           }
         })
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.45, rootMargin: '-15% 0px -15% 0px' }
     )
 
-    elementsRef.current.forEach((el) => {
+    cardRefs.current.forEach((el) => {
       if (el) observer.observe(el)
     })
 
     return () => observer.disconnect()
   }, [])
-  
-  const handleTabChange = (id) => {
-    if (id === activeTab || isAnimating) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setActiveTab(id);
-      setIsAnimating(false);
-    }, 280);
-  }
-
-  const activeCase = caseStudies[activeTab];
 
   return (
-    <section id="cases" className={`success-cases section ${activeCase.themeClass}`}>
+    <section 
+      id="cases" 
+      className={`success-cases section ${activeCase.themeClass}`}
+    >
       <div className="container">
         
-        <div 
-          className="cases-header text-center scroll-animate-up"
-          ref={el => elementsRef.current[0] = el}
-        >
-          <h2 className="cases-title">CASOS DE<br/>ÉXITO</h2>
-          <p className="section-subtitle">Casos emblemáticos que demuestran nuestra capacidad de ejecución y gobernanza de medios</p>
+        {/* Section Header */}
+        <div className="cases-header text-center animate-fade-in-up">
+          <span className="cases-eyebrow">SELECTED WORK</span>
+          <h2 className="cases-title">CASOS DE ÉXITO</h2>
+          <p className="cases-subtitle">
+            Resultados reales construidos a través de estrategia, negociación, ejecución y datos.
+          </p>
         </div>
 
-        <div 
-          className="tabs-container scroll-animate-up delay-100"
-          ref={el => elementsRef.current[1] = el}
-        >
-          {Object.values(caseStudies).map((c) => (
-            <button 
-              key={c.id} 
-              className={`tab-btn tab-btn-${c.id} ${activeTab === c.id ? 'active' : ''}`}
-              onClick={() => handleTabChange(c.id)}
-            >
-              {c.name}
-            </button>
-          ))}
-        </div>
-
-        <div 
-          className={`case-content-wrapper ${isAnimating ? 'fading' : ''} scroll-animate-up delay-200`}
-          ref={el => elementsRef.current[2] = el}
-        >
-          <div className="case-card">
+        {/* Two-Column Scroll-Driven Layout */}
+        <div className="cases-story-layout">
+          
+          {/* LEFT COLUMN — STICKY (Smooth Cross-Fade on transition) */}
+          <div className={`cases-sticky-left ${isFading ? 'is-fading' : ''}`}>
             
-            <div className="case-card-header">
-              <div className="case-header-aligned-row">
-                {activeCase.logo && (
-                  <div className="case-logo-wrapper">
-                    <img src={activeCase.logo} alt={activeCase.name} className="case-client-logo" />
-                  </div>
-                )}
-                <div className="case-header-text-content">
-                  {activeCase.badge && <span className="case-badge">{activeCase.badge}</span>}
-                  <h3>{activeCase.title}</h3>
-                </div>
+            <div className="sticky-brand-bar">
+              <div className="sticky-logo-card">
+                <img src={activeCase.logo} alt={activeCase.name} className="sticky-client-logo" />
               </div>
+              <span className="sticky-badge">{activeCase.badge}</span>
             </div>
 
-            <div className="case-metrics">
-              {activeCase.metrics.map((m, i) => (
-                <div className="metric-box" key={i}>
-                  {m.icon && <span className={`metric-icon ${m.isAlt ? 'icon-alt' : ''}`}>{m.icon}</span>}
-                  <div className={`metric-value ${m.isAlt ? 'val-alt' : ''}`}>{m.value}</div>
-                  <div className="metric-label">{m.label}</div>
+            <h3 className="sticky-case-title">{activeCase.title}</h3>
+            <p className="sticky-case-desc">{activeCase.description}</p>
+
+            {/* 3 Main KPIs */}
+            <div className="sticky-kpi-grid">
+              {activeCase.metrics.map((m, idx) => (
+                <div className="sticky-kpi-box" key={idx}>
+                  <div className={`kpi-val ${m.isAlt ? 'kpi-alt' : ''}`}>{m.value}</div>
+                  <div className="kpi-lbl">{m.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="case-body">
-              <div className="case-details">
-                <div className="case-subtitle-box">
-                  <h4>{activeCase.subtitle}</h4>
-                  <p className="case-subtext">{activeCase.subtext}</p>
-                </div>
-                
-                <ul className="case-bullets">
-                  {activeCase.bullets.map((bullet, i) => (
-                    <li key={i}>
-                      <span className="check-icon">✓</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={`case-visuals ${activeCase.layout}`}>
-                {activeCase.id === 'simi' && (
-                  <>
-                    <div className="placeholder-image ph-simi-1">Espacio para campaña (CentralSimi)</div>
-                    <div className="placeholder-image ph-simi-2">Espacio para activación (BTL / Eventos)</div>
-                  </>
-                )}
-                {activeCase.id === 'sika' && (
-                  <div className="placeholder-image ph-sika">Espacio para foto Club América x Sika</div>
-                )}
-                {activeCase.id === 'waldos' && (
-                  <>
-                    <div className="placeholder-image ph-waldos-1">Espacio para foto sucursal</div>
-                    <div className="placeholder-image ph-waldos-2">Espacio para post (Redes Sociales)</div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            <div className="case-footer">
-              <span className="arrows">»</span>
-              <p>{activeCase.footer}</p>
-              <span className="arrows">«</span>
-            </div>
-
-            {activeCase.id === 'simi' && (
-              <div className="cs-cta-wrapper text-center" style={{ marginTop: '1.8rem' }}>
-                <a href="#centralsimi" className="btn btn-cs-accent">Ver Caso Completo CentralSimi & Mundial 2026 →</a>
+            {/* Optional Full Case CTA */}
+            {activeCase.ctaLink && (
+              <div className="sticky-cta-wrapper">
+                <a href={activeCase.ctaLink} className="btn btn-sticky-cta">
+                  {activeCase.ctaText}
+                </a>
               </div>
             )}
 
           </div>
+
+          {/* RIGHT COLUMN — 1 CARD PER CASE STUDY (Scrolls vertically) */}
+          <div className="cases-story-right" ref={rightColumnRef}>
+            {caseStudies.map((item, idx) => (
+              <div 
+                key={item.id} 
+                data-case-idx={idx}
+                className={`story-scene-item ${activeIdx === idx ? 'scene-active' : ''}`}
+                ref={el => cardRefs.current[idx] = el}
+              >
+                
+                {/* Card Header Badges */}
+                <div className="scene-header-line">
+                  <span className="scene-num-badge">CASE 0{idx + 1}</span>
+                  <span className="scene-capability-tag">{item.visual.label}</span>
+                </div>
+
+                {/* Layered Stacked Image Gallery */}
+                <div className="scene-visual-wrapper">
+                  <div className="editorial-stack-gallery">
+                    <div className="stack-layer layer-back" />
+                    <div className="stack-layer layer-mid" />
+                    <div className="stack-layer layer-front">
+                      <img src={item.visual.image} alt={item.visual.title} className="scene-hero-image" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Text & Supporting KPI */}
+                <div className="scene-body-content">
+                  <h4 className="scene-title">{item.visual.title}</h4>
+                  <p className="scene-desc">{item.visual.description}</p>
+                  
+                  {item.visual.kpi && (
+                    <div className="scene-kpi-pill">
+                      <span className="kpi-pill-icon">⚡</span>
+                      <span className="kpi-pill-text">{item.visual.kpi}</span>
+                    </div>
+                  )}
+                </div>
+
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>

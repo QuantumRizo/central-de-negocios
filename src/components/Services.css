@@ -37,11 +37,12 @@
   line-height: 1.6;
 }
 
-/* Editorial Rhythm Layout */
+/* Editorial Rhythm Layout with 3D Perspective */
 .services-editorial-layout {
   display: flex;
   flex-direction: column;
   gap: 2.2rem;
+  perspective: 1200px;
 }
 
 .services-grid-2col {
@@ -50,26 +51,162 @@
   gap: 2.2rem;
 }
 
-/* Service Card (Shared Base) */
+/* Service Card (Shared Base & 3D Scroll Entry Animation) */
 .service-card {
-  background: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: 2.8rem 3rem;
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-light);
-  transition: all var(--transition-normal);
   display: flex;
   flex-direction: column;
   position: relative;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  
+  /* Initial 3D Scroll Reveal State (Tilt + Blur) */
+  opacity: 0;
+  transform: translateY(50px) scale(0.96) rotateX(7deg);
+  filter: blur(4px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s ease,
+              box-shadow 0.3s ease;
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(39, 76, 119, 0.25);
+/* Revealed State on Scroll */
+.service-card.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) rotateX(0deg) !important;
+  filter: blur(0px) !important;
 }
 
-/* Featured Card Accent Variation */
+/* Base Hover Shadow Elevation */
+.service-card.is-visible:hover {
+  box-shadow: 0 16px 40px rgba(34, 48, 70, 0.16) !important;
+}
+
+/* Card Theme 1: White Card */
+.service-card.card-theme-white {
+  background: white;
+  border: 1px solid var(--border-light);
+}
+
+.service-card.card-theme-white .service-title {
+  color: var(--primary);
+}
+
+.service-card.card-theme-white .service-desc {
+  color: var(--text-muted);
+}
+
+.service-card.card-theme-white .service-divider {
+  background-color: var(--border-light);
+}
+
+.service-card.card-theme-white .capabilities-label {
+  color: var(--text-muted);
+}
+
+.service-card.card-theme-white .check-text {
+  color: var(--text-main);
+}
+
+.service-card.card-theme-white .check-badge {
+  background-color: rgba(232, 92, 65, 0.1);
+  color: var(--accent);
+}
+
+.service-card.card-theme-white .service-corner-icon {
+  background: var(--bg-secondary);
+  color: var(--primary);
+}
+
+.service-card.card-theme-white .service-corner-icon svg {
+  stroke: var(--primary);
+}
+
+/* Card Theme 2: Primary Blue (#274C77) */
+.service-card.card-theme-blue {
+  background: #274C77;
+  border: 1px solid #274C77;
+  color: white;
+}
+
+.service-card.card-theme-blue .service-title {
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-blue .service-desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.service-card.card-theme-blue .service-divider {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.service-card.card-theme-blue .capabilities-label {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.service-card.card-theme-blue .check-text {
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-blue .check-badge {
+  background-color: #E85C41;
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-blue .service-corner-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.service-card.card-theme-blue .service-corner-icon svg {
+  stroke: white;
+}
+
+/* Card Theme 3: Secondary Orange (#E85C41) */
+.service-card.card-theme-orange {
+  background: #E85C41;
+  border: 1px solid #E85C41;
+  color: white;
+}
+
+.service-card.card-theme-orange .service-title {
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-orange .service-desc {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.service-card.card-theme-orange .service-divider {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.service-card.card-theme-orange .capabilities-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.service-card.card-theme-orange .check-text {
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-orange .check-badge {
+  background-color: #274C77;
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-orange .service-corner-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.service-card.card-theme-orange .service-corner-icon svg {
+  stroke: white;
+}
+
+/* Featured Card Sizing */
 .featured-service-card {
   padding: 3.2rem 3.5rem;
 }
@@ -86,7 +223,6 @@
 .service-title {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--primary);
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.4px;
@@ -97,7 +233,6 @@
 }
 
 .service-corner-icon {
-  background: var(--bg-secondary);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -105,21 +240,16 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all var(--transition-normal);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
 }
 
 .service-card:hover .service-corner-icon {
-  background: var(--primary);
-}
-
-.service-card:hover .service-corner-icon svg {
-  stroke: white;
+  transform: translateZ(24px) scale(1.1);
 }
 
 /* Description */
 .service-desc {
   font-size: 1.08rem;
-  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 2rem;
   font-weight: 500;
@@ -132,7 +262,6 @@
 /* Thin Divider */
 .service-divider {
   height: 1px;
-  background-color: var(--border-light);
   width: 100%;
   margin-bottom: 2rem;
   margin-top: auto;
@@ -143,7 +272,6 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 1.8px;
-  color: var(--text-muted);
   text-transform: uppercase;
   margin-bottom: 1.2rem;
 }
@@ -170,20 +298,22 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: rgba(232, 92, 65, 0.1);
-  color: var(--accent);
   font-size: 0.8rem;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.service-card:hover .check-badge {
+  transform: scale(1.15);
 }
 
 .check-text {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--text-main);
   line-height: 1.3;
 }
 
