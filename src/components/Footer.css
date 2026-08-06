@@ -1,5 +1,6 @@
 .footer {
-  padding: 4rem 0 2rem;
+  padding: 4.5rem 0 2.5rem;
+  background-color: var(--primary-dark);
   color: white;
 }
 
@@ -11,44 +12,47 @@
 }
 
 .footer-logo {
-  height: 55px;
+  height: 50px;
   width: auto;
   object-fit: contain;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   filter: brightness(0) invert(1);
 }
 
 .footer-info p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
 }
 
 .footer-contact h3 {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   margin-bottom: 1rem;
   color: white;
+  font-weight: 800;
 }
 
 .footer-contact p {
   margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-contact a {
-  transition: opacity 0.3s;
+  transition: color var(--transition-normal);
 }
 
 .footer-contact a:hover {
-  opacity: 0.8;
+  color: var(--accent);
   text-decoration: underline;
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.9rem;
-  opacity: 0.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 @media (max-width: 768px) {

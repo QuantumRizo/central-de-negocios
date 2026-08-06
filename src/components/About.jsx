@@ -1,118 +1,131 @@
+import { useEffect, useRef } from 'react'
 import './About.css'
 
 const About = () => {
+  const elementsRef = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+          }
+        })
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    )
+
+    elementsRef.current.forEach((el) => {
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const leadershipTeam = [
+    {
+      name: 'Fanny García',
+      role: 'CEO',
+      area: 'Leadership & Business Strategy',
+      isCeo: true
+    },
+    {
+      name: 'Patricia Martínez',
+      alias: 'Paty',
+      role: 'Head of Innovative Media Solutions',
+      area: 'Innovative Media'
+    },
+    {
+      name: 'Juan Pablo Millán',
+      alias: 'JP',
+      role: 'Head of Strategy & Operations',
+      area: 'Strategy & Analytics'
+    },
+    {
+      name: 'Carolina Anaya',
+      alias: 'Caro',
+      role: 'Head of Digital & Creative Media',
+      area: 'Digital & Creative'
+    }
+  ]
+
   return (
     <section id="about" className="about section">
       <div className="container">
-        <div className="about-card about-layout">
         
-        {/* Left Column: Text and Stats */}
-        <div className="about-left animate-fade-in-up">
-          <h2 className="about-title">
-            YOUR<br/>TEAM
-          </h2>
-          <p className="about-description">
-            Un equipo multidisciplinario de más de 20 especialistas que integra décadas de experiencia con talento joven, creativo y data-driven para resolver retos reales de negocio.
-          </p>
-          <div className="about-stats">
-            <div className="stat-item">
-              <div className="stat-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              </div>
-              <div>
-                <h4>+35 años</h4>
-                <p>Experiencia en Medios</p>
-              </div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.584 8 0 8 5.606 0 7.644-8 12.74-8z"></path></svg>
-              </div>
-              <div>
-                <h4>+8 años</h4>
-                <p>Construyendo soluciones</p>
-              </div>
-            </div>
+        {/* Positioning Quote Card */}
+        <div 
+          className="positioning-card scroll-animate-up"
+          ref={el => elementsRef.current[0] = el}
+        >
+          <h3 className="positioning-title">OUR POSITIONING</h3>
+          <div className="positioning-quote">
+            <span className="quote-icon">“</span>
+            <p>
+              Somos la <strong>agencia boutique</strong> para marcas que necesitan <strong>atención senior</strong>, <strong>criterio de negocio</strong>, <strong>capacidad de ejecución</strong>, <strong>gobernanza y negociación de alto valor</strong>, sin la burocracia de una red global.
+            </p>
           </div>
         </div>
 
-        {/* Center Column: CEO */}
-        <div className="ceo-section animate-fade-in-up delay-100">
-          <div className="team-member ceo-member">
-            <div className="member-photo-placeholder ceo-photo"></div>
-            <h3>CEO</h3>
-            <p>Fanny García</p>
-          </div>
-        </div>
-
-        {/* Right Column: Departments Grid */}
-        <div className="departments-section">
+        {/* Core Team Card */}
+        <div 
+          className="about-card about-layout scroll-animate-up delay-100"
+          ref={el => elementsRef.current[1] = el}
+        >
           
-          {/* Dept 1 */}
-          <div className="dept-row animate-fade-in-up delay-200">
-            <div className="dept-header">
-              STRATEGY & DATA ANALYTICS
-            </div>
-            <div className="dept-members-grid">
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Jose Miranda</p>
+          {/* Left Column: Text & Stats */}
+          <div className="about-left">
+            <h2 className="about-title">
+              LEADERSHIP<br/>TEAM
+            </h2>
+            <p className="about-description">
+              Un equipo directivo senior con décadas de experiencia liderando la estrategia de medios, analítica y visión creativa para marcas líderes.
+            </p>
+            <div className="about-stats">
+              <div className="stat-item">
+                <div className="stat-icon">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div>
+                  <h4>+35 años</h4>
+                  <p>Experiencia acumulada en Medios</p>
+                </div>
               </div>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Félix Rizo</p>
-              </div>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Sebastián Morales</p>
-              </div>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Jorge Rodríguez</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Dept 2 */}
-          <div className="dept-row animate-fade-in-up delay-300">
-            <div className="dept-header">
-              INNOVATIVE MEDIA SOLUTIONS
-            </div>
-            <div className="dept-members-grid">
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Patricia Martínez</p>
-              </div>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Juan Pablo Millán</p>
-              </div>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Maricela García</p>
+              <div className="stat-item">
+                <div className="stat-icon">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.584 8 0 8 5.606 0 7.644-8 12.74-8z"></path></svg>
+                </div>
+                <div>
+                  <h4>+8 años</h4>
+                  <p>Construyendo soluciones boutique</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Dept 3 */}
-          <div className="dept-row animate-fade-in-up delay-400">
-            <div className="dept-header">
-              DIGITAL & CREATIVE MEDIA
-            </div>
-            <div className="dept-members-grid" style={{justifyContent: 'center'}}>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Carolina Anaya</p>
+          {/* Right Column: Leadership Heads */}
+          <div className="leadership-grid">
+            {leadershipTeam.map((leader, index) => (
+              <div 
+                className={`leader-card ${leader.isCeo ? 'ceo-card' : ''} scroll-animate-up delay-${(index + 1) * 100}`} 
+                key={index}
+                ref={el => elementsRef.current[2 + index] = el}
+              >
+                <div className="leader-photo-wrapper">
+                  <div className="member-photo-placeholder"></div>
+                </div>
+                <div className="leader-info">
+                  <span className="leader-area-tag">{leader.area}</span>
+                  <h3>{leader.name}</h3>
+                  <p className="leader-role">{leader.role}</p>
+                </div>
               </div>
-              <div className="team-member">
-                <div className="member-photo-placeholder"></div>
-                <p>Eugenio Lamadrid</p>
-              </div>
-            </div>
+            ))}
           </div>
 
         </div>
-        </div>
+
       </div>
     </section>
   )
