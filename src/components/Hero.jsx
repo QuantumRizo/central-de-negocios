@@ -53,11 +53,11 @@ const Hero = () => {
         <path d="M 280 340 C 330 410, 380 450, 450 492" className="cable-base" />
         <path d="M 280 340 C 330 410, 380 450, 450 492" className="cable-flow flow-blue" />
 
-        <path d="M 310 350 C 440 440, 570 490, 720 516" className="cable-base" />
-        <path d="M 310 350 C 440 440, 570 490, 720 516" className="cable-flow flow-purple" />
+        <path d="M 280 250 C 330 220, 380 200, 430 204" className="cable-base" />
+        <path d="M 280 250 C 330 220, 380 200, 430 204" className="cable-flow flow-purple" />
 
-        <path d="M 330 360 C 480 460, 680 510, 880 528" className="cable-base" />
-        <path d="M 330 360 C 480 460, 680 510, 880 528" className="cable-flow flow-coral" />
+        <path d="M 290 230 C 380 200, 470 210, 560 240" className="cable-base" />
+        <path d="M 290 230 C 380 200, 470 210, 560 240" className="cable-flow flow-coral" />
       </svg>
 
       {/* Hero Content Layer */}
@@ -106,12 +106,12 @@ const Hero = () => {
           <span className="node-label">ANALYTICS</span>
         </div>
 
-        <div className="hero-node-item node-radio" style={{ top: '86%', left: '72%' }}>
-          <span className="node-dot dot-purple"></span>
+        <div className="hero-node-item node-radio" style={{ top: '32%', left: '42%' }}>
           <span className="node-label">RADIO</span>
+          <span className="node-dot dot-purple"></span>
         </div>
 
-        <div className="hero-node-item node-pr" style={{ top: '88%', left: '88%' }}>
+        <div className="hero-node-item node-pr" style={{ top: '40%', left: '56%' }}>
           <span className="node-dot dot-coral"></span>
           <span className="node-label">PR & INFLUENCERS</span>
         </div>

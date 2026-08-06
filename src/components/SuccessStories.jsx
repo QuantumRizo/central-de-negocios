@@ -23,7 +23,7 @@ const caseStudies = [
       title: 'Host City Supporter Monterrey 2026 & Gobernanza de Medios',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
       kpi: '2.1X Valor Comercial Obtenido',
-      image: '/centralsimihero.png',
+      image: '/simi partner.png',
       isStacked: true
     }
   },
