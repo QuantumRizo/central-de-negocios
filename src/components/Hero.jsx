@@ -4,8 +4,8 @@ const Hero = () => {
   return (
     <section id="hero" className="hero section">
       
-      {/* SVG Animated Cables Layer */}
-      <svg className="hero-cables-overlay" viewBox="0 0 1000 600" preserveAspectRatio="none">
+      {/* SVG Animated Cables Layer (Desktop) */}
+      <svg className="hero-cables-overlay hero-cables-desktop" viewBox="0 0 1000 600" preserveAspectRatio="none">
         <defs>
           <linearGradient id="grad-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#274C77" stopOpacity="0.2" />
@@ -58,6 +58,37 @@ const Hero = () => {
 
         <path d="M 290 230 C 380 200, 470 210, 560 240" className="cable-base" />
         <path d="M 290 230 C 380 200, 470 210, 560 240" className="cable-flow flow-coral" />
+      </svg>
+
+      {/* SVG Animated Cables Layer (Mobile Custom Layout) */}
+      <svg className="hero-cables-overlay hero-cables-mobile" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        {/* Top Arc (TV to RADIO) */}
+        <path d="M 140 120 C 350 40, 650 30, 900 100" className="cable-base" />
+        <path d="M 140 120 C 350 40, 650 30, 900 100" className="cable-flow flow-yellow" />
+
+        {/* Top-Left Drop (TV to DIGITAL) */}
+        <path d="M 140 120 C 130 180, 190 240, 270 280" className="cable-base" />
+        <path d="M 140 120 C 130 180, 190 240, 270 280" className="cable-flow flow-coral" />
+
+        {/* Mid-Top Bridge (DIGITAL to PR) */}
+        <path d="M 270 280 C 450 180, 750 180, 925 260" className="cable-base" />
+        <path d="M 270 280 C 450 180, 750 180, 925 260" className="cable-flow flow-cyan" />
+
+        {/* Top-Right Drop (RADIO to PR) */}
+        <path d="M 900 100 C 960 150, 960 210, 925 260" className="cable-base" />
+        <path d="M 900 100 C 960 150, 960 210, 925 260" className="cable-flow flow-purple" />
+
+        {/* Bottom Arc (RETAIL to ANALYTICS) */}
+        <path d="M 220 820 C 450 770, 700 790, 900 860" className="cable-base" />
+        <path d="M 220 820 C 450 770, 700 790, 900 860" className="cable-flow flow-red" />
+
+        {/* Bottom Curve (RETAIL to OOH) */}
+        <path d="M 220 820 C 270 880, 340 910, 415 920" className="cable-base" />
+        <path d="M 220 820 C 270 880, 340 910, 415 920" className="cable-flow flow-green" />
+
+        {/* Bottom Curve (OOH to ANALYTICS) */}
+        <path d="M 415 920 C 580 940, 780 920, 900 860" className="cable-base" />
+        <path d="M 415 920 C 580 940, 780 920, 900 860" className="cable-flow flow-blue" />
       </svg>
 
       {/* Hero Content Layer */}

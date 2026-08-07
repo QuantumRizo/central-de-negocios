@@ -183,6 +183,36 @@ const SuccessStories = () => {
                 ref={el => cardRefs.current[idx] = el}
               >
                 
+                {/* Mobile-Only Interleaved Info Card */}
+                <div className="mobile-case-info-card">
+                  <div className="sticky-brand-bar">
+                    <div className="sticky-logo-card">
+                      <img src={item.logo} alt={item.name} className="sticky-client-logo" />
+                    </div>
+                    <span className="sticky-badge">{item.badge}</span>
+                  </div>
+
+                  <h3 className="sticky-case-title">{item.title}</h3>
+                  <p className="sticky-case-desc">{item.description}</p>
+
+                  <div className="sticky-kpi-grid">
+                    {item.metrics.map((m, mIdx) => (
+                      <div className="sticky-kpi-box" key={mIdx}>
+                        <div className={`kpi-val ${m.isAlt ? 'kpi-alt' : ''}`}>{m.value}</div>
+                        <div className="kpi-lbl">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {item.ctaLink && (
+                    <div className="sticky-cta-wrapper">
+                      <a href={item.ctaLink} className="btn btn-sticky-cta">
+                        {item.ctaText}
+                      </a>
+                    </div>
+                  )}
+                </div>
+
                 {/* Card Header Badges */}
                 <div className="scene-header-line">
                   <span className="scene-num-badge">CASE 0{idx + 1}</span>

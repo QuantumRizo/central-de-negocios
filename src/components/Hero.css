@@ -37,6 +37,14 @@
   z-index: 2;
 }
 
+.hero-cables-desktop {
+  display: block;
+}
+
+.hero-cables-mobile {
+  display: none;
+}
+
 .cable-base {
   fill: none;
   stroke: rgba(255, 255, 255, 0.15);
@@ -224,7 +232,7 @@
   transform: translateX(4px);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .hero {
     min-height: 75vh;
     padding-top: 8rem;
@@ -233,10 +241,37 @@
   .hero::before {
     background: rgba(8, 15, 30, 0.88);
   }
-  .hero-cables-overlay,
-  .hero-nodes-layer {
+  .hero-cables-desktop {
     display: none;
   }
+  
+  .hero-cables-mobile {
+    display: block;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  .hero-nodes-layer {
+    opacity: 1;
+    pointer-events: none;
+  }
+  
+  /* Strictly ABOVE "DATA-DRIVEN" (Top 10% - 32%) */
+  .node-tv { top: 12% !important; left: 8% !important; }
+  .node-digital { top: 28% !important; left: 12% !important; }
+  
+  .node-radio { top: 10% !important; left: auto !important; right: 8% !important; flex-direction: row-reverse; }
+  .node-pr { top: 26% !important; left: auto !important; right: 6% !important; flex-direction: row-reverse; }
+  
+  /* Strictly BELOW the button (Bottom 78% - 95%) */
+  .node-retail { top: 82% !important; left: 10% !important; }
+  .node-analytics { top: 86% !important; left: auto !important; right: 8% !important; flex-direction: row-reverse; }
+  .node-ooh { top: 92% !important; left: 40% !important; }
+  
+  .node-label {
+    font-size: 0.65rem;
+  }
+
   .hero-container {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
