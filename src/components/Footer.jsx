@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="footer-contact">
             <h3>Contacto</h3>
             <p><strong>Dirección:</strong> Lope de Vega 132-Piso 2, Chapultepec Morales, Polanco V Secc, Miguel Hidalgo, 11550 Ciudad de México, CDMX, Mexico</p>
-            <p><strong>Teléfono:</strong> <a href="tel:+525552030107">+52 55 5203 0107</a></p>
+            <p><strong>Teléfono:</strong> <a href="tel:5552030107">55 5203 0107</a></p>
           </div>
         </div>
         <div className="footer-bottom">

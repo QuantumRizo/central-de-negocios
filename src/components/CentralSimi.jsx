@@ -24,6 +24,21 @@ const CentralSimi = () => {
     return () => observer.disconnect()
   }, [])
 
+  const handleMouseMove = (e, cardEl) => {
+    if (!cardEl || !cardEl.classList.contains('is-visible')) return
+    const rect = cardEl.getBoundingClientRect()
+    const x = e.clientX - rect.left - rect.width / 2
+    const y = e.clientY - rect.top - rect.height / 2
+    const tiltX = (y / (rect.height / 2)) * -6
+    const tiltY = (x / (rect.width / 2)) * 6
+    cardEl.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-8px) scale(1.015)`
+  }
+
+  const handleMouseLeave = (cardEl) => {
+    if (!cardEl) return
+    cardEl.style.transform = ''
+  }
+
   const corePillars = [
     { id: 1, title: 'Planeación estratégica', desc: 'Estructuración integral de metas de alcance, frecuencia y posicionamiento de marca.' },
     { id: 2, title: 'Compra e implementación de medios', desc: 'Negociación directa de alto impacto en OOH, TV, Radio, Prensa y Derrame Digital.' },
@@ -103,6 +118,8 @@ const CentralSimi = () => {
                 className="cs-pillar-card scroll-animate-up" 
                 key={pillar.id}
                 ref={el => elementsRef.current[idx] = el}
+                onMouseMove={(e) => handleMouseMove(e, elementsRef.current[idx])}
+                onMouseLeave={() => handleMouseLeave(elementsRef.current[idx])}
               >
                 <div className="cs-pillar-num">0{pillar.id}</div>
                 <h3>{pillar.title}</h3>
@@ -128,22 +145,42 @@ const CentralSimi = () => {
 
           {/* Impact Metrics */}
           <div className="cs-impact-grid">
-            <div className="cs-impact-card">
+            <div 
+              className="cs-impact-card scroll-animate-up delay-100"
+              ref={el => elementsRef.current[10] = el}
+              onMouseMove={(e) => handleMouseMove(e, elementsRef.current[10])}
+              onMouseLeave={() => handleMouseLeave(elementsRef.current[10])}
+            >
               <div className="cs-impact-value val-red">-80%</div>
               <div className="cs-impact-label">Reducción de costo en la negociación</div>
             </div>
 
-            <div className="cs-impact-card">
+            <div 
+              className="cs-impact-card scroll-animate-up delay-100"
+              ref={el => elementsRef.current[11] = el}
+              onMouseMove={(e) => handleMouseMove(e, elementsRef.current[11])}
+              onMouseLeave={() => handleMouseLeave(elementsRef.current[11])}
+            >
               <div className="cs-impact-value val-blue">2X</div>
               <div className="cs-impact-label">Assets obtenidos vs. acuerdo inicial</div>
             </div>
 
-            <div className="cs-impact-card">
+            <div 
+              className="cs-impact-card scroll-animate-up delay-200"
+              ref={el => elementsRef.current[12] = el}
+              onMouseMove={(e) => handleMouseMove(e, elementsRef.current[12])}
+              onMouseLeave={() => handleMouseLeave(elementsRef.current[12])}
+            >
               <div className="cs-impact-value val-red">+160%</div>
               <div className="cs-impact-label">Cumplimiento del alcance original</div>
             </div>
 
-            <div className="cs-impact-card">
+            <div 
+              className="cs-impact-card scroll-animate-up delay-200"
+              ref={el => elementsRef.current[13] = el}
+              onMouseMove={(e) => handleMouseMove(e, elementsRef.current[13])}
+              onMouseLeave={() => handleMouseLeave(elementsRef.current[13])}
+            >
               <div className="cs-impact-value val-blue">2.1X</div>
               <div className="cs-impact-label">Valor comercial obtenido vs. inversión</div>
             </div>
@@ -158,6 +195,8 @@ const CentralSimi = () => {
                   className="timeline-step-card scroll-animate-up" 
                   key={idx}
                   ref={el => elementsRef.current[5 + idx] = el}
+                  onMouseMove={(e) => handleMouseMove(e, elementsRef.current[5 + idx])}
+                  onMouseLeave={() => handleMouseLeave(elementsRef.current[5 + idx])}
                 >
                   <div className="step-badge">{s.step}</div>
                   <div className="step-content">
