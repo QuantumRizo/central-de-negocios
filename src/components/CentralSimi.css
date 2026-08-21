@@ -5,81 +5,47 @@
   color: #24324A;
 }
 
-/* Dedicated CentralSimi Hero Card with /centralsimihero.png */
-.cs-hero-card {
-  position: relative;
-  overflow: hidden;
-  background-image: url('/centralsimihero.png');
-  background-size: cover;
-  background-position: right top;
-  background-repeat: no-repeat;
-  background-color: #FFFFFF;
-  border-radius: var(--radius-lg);
-  padding: 4rem 3.8rem;
-  border: 1px solid #F1DADA;
-  box-shadow: 0 12px 35px rgba(11, 94, 183, 0.08);
-  margin-bottom: 4rem;
-  min-height: 540px;
+/* CentralSimi Executive Header */
+.cs-executive-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 5rem auto;
+}
+
+.cs-brand-top {
   display: flex;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-/* Overlay gradient fading out so right-side figure is 100% visible */
-.cs-hero-card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 38%, rgba(255, 255, 255, 0.5) 58%, rgba(255, 255, 255, 0) 75%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Left-aligned Content Container */
-.cs-hero-content-left {
-  position: relative;
-  z-index: 2;
-  max-width: 560px;
-  text-align: left;
-}
-
-.cs-hero-brand-header {
-  margin-bottom: 1.2rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.cs-hero-logo {
-  height: 170px;
+.cs-header-logo {
+  height: 110px;
   width: auto;
-  max-width: 420px;
+  max-width: 380px;
   object-fit: contain;
 }
 
-.cs-hero-subtext {
-  font-size: 1.15rem;
+.cs-header-lead {
+  font-size: 1.25rem;
   line-height: 1.6;
   color: #4A5568;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.8rem;
   font-weight: 500;
-  text-align: left;
 }
 
-/* Statistics Grid */
-.cs-stats-grid {
+/* Statistics Horizontal Row */
+.cs-stats-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .cs-stat-card {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
+  background-color: #FFFFFF;
   border: 1px solid #F1DADA;
   border-radius: var(--radius-md);
-  padding: 1.5rem 1rem;
+  padding: 1.6rem 1.2rem;
   text-align: center;
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
@@ -92,14 +58,14 @@
 }
 
 .cs-stat-icon {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
 
 .cs-stat-value {
   font-size: 2.8rem;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
 
 .val-red {
@@ -111,10 +77,61 @@
 }
 
 .cs-stat-label {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #24324A;
   line-height: 1.2;
+}
+
+/* Monterrey 2026 Visual Media Showcase */
+.cs-showcase-media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  align-items: stretch;
+}
+
+.cs-media-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid #F1DADA;
+  box-shadow: var(--shadow-sm);
+  background: white;
+  transition: all 0.35s ease;
+}
+
+.cs-media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(11, 94, 183, 0.1);
+}
+
+.cs-media-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.2rem;
+  background: white;
+  min-height: 280px;
+}
+
+.cs-media-landscape-img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.cs-media-photo {
+  min-height: 280px;
+  position: relative;
+}
+
+.cs-media-photo-img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  display: block;
 }
 
 /* Scope Section */
@@ -161,7 +178,11 @@
 .cs-pillar-card {
   background-color: #FFFFFF;
   border-radius: var(--radius-md);
-  padding: 1.8rem 1.6rem; /* Smaller padding for a concise look */
+  padding: 1.8rem 1.8rem;
+  min-height: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: var(--shadow-sm);
   border: 1px solid #F1DADA;
   position: relative;
@@ -171,8 +192,8 @@
   transform-style: preserve-3d;
   will-change: transform, opacity;
   opacity: 0;
-  transform: translateY(50px) scale(0.96) rotateX(7deg);
-  filter: blur(4px);
+  transform: translateY(40px) scale(0.96) rotateX(6deg);
+  filter: blur(3px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.8s ease,
@@ -192,24 +213,19 @@
 }
 
 .cs-pillar-num {
-  font-size: 2rem; /* Smaller font */
+  font-size: 1.8rem;
   font-weight: 800;
   color: #0B5EB7;
-  opacity: 0.35;
-  margin-bottom: 0.5rem;
+  opacity: 0.3;
+  margin-bottom: 0.8rem;
 }
 
 .cs-pillar-card h3 {
-  font-size: 1.15rem; /* Smaller font */
+  font-size: 1.22rem;
   font-weight: 800;
   color: #0B5EB7;
-  margin-bottom: 0.5rem;
-}
-
-.cs-pillar-card p {
-  font-size: 0.92rem; /* Smaller font */
-  color: #667085;
-  line-height: 1.5;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .cs-banner-footer {
@@ -417,22 +433,20 @@
 }
 
 @media (max-width: 768px) {
-  .cs-hero-card {
-    padding: 2.8rem 1.5rem;
-    min-height: auto;
-    background-position: center top;
+  .cs-executive-header {
+    margin-bottom: 3.5rem;
   }
-  .cs-hero-content-left {
-    max-width: 100%;
-    text-align: center;
+  .cs-header-logo {
+    height: 80px;
   }
-  .cs-hero-brand-header {
-    justify-content: center;
+  .cs-header-lead {
+    font-size: 1.08rem;
   }
-  .cs-hero-subtext {
-    text-align: center;
+  .cs-stats-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-  .cs-stats-grid {
+  .cs-showcase-media-grid {
     grid-template-columns: 1fr;
   }
   .cs-pillars-grid {

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './SuccessStories.css'
+import DualImageGallery from './DualImageGallery'
 
 const caseStudies = [
   {
@@ -20,11 +21,12 @@ const caseStudies = [
     visual: {
       number: '01',
       label: 'CASO EMBLEMÁTICO MUNDIAL 2026',
-      title: 'Host City Supporter Monterrey 2026 & Gobernanza de Medios',
+      title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
       kpi: '2.1X Valor Comercial Obtenido',
-      image: '/simi partner.png',
-      isStacked: true
+      image: '/simi-monterrey-landscape.png',
+      secondaryImage: '/simi-monterrey-photo.jpg',
+      isDualGallery: true
     }
   },
   {
@@ -221,26 +223,27 @@ const SuccessStories = () => {
 
                 {/* Layered Stacked Image Gallery */}
                 <div className="scene-visual-wrapper">
-                  <div className="editorial-stack-gallery">
-                    <div className="stack-layer layer-back" />
-                    <div className="stack-layer layer-mid" />
-                    <div className="stack-layer layer-front">
-                      <img src={item.visual.image} alt={item.visual.title} className="scene-hero-image" />
+                  {item.visual.secondaryImage ? (
+                    <DualImageGallery 
+                      primaryImage={item.visual.image}
+                      secondaryImage={item.visual.secondaryImage}
+                      title={item.visual.title}
+                    />
+                  ) : (
+                    <div className="editorial-stack-gallery">
+                      <div className="stack-layer layer-back" />
+                      <div className="stack-layer layer-mid" />
+                      <div className="stack-layer layer-front">
+                        <img src={item.visual.image} alt={item.visual.title} className="scene-hero-image" loading="lazy" />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
-                {/* Card Text & Supporting KPI */}
+                {/* Card Text */}
                 <div className="scene-body-content">
                   <h4 className="scene-title">{item.visual.title}</h4>
                   <p className="scene-desc">{item.visual.description}</p>
-                  
-                  {item.visual.kpi && (
-                    <div className="scene-kpi-pill">
-                      <span className="kpi-pill-icon">⚡</span>
-                      <span className="kpi-pill-text">{item.visual.kpi}</span>
-                    </div>
-                  )}
                 </div>
 
               </div>

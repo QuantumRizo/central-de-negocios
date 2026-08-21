@@ -40,11 +40,11 @@ const CentralSimi = () => {
   }
 
   const corePillars = [
-    { id: 1, title: 'Planeación estratégica', desc: 'Estructuración integral de metas de alcance, frecuencia y posicionamiento de marca.' },
-    { id: 2, title: 'Compra e implementación de medios', desc: 'Negociación directa de alto impacto en OOH, TV, Radio, Prensa y Derrame Digital.' },
-    { id: 3, title: 'Innovación en medios tradicionales', desc: 'Formatos disruptivos, activaciones BTL y dominaciones de alto impacto.' },
-    { id: 4, title: 'Proyectos de alto impacto', desc: 'Gestión de patrocinios mundiales, eventos masivos y alianzas estratégicas.' },
-    { id: 5, title: 'Reporting, Data Analytics & Automatización', desc: 'Monitoreo en tiempo real, medición de KPIs y tableros automatizados.' }
+    { id: 1, title: 'Planeación estratégica' },
+    { id: 2, title: 'Compra e implementación de medios' },
+    { id: 3, title: 'Innovación en medios tradicionales' },
+    { id: 4, title: 'Proyectos de alto impacto' },
+    { id: 5, title: 'Reporting, Data Analytics & Automatización' }
   ]
 
   const jugadaMaestraSteps = [
@@ -59,47 +59,43 @@ const CentralSimi = () => {
     <section id="centralsimi" className="centralsimi-page section">
       <div className="container">
         
-        {/* Header Hero Card with /centralsimihero.png background */}
-        <div className="cs-hero-card animate-fade-in-up">
-          <div className="cs-hero-card-overlay"></div>
+        {/* Clean Executive CentralSimi Header */}
+        <div className="cs-executive-header animate-fade-in-up">
+          <div className="cs-brand-top">
+            <img 
+              src="/centralsimi.webp" 
+              alt="Central Simi Logo" 
+              className="cs-header-logo" 
+            />
+          </div>
           
-          <div className="cs-hero-content-left">
-            <div className="cs-hero-brand-header">
-              <img 
-                src="/centralsimi.webp" 
-                alt="Central Simi Logo" 
-                className="cs-hero-logo" 
-              />
+          <p className="cs-header-lead">
+            Ecosistema de medios dedicado a la gestión estratégica, compra e innovación publicitaria nacional de Farmacias Similares.
+          </p>
+
+          <div className="cs-stats-row">
+            <div className="cs-stat-card stat-red">
+              <div className="cs-stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+              </div>
+              <div className="cs-stat-value val-red">+15</div>
+              <div className="cs-stat-label">Campañas anuales</div>
             </div>
-            
-            <p className="cs-hero-subtext">
-              Ecosistema de medios dedicado a la gestión estratégica, compra e innovación publicitaria nacional de Farmacias Similares.
-            </p>
 
-            <div className="cs-stats-grid">
-              <div className="cs-stat-card stat-red">
-                <div className="cs-stat-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-                </div>
-                <div className="cs-stat-value val-red">+15</div>
-                <div className="cs-stat-label">Campañas anuales</div>
+            <div className="cs-stat-card stat-blue">
+              <div className="cs-stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B5EB7" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
+              <div className="cs-stat-value val-blue">+100</div>
+              <div className="cs-stat-label">Socios comerciales</div>
+            </div>
 
-              <div className="cs-stat-card stat-blue">
-                <div className="cs-stat-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B5EB7" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div className="cs-stat-value val-blue">+100</div>
-                <div className="cs-stat-label">Socios comerciales</div>
+            <div className="cs-stat-card stat-red">
+              <div className="cs-stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
               </div>
-
-              <div className="cs-stat-card stat-red">
-                <div className="cs-stat-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C73B4A" strokeWidth="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-                </div>
-                <div className="cs-stat-value val-red">100%</div>
-                <div className="cs-stat-label">Cobertura Nacional</div>
-              </div>
+              <div className="cs-stat-value val-red">100%</div>
+              <div className="cs-stat-label">Cobertura Nacional</div>
             </div>
           </div>
         </div>
@@ -123,7 +119,6 @@ const CentralSimi = () => {
               >
                 <div className="cs-pillar-num">0{pillar.id}</div>
                 <h3>{pillar.title}</h3>
-                <p>{pillar.desc}</p>
               </div>
             ))}
           </div>
@@ -141,6 +136,24 @@ const CentralSimi = () => {
             <p className="cs-showcase-tagline">
               "La sede más pasional del Mundial: récord de asistencia, el mejor entretenimiento y un legado que trasciende al torneo."
             </p>
+          </div>
+
+          {/* Monterrey 2026 Visual Showcase Gallery */}
+          <div className="cs-showcase-media-grid">
+            <div className="cs-media-card cs-media-emblem">
+              <img 
+                src="/simi-monterrey-landscape.png" 
+                alt="Host City Supporter Monterrey 2026 Farmacias Similares" 
+                className="cs-media-landscape-img" 
+              />
+            </div>
+            <div className="cs-media-card cs-media-photo">
+              <img 
+                src="/simi-monterrey-photo.jpg" 
+                alt="Activación Monterrey 2026 Farmacias Similares" 
+                className="cs-media-photo-img" 
+              />
+            </div>
           </div>
 
           {/* Impact Metrics */}

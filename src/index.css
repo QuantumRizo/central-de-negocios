@@ -1,25 +1,26 @@
 :root {
-  /* Color System */
+  /* Brand Manual Color System (PMS 330 #436363 Institutional Teal) */
   --bg-color: #ffffff;
-  --bg-secondary: #F7F9FC;
+  --bg-secondary: #F2F7F6;
   --card-bg: #ffffff;
   
-  --primary: #274C77;
-  --primary-dark: #1E3A5F;
-  --primary-light: #4A6FA5;
+  --primary: #436363; /* PMS 330 Official Institutional Color */
+  --primary-dark: #2B4242;
+  --primary-light: #5A7E7E;
   
-  --accent: #E85C41;
-  --accent-hover: #D0482D;
+  /* Dynamic Secondary Accent Color (Default: PMS Cool Gray 6 C #959B9B) */
+  --accent: #959B9B; /* PMS Cool Gray 6 C */
+  --accent-hover: #7A8080;
   
-  --text-main: #223046;
-  --text-muted: #66758C;
-  --border-light: #E7EDF4;
-  --border-card: #E7EDF4;
+  --text-main: #243333;
+  --text-muted: #5F7373;
+  --border-light: #E0EAEA;
+  --border-card: #E0EAEA;
   
-  /* Minimal Subtle Shadows (No Heavy Blurry Glows) */
-  --shadow-sm: 0 2px 8px rgba(34, 48, 70, 0.04);
-  --shadow-md: 0 6px 18px rgba(34, 48, 70, 0.06);
-  --shadow-lg: 0 12px 30px rgba(34, 48, 70, 0.08);
+  /* Minimal Subtle Shadows */
+  --shadow-sm: 0 2px 8px rgba(43, 66, 66, 0.05);
+  --shadow-md: 0 6px 18px rgba(43, 66, 66, 0.08);
+  --shadow-lg: 0 14px 32px rgba(43, 66, 66, 0.12);
   
   /* Unified Radius System */
   --radius-sm: 12px;
@@ -48,6 +49,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   line-height: 1.15;
   color: var(--text-main);
@@ -73,12 +75,6 @@ ul {
 .section {
   padding: 5.5rem 0;
   position: relative;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
-}
-
-img {
-  content-visibility: auto;
 }
 
 .text-center {

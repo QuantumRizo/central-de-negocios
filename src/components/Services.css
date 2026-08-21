@@ -7,7 +7,7 @@
 /* Header */
 .services-header {
   max-width: 800px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 3.5rem auto;
 }
 
 .services-area-badge {
@@ -37,204 +37,56 @@
   line-height: 1.6;
 }
 
-/* Editorial Rhythm Layout with 3D Perspective */
-.services-editorial-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 2.2rem;
+/* Compact Grid Layout with 3D Perspective */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
   perspective: 1200px;
 }
 
-.services-grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.2rem;
-}
-
-/* Service Card (Shared Base & 3D Scroll Entry Animation) */
+/* Service Card (Compact & 3D Interactive) */
 .service-card {
   border-radius: var(--radius-lg);
-  padding: 2.8rem 3rem;
+  padding: 2.2rem 2.2rem;
+  min-height: 210px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
   transform-style: preserve-3d;
-  will-change: transform, opacity;
-  
-  /* Initial 3D Scroll Reveal State (Tilt + Blur) */
-  opacity: 0;
-  transform: translateY(50px) scale(0.96) rotateX(7deg);
-  filter: blur(4px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.8s ease,
-              box-shadow 0.3s ease;
-}
-
-/* Revealed State on Scroll */
-.service-card.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) scale(1) rotateX(0deg) !important;
-  filter: blur(0px) !important;
+  will-change: transform, box-shadow;
+  cursor: default;
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
 }
 
 /* Base Hover Shadow Elevation */
-.service-card.is-visible:hover {
-  box-shadow: 0 16px 40px rgba(34, 48, 70, 0.16) !important;
+.service-card:hover {
+  box-shadow: 0 18px 45px rgba(34, 48, 70, 0.16);
 }
 
-/* Card Theme 1: White Card */
-.service-card.card-theme-white {
-  background: white;
-  border: 1px solid var(--border-light);
-}
-
-.service-card.card-theme-white .service-title {
-  color: var(--primary);
-}
-
-.service-card.card-theme-white .service-desc {
-  color: var(--text-muted);
-}
-
-.service-card.card-theme-white .service-divider {
-  background-color: var(--border-light);
-}
-
-.service-card.card-theme-white .capabilities-label {
-  color: var(--text-muted);
-}
-
-.service-card.card-theme-white .check-text {
-  color: var(--text-main);
-}
-
-.service-card.card-theme-white .check-badge {
-  background-color: rgba(232, 92, 65, 0.1);
-  color: var(--accent);
-}
-
-.service-card.card-theme-white .service-corner-icon {
-  background: var(--bg-secondary);
-  color: var(--primary);
-}
-
-.service-card.card-theme-white .service-corner-icon svg {
-  stroke: var(--primary);
-}
-
-/* Card Theme 2: Primary Blue (#274C77) */
-.service-card.card-theme-blue {
-  background: #274C77;
-  border: 1px solid #274C77;
-  color: white;
-}
-
-.service-card.card-theme-blue .service-title {
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-blue .service-desc {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.service-card.card-theme-blue .service-divider {
-  background-color: rgba(255, 255, 255, 0.18);
-}
-
-.service-card.card-theme-blue .capabilities-label {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.service-card.card-theme-blue .check-text {
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-blue .check-badge {
-  background-color: #E85C41;
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-blue .service-corner-icon {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-}
-
-.service-card.card-theme-blue .service-corner-icon svg {
-  stroke: white;
-}
-
-/* Card Theme 3: Secondary Orange (#E85C41) */
-.service-card.card-theme-orange {
-  background: #E85C41;
-  border: 1px solid #E85C41;
-  color: white;
-}
-
-.service-card.card-theme-orange .service-title {
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-orange .service-desc {
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.service-card.card-theme-orange .service-divider {
-  background-color: rgba(255, 255, 255, 0.22);
-}
-
-.service-card.card-theme-orange .capabilities-label {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.service-card.card-theme-orange .check-text {
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-orange .check-badge {
-  background-color: #274C77;
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-orange .service-corner-icon {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.service-card.card-theme-orange .service-corner-icon svg {
-  stroke: white;
-}
-
-/* Featured Card Sizing */
-.featured-service-card {
-  padding: 3.2rem 3.5rem;
-}
-
-/* Card Header & Area Tag */
-.service-card-header {
+/* Card Top Section */
+.service-card-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 1.2rem;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.service-title {
-  font-size: 1.75rem;
+.service-number {
+  font-size: 0.88rem;
   font-weight: 800;
-  margin: 0;
-  line-height: 1.2;
-  letter-spacing: -0.4px;
-}
-
-.featured-service-card .service-title {
-  font-size: 2.1rem;
+  letter-spacing: 1.5px;
 }
 
 .service-corner-icon {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -244,80 +96,117 @@
 }
 
 .service-card:hover .service-corner-icon {
-  transform: translateZ(24px) scale(1.1);
+  transform: translateZ(24px) scale(1.12);
 }
 
-/* Description */
-.service-desc {
-  font-size: 1.08rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  font-weight: 500;
-}
-
-.featured-service-card .service-desc {
-  font-size: 1.15rem;
-}
-
-/* Thin Divider */
-.service-divider {
-  height: 1px;
-  width: 100%;
-  margin-bottom: 2rem;
-  margin-top: auto;
-}
-
-/* Capabilities Checklist */
-.capabilities-label {
-  font-size: 0.75rem;
+.service-title {
+  font-size: 1.38rem;
   font-weight: 800;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  margin: 0;
+  line-height: 1.28;
+  letter-spacing: -0.3px;
 }
 
-.capabilities-check-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+/* Card Theme 1: White Card */
+.service-card.card-theme-white {
+  background: white;
+  border: 1px solid var(--border-light);
 }
 
-.capabilities-check-grid.grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 2.5rem;
+.service-card.card-theme-white .service-number {
+  color: var(--accent);
 }
 
-.check-item {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
+/* Card Theme 1: White Card */
+.service-card.card-theme-white {
+  background: white;
+  border: 1px solid var(--border-light, #E0EAEA);
 }
 
-.check-badge {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  font-size: 0.8rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
+.service-card.card-theme-white .service-number {
+  color: var(--primary, #436363);
 }
 
-.service-card:hover .check-badge {
-  transform: scale(1.15);
+.service-card.card-theme-white .service-title {
+  color: var(--primary, #436363);
 }
 
-.check-text {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.3;
+.service-card.card-theme-white .service-corner-icon {
+  background: var(--bg-secondary, #F2F7F6);
+  color: var(--primary, #436363);
+}
+
+.service-card.card-theme-white .service-corner-icon svg {
+  stroke: var(--primary, #436363);
+}
+
+/* Card Theme 2: Institutional Green (PMS 330 #436363) */
+.service-card.card-theme-primary,
+.service-card.card-theme-blue {
+  background: var(--primary, #436363);
+  border: 1px solid var(--primary, #436363);
+  color: white;
+}
+
+.service-card.card-theme-primary .service-number,
+.service-card.card-theme-blue .service-number {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.service-card.card-theme-primary .service-title,
+.service-card.card-theme-blue .service-title {
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-primary .service-corner-icon,
+.service-card.card-theme-blue .service-corner-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+}
+
+.service-card.card-theme-primary .service-corner-icon svg,
+.service-card.card-theme-blue .service-corner-icon svg {
+  stroke: white;
+}
+
+/* Card Theme 3: Secondary Accent Color (Dynamic: Cool Gray 6 C, Gold, etc.) */
+.service-card.card-theme-accent,
+.service-card.card-theme-orange {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: white;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card.card-theme-accent .service-number,
+.service-card.card-theme-orange .service-number {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.service-card.card-theme-accent .service-title,
+.service-card.card-theme-orange .service-title {
+  color: #FFFFFF;
+}
+
+.service-card.card-theme-accent .service-corner-icon,
+.service-card.card-theme-orange .service-corner-icon {
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+}
+
+.service-card.card-theme-accent .service-corner-icon svg,
+.service-card.card-theme-orange .service-corner-icon svg {
+  stroke: white;
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .services {
     padding: 3.5rem 0 4rem;
@@ -325,45 +214,21 @@
   .services-header {
     margin-bottom: 2.2rem;
   }
-  .services-editorial-layout {
-    gap: 1.4rem;
-  }
-  .services-grid-2col {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
-  }
-  .capabilities-check-grid.grid-2col {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
-  }
-  .service-card {
-    padding: 1.5rem 1.4rem;
-    border-radius: var(--radius-md);
-  }
-  .featured-service-card {
-    padding: 1.6rem 1.4rem;
-    border-radius: var(--radius-md);
-  }
   .services-main-title {
     font-size: 2.5rem;
   }
-  .service-title,
-  .featured-service-card .service-title {
-    font-size: 1.3rem;
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
-  .service-desc,
-  .featured-service-card .service-desc {
-    font-size: 0.92rem;
+  .service-card {
+    padding: 1.6rem 1.5rem;
+    min-height: 150px;
+  }
+  .service-title {
+    font-size: 1.22rem;
+  }
+  .service-card-top {
     margin-bottom: 1.2rem;
-  }
-  .service-divider {
-    margin-bottom: 1.2rem;
-  }
-  .check-text {
-    font-size: 0.88rem;
-  }
-  .service-corner-icon {
-    width: 40px;
-    height: 40px;
   }
 }

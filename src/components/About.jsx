@@ -41,7 +41,7 @@ const About = () => {
       name: 'Juan Pablo Millán',
       alias: 'JP',
       role: 'Head of Strategy & Operations',
-      area: 'Strategy & Analytics'
+      area: 'Commercial'
     },
     {
       name: 'Carolina Anaya',
@@ -55,24 +55,10 @@ const About = () => {
     <section id="about" className="about section">
       <div className="container">
         
-        {/* Positioning Quote Card */}
-        <div 
-          className="positioning-card scroll-animate-up"
-          ref={el => elementsRef.current[0] = el}
-        >
-          <h3 className="positioning-title">OUR POSITIONING</h3>
-          <div className="positioning-quote">
-            <span className="quote-icon">“</span>
-            <p>
-              Somos la <strong>agencia boutique</strong> para marcas que necesitan <strong>atención senior</strong>, <strong>criterio de negocio</strong>, <strong>capacidad de ejecución</strong>, <strong>gobernanza y negociación de alto valor</strong>, sin la burocracia de una red global.
-            </p>
-          </div>
-        </div>
-
         {/* Core Team Card */}
         <div 
-          className="about-card about-layout scroll-animate-up delay-100"
-          ref={el => elementsRef.current[1] = el}
+          className="about-card about-layout scroll-animate-up"
+          ref={el => elementsRef.current[0] = el}
         >
           
           {/* Left Column: Text & Stats */}
@@ -111,7 +97,7 @@ const About = () => {
               <div 
                 className={`leader-card ${leader.isCeo ? 'ceo-card' : ''} scroll-animate-up delay-${(index + 1) * 100}`} 
                 key={index}
-                ref={el => elementsRef.current[2 + index] = el}
+                ref={el => elementsRef.current[1 + index] = el}
               >
                 <div className="leader-photo-wrapper">
                   <div className="member-photo-placeholder"></div>

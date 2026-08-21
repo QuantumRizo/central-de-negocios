@@ -62,21 +62,21 @@ const Hero = () => {
 
       {/* SVG Animated Cables Layer (Mobile Custom Layout) */}
       <svg className="hero-cables-overlay hero-cables-mobile" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-        {/* Top Arc (TV to RADIO) */}
-        <path d="M 140 120 C 350 40, 650 30, 900 100" className="cable-base" />
-        <path d="M 140 120 C 350 40, 650 30, 900 100" className="cable-flow flow-yellow" />
+        {/* Top Arc (TV to Centered RADIO) */}
+        <path d="M 140 130 C 260 70, 380 65, 500 65" className="cable-base" />
+        <path d="M 140 130 C 260 70, 380 65, 500 65" className="cable-flow flow-yellow" />
+
+        {/* Top Arc (Centered RADIO to PR) */}
+        <path d="M 500 65 C 680 65, 820 120, 925 260" className="cable-base" />
+        <path d="M 500 65 C 680 65, 820 120, 925 260" className="cable-flow flow-purple" />
 
         {/* Top-Left Drop (TV to DIGITAL) */}
-        <path d="M 140 120 C 130 180, 190 240, 270 280" className="cable-base" />
-        <path d="M 140 120 C 130 180, 190 240, 270 280" className="cable-flow flow-coral" />
+        <path d="M 140 130 C 130 190, 190 240, 270 280" className="cable-base" />
+        <path d="M 140 130 C 130 190, 190 240, 270 280" className="cable-flow flow-coral" />
 
         {/* Mid-Top Bridge (DIGITAL to PR) */}
         <path d="M 270 280 C 450 180, 750 180, 925 260" className="cable-base" />
         <path d="M 270 280 C 450 180, 750 180, 925 260" className="cable-flow flow-cyan" />
-
-        {/* Top-Right Drop (RADIO to PR) */}
-        <path d="M 900 100 C 960 150, 960 210, 925 260" className="cable-base" />
-        <path d="M 900 100 C 960 150, 960 210, 925 260" className="cable-flow flow-purple" />
 
         {/* Bottom Arc (RETAIL to ANALYTICS) */}
         <path d="M 220 820 C 450 770, 700 790, 900 860" className="cable-base" />
@@ -96,11 +96,10 @@ const Hero = () => {
         <div className="hero-content animate-fade-in-up">
           <span className="hero-top-badge">MEDIA ECOSYSTEM</span>
           <h1 className="hero-title">
-            DATA-DRIVEN<span className="hero-red-dot">.</span>
+            CENTRAL MX<span className="hero-red-dot">.</span>
           </h1>
           <p className="hero-subtitle">
-            Somos un equipo multidisciplinario de más de 20 especialistas. 
-            Integramos estrategia, medios, creatividad y datos para resolver retos reales de negocio.
+            Somos la <strong>agencia boutique</strong> para marcas que necesitan <strong>atención senior</strong>, <strong>criterio de negocio</strong>, <strong>capacidad de ejecución</strong>, <strong>gobernanza y negociación de alto valor</strong>, sin la burocracia de una red global.
           </p>
           <div className="hero-actions">
             <a href="#services" className="btn btn-hero-primary">

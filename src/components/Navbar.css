@@ -9,15 +9,17 @@
   background-color: transparent;
 }
 
+/* Scrolled Navbar with Institutional Primary Green Background (PMS 330) */
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  padding: 1rem 0;
-  box-shadow: 0 4px 15px rgba(34, 48, 70, 0.04);
-  border-bottom: 1px solid var(--border-light);
+  background-color: rgba(67, 99, 99, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0.95rem 0;
+  box-shadow: 0 6px 22px rgba(35, 54, 54, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.navbar.view-centralsimi {
+.navbar.view-centralsimi:not(.scrolled) {
   background-color: rgba(255, 248, 244, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #F1DADA;
@@ -41,13 +43,13 @@
   transition: all var(--transition-normal);
 }
 
-/* White logo ONLY over dark hero when view-home and not scrolled */
-.navbar.view-home:not(.scrolled) .logo-img {
+/* White logo over dark hero AND over green scrolled navbar */
+.navbar.view-home:not(.scrolled) .logo-img,
+.navbar.scrolled .logo-img {
   filter: brightness(0) invert(1);
 }
 
-.navbar.view-centralsimi .logo-img,
-.navbar.scrolled .logo-img {
+.navbar.view-centralsimi:not(.scrolled) .logo-img {
   filter: none;
 }
 
@@ -67,25 +69,22 @@
   font-size: 0.95rem;
 }
 
-/* Nav link colors over dark hero vs light page / scrolled */
-.navbar.view-home:not(.scrolled) .nav-links li a:not(.nav-highlight-link) {
+/* Nav link colors over dark hero and over green scrolled navbar */
+.navbar.view-home:not(.scrolled) .nav-links li a:not(.nav-highlight-link),
+.navbar.scrolled .nav-links li a:not(.nav-highlight-link) {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.navbar.view-home:not(.scrolled) .nav-links li a:not(.nav-highlight-link):hover {
+.navbar.view-home:not(.scrolled) .nav-links li a:not(.nav-highlight-link):hover,
+.navbar.scrolled .nav-links li a:not(.nav-highlight-link):hover {
   color: #FFFFFF;
 }
 
-.navbar.view-centralsimi .nav-links li a:not(.nav-highlight-link),
-.navbar.scrolled .nav-links li a:not(.nav-highlight-link) {
+.navbar.view-centralsimi:not(.scrolled) .nav-links li a:not(.nav-highlight-link) {
   color: var(--text-main);
 }
 
-.navbar.view-centralsimi .nav-links li a:not(.nav-highlight-link):hover {
-  color: #0B5EB7;
-}
-
-.navbar.scrolled .nav-links li a:not(.nav-highlight-link):hover {
+.navbar.view-centralsimi:not(.scrolled) .nav-links li a:not(.nav-highlight-link):hover {
   color: var(--primary);
 }
 
@@ -97,27 +96,36 @@
   transition: all var(--transition-normal);
 }
 
-.navbar.view-home:not(.scrolled) .nav-highlight-link {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #FFFFFF !important;
-}
-
+.navbar.view-home:not(.scrolled) .nav-highlight-link,
 .navbar.scrolled .nav-highlight-link {
-  background-color: rgba(39, 76, 119, 0.08);
-  color: var(--primary) !important;
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.navbar.view-centralsimi .nav-highlight-link,
-.navbar.view-centralsimi .nav-highlight-link.active {
+.navbar.scrolled .nav-highlight-link:hover,
+.navbar.view-home:not(.scrolled) .nav-highlight-link:hover {
+  background-color: rgba(255, 255, 255, 0.28) !important;
+  color: white !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar.view-centralsimi:not(.scrolled) .nav-highlight-link,
+.navbar.view-centralsimi:not(.scrolled) .nav-highlight-link.active {
   background-color: #0B5EB7 !important;
   color: white !important;
   box-shadow: var(--shadow-sm);
 }
 
-.nav-highlight-link:hover {
-  background-color: var(--primary) !important;
-  color: white !important;
-  box-shadow: var(--shadow-sm);
+.navbar.scrolled .btn-accent {
+  background-color: var(--accent);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar.scrolled .btn-accent:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {

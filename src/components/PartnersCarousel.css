@@ -1,6 +1,6 @@
 .partners-section {
   padding: 4.5rem 0;
-  background-color: var(--accent, #E85C41);
+  background-color: var(--primary, #436363);
   border-top: none;
   border-bottom: none;
   overflow: hidden;
@@ -42,7 +42,7 @@
   align-items: center;
   gap: 3.5rem;
   width: max-content;
-  animation: marqueeScroll 35s linear infinite;
+  animation: marqueeScroll 40s linear infinite;
 }
 
 .marquee-container:hover .marquee-track {
@@ -52,8 +52,9 @@
 .partner-logo-card {
   background: white;
   border-radius: var(--radius-md);
-  padding: 1.2rem 2.2rem;
+  padding: 0.8rem 1.6rem;
   height: 85px;
+  min-width: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +62,6 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
   transition: all var(--transition-normal);
   flex-shrink: 0;
-  overflow: hidden;
 }
 
 .partner-logo-card:hover {
@@ -70,39 +70,37 @@
 }
 
 .partner-logo-img {
-  max-height: 50px;
+  max-height: 52px;
   max-width: 140px;
+  width: auto;
+  height: auto;
   object-fit: contain;
   opacity: 1;
   transition: transform var(--transition-normal);
 }
 
+.partner-logo-img.logo-simi {
+  max-height: 58px;
+  max-width: 190px;
+}
+
+.partner-logo-img.logo-sika {
+  max-height: 58px;
+  max-width: 130px;
+}
+
 .partner-logo-img.logo-large-extra {
-  transform: scale(1.65);
-  max-height: 65px;
-  max-width: 175px;
+  max-height: 62px;
+  max-width: 180px;
 }
 
 .partner-logo-img.logo-xlarge {
-  transform: scale(1.95);
-  max-height: 74px;
+  max-height: 68px;
   max-width: 190px;
 }
 
 .partner-logo-card:hover .partner-logo-img {
   transform: scale(1.05);
-}
-
-.partner-logo-card:hover .partner-logo-img.logo-large-extra {
-  transform: scale(1.72);
-}
-
-.partner-logo-card:hover .partner-logo-img.logo-xlarge {
-  transform: scale(2.02);
-}
-
-.partner-logo-card:hover .partner-logo-img.logo-large {
-  transform: scale(1.42);
 }
 
 @keyframes marqueeScroll {

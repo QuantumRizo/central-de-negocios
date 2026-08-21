@@ -6,9 +6,11 @@ import Services from './components/Services'
 import PartnersCarousel from './components/PartnersCarousel'
 import SuccessStories from './components/SuccessStories'
 import CentralSimi from './components/CentralSimi'
+import ReviewsCarousel from './components/ReviewsCarousel'
 import ValueProposition from './components/ValueProposition'
 import Footer from './components/Footer'
 import NetworkStatus from './components/NetworkStatus'
+import ThemeColorPicker from './components/ThemeColorPicker'
 
 function App() {
   const [currentView, setCurrentView] = useState('home')
@@ -46,12 +48,14 @@ function App() {
             <PartnersCarousel />
             <Services />
             <SuccessStories />
+            <ReviewsCarousel />
             <ValueProposition />
           </>
         )}
       </main>
 
       <Footer />
+      <ThemeColorPicker />
     </>
   )
 }
