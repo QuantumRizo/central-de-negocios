@@ -1,6 +1,9 @@
 .footer {
   padding: 4.5rem 0 2.5rem;
-  background: var(--primary-gradient);
+  background-color: #0A3777;
+  background-image: url('/centralmx-brand-background.jpg?v=2');
+  background-size: 100% 100%;
+  background-position: center;
   color: white;
   position: relative;
   overflow: hidden;
@@ -8,6 +11,21 @@
 
 .footer > .container {
   position: relative;
+  z-index: 1;
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 43, 94, 0.16) 0%,
+    rgba(7, 43, 94, 0.06) 46%,
+    rgba(3, 26, 69, 0.12) 100%
+  );
+  mix-blend-mode: multiply;
 }
 
 .footer-content {
