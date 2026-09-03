@@ -114,19 +114,11 @@ ul {
 .footer::after {
   content: '';
   position: absolute;
-  inset: -18%;
+  inset: 0;
   pointer-events: none;
-  opacity: 0.68;
+  opacity: 0.82;
   mix-blend-mode: screen;
-  filter: blur(16px);
-  background:
-    radial-gradient(ellipse 31% 72% at 18% 42%, transparent 45%, rgba(255, 255, 255, 0.13) 48%, transparent 53%),
-    radial-gradient(ellipse 28% 68% at 55% 70%, transparent 43%, rgba(220, 235, 255, 0.13) 47%, transparent 53%),
-    radial-gradient(ellipse 24% 64% at 82% 26%, transparent 42%, rgba(255, 255, 255, 0.1) 47%, transparent 54%),
-    radial-gradient(ellipse 28% 70% at 22% 18%, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 42%, transparent 72%),
-    radial-gradient(ellipse 22% 62% at 47% 78%, rgba(220, 235, 255, 0.22) 0%, rgba(220, 235, 255, 0.04) 48%, transparent 75%),
-    radial-gradient(ellipse 25% 68% at 76% 32%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 46%, transparent 72%);
-  transform: rotate(-8deg) scale(1.08);
+  background: url('/liquid-glass-texture.svg') center / cover no-repeat;
 }
 
 .about-card > *,
