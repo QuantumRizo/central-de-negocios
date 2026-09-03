@@ -1,8 +1,8 @@
-/* Reviews & Testimonials Carousel (Matching Partners Marquee & Orange Background) */
+/* Reviews & testimonials carousel on the primary blue gradient */
 
 .reviews-section {
   padding: 5rem 0;
-  background-color: var(--primary, #436363);
+  background: var(--primary-gradient);
   overflow: hidden;
   position: relative;
 }
@@ -182,7 +182,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--primary, #274C77);
+  background: var(--primary);
   color: white;
   display: flex;
   align-items: center;
@@ -201,7 +201,7 @@
 .author-name {
   font-size: 0.95rem;
   font-weight: 800;
-  color: var(--primary, #274C77);
+  color: var(--primary);
   margin: 0 0 0.1rem 0;
 }
 

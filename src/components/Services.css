@@ -124,27 +124,27 @@
 }
 
 .service-card.card-theme-white .service-number {
-  color: var(--primary, #436363);
+  color: var(--primary);
 }
 
 .service-card.card-theme-white .service-title {
-  color: var(--primary, #436363);
+  color: var(--primary);
 }
 
 .service-card.card-theme-white .service-corner-icon {
   background: var(--bg-secondary, #F2F7F6);
-  color: var(--primary, #436363);
+  color: var(--primary);
 }
 
 .service-card.card-theme-white .service-corner-icon svg {
-  stroke: var(--primary, #436363);
+  stroke: var(--primary);
 }
 
-/* Card Theme 2: Institutional Green (PMS 330 #436363) */
+/* Card Theme 2: Primary brand blue gradient */
 .service-card.card-theme-primary,
 .service-card.card-theme-blue {
-  background: var(--primary, #436363);
-  border: 1px solid var(--primary, #436363);
+  background: var(--primary-gradient);
+  border: 1px solid var(--primary);
   color: white;
 }
 

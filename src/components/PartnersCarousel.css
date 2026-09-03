@@ -1,6 +1,6 @@
 .partners-section {
   padding: 4.5rem 0;
-  background-color: var(--primary, #436363);
+  background: var(--primary-gradient);
   border-top: none;
   border-bottom: none;
   overflow: hidden;

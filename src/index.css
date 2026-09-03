@@ -1,12 +1,13 @@
 :root {
-  /* Brand Manual Color System (PMS 330 #436363 Institutional Teal) */
+  /* Central MX brand color system: blue gradient from the supplied credentials */
   --bg-color: #ffffff;
   --bg-secondary: #F2F7F6;
   --card-bg: #ffffff;
   
-  --primary: #436363; /* PMS 330 Official Institutional Color */
-  --primary-dark: #2B4242;
-  --primary-light: #5A7E7E;
+  --primary: #0B5EB7;
+  --primary-dark: #062E67;
+  --primary-light: #8FAEDD;
+  --primary-gradient: linear-gradient(135deg, #A8BDE3 0%, #0B5EB7 52%, #062E67 100%);
   
   /* Dynamic Secondary Accent Color (Default: PMS Cool Gray 6 C #959B9B) */
   --accent: #959B9B; /* PMS Cool Gray 6 C */
@@ -18,9 +19,9 @@
   --border-card: #E0EAEA;
   
   /* Minimal Subtle Shadows */
-  --shadow-sm: 0 2px 8px rgba(43, 66, 66, 0.05);
-  --shadow-md: 0 6px 18px rgba(43, 66, 66, 0.08);
-  --shadow-lg: 0 14px 32px rgba(43, 66, 66, 0.12);
+  --shadow-sm: 0 2px 8px rgba(6, 46, 103, 0.08);
+  --shadow-md: 0 6px 18px rgba(6, 46, 103, 0.12);
+  --shadow-lg: 0 14px 32px rgba(6, 46, 103, 0.18);
   
   /* Unified Radius System */
   --radius-sm: 12px;
@@ -90,7 +91,7 @@ ul {
 }
 
 .bg-primary {
-  background-color: var(--primary);
+  background: var(--primary-gradient);
 }
 
 .bg-secondary {
@@ -113,7 +114,7 @@ ul {
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background: var(--primary-gradient);
   color: white;
   box-shadow: var(--shadow-sm);
 }
@@ -144,7 +145,7 @@ ul {
 }
 
 .btn-outline:hover {
-  background-color: var(--primary);
+  background: var(--primary-gradient);
   color: white;
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);

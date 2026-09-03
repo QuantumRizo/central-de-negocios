@@ -9,13 +9,13 @@
   background-color: transparent;
 }
 
-/* Scrolled Navbar with Institutional Primary Green Background (PMS 330) */
+/* Scrolled navbar using the supplied blue brand gradient */
 .navbar.scrolled {
-  background-color: rgba(67, 99, 99, 0.97);
+  background: linear-gradient(115deg, rgba(11, 94, 183, 0.98), rgba(6, 46, 103, 0.98));
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   padding: 0.95rem 0;
-  box-shadow: 0 6px 22px rgba(35, 54, 54, 0.22);
+  box-shadow: 0 6px 22px rgba(6, 46, 103, 0.28);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 

@@ -28,7 +28,7 @@
 .theme-trigger-bar:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(44, 68, 68, 0.2);
-  border-color: var(--primary, #436363);
+  border-color: var(--primary);
 }
 
 .theme-trigger-btn {
@@ -62,7 +62,7 @@
 .trigger-pantone-text {
   font-size: 0.8rem;
   font-weight: 800;
-  color: var(--primary, #436363);
+  color: var(--primary);
   background: var(--bg-secondary, #F4F7F6);
   padding: 0.15rem 0.45rem;
   border-radius: 6px;
@@ -96,7 +96,7 @@
 
 .quick-swatch-btn.quick-active {
   transform: scale(1.18);
-  outline: 2.5px solid var(--primary, #436363);
+  outline: 2.5px solid var(--primary);
   outline-offset: 1px;
 }
 
@@ -129,7 +129,7 @@
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  color: var(--primary, #436363);
+  color: var(--primary);
   background: var(--bg-secondary, #F4F7F6);
   padding: 0.2rem 0.6rem;
   border-radius: 6px;
@@ -152,7 +152,7 @@
 .popover-header h4 {
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--primary, #436363);
+  color: var(--primary);
   margin: 0 0 0.3rem 0;
 }
 
@@ -206,7 +206,7 @@
 .color-option-card.is-active {
   background: white;
   border-color: var(--accent);
-  box-shadow: 0 4px 14px rgba(67, 99, 99, 0.1);
+  box-shadow: 0 4px 14px rgba(6, 46, 103, 0.12);
 }
 
 .option-swatch-box {
@@ -241,8 +241,8 @@
 .option-pantone {
   font-size: 0.72rem;
   font-weight: 800;
-  color: var(--primary, #436363);
-  background: rgba(67, 99, 99, 0.1);
+  color: var(--primary);
+  background: rgba(11, 94, 183, 0.1);
   padding: 0.1rem 0.4rem;
   border-radius: 4px;
 }
