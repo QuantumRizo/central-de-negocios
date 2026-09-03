@@ -8,7 +8,8 @@
   --primary-dark: #062E67;
   --primary-light: #8FAEDD;
   --primary-gradient:
-    linear-gradient(135deg, #E7ECF7 0%, #B8CBE8 28%, #6F9DD3 62%, #0A3777 100%);
+    linear-gradient(135deg, rgba(18, 83, 158, 0.56) 0%, rgba(11, 94, 183, 0.48) 38%, rgba(6, 46, 103, 0.88) 100%),
+    url('/centralmx-brand-background.jpg');
   
   /* Dynamic Secondary Accent Color (Default: PMS Cool Gray 6 C #959B9B) */
   --accent: #959B9B; /* PMS Cool Gray 6 C */
@@ -93,6 +94,18 @@ ul {
 
 .bg-primary {
   background: var(--primary-gradient);
+}
+
+/* Use the original brand texture on every primary surface. */
+.about-card,
+.partners-card,
+.partners-section,
+.reviews-section,
+.service-card.card-theme-primary,
+.service-card.card-theme-blue,
+.btn-primary {
+  background-size: cover;
+  background-position: center;
 }
 
 /* Continuous glass surface: soft refraction and sheen, without smoke or bands */
