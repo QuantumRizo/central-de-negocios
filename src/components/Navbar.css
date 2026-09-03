@@ -21,6 +21,16 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.navbar.scrolled::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url('/centralmx-brand-texture.jpg') center / 100% 100% no-repeat;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+}
+
 .navbar.view-centralsimi:not(.scrolled) {
   background-color: rgba(255, 248, 244, 0.95);
   backdrop-filter: blur(12px);
@@ -31,6 +41,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {

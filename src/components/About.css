@@ -55,6 +55,8 @@
 /* About Card Layout */
 .about-card {
   background: var(--primary-gradient);
+  background-size: 100% 100%;
+  background-position: center;
   border-radius: var(--radius-lg);
   padding: 3.8rem 3.5rem;
   box-shadow: var(--shadow-lg);

@@ -118,6 +118,20 @@ ul {
   overflow: hidden;
 }
 
+.about-card::before,
+.partners-card::before,
+.partners-section::before,
+.reviews-section::before,
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url('/centralmx-brand-texture.jpg') center / 100% 100% no-repeat;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+}
+
 .about-card::after,
 .partners-card::after,
 .partners-section::after,
@@ -138,7 +152,8 @@ ul {
 .about-card > *,
 .partners-card > *,
 .partners-section > *,
-.reviews-section > * {
+.reviews-section > *,
+.footer > * {
   position: relative;
   z-index: 1;
 }
@@ -164,6 +179,8 @@ ul {
 
 .btn-primary {
   background: var(--primary-gradient);
+  background-size: 100% 100%;
+  background-position: center;
   color: white;
   box-shadow: var(--shadow-sm);
 }

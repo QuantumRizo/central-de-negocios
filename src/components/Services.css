@@ -144,6 +144,8 @@
 .service-card.card-theme-primary,
 .service-card.card-theme-blue {
   background: var(--primary-gradient);
+  background-size: 100% 100%;
+  background-position: center;
   border: 1px solid var(--primary);
   color: white;
 }

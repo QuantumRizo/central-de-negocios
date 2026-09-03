@@ -5,6 +5,8 @@
 
 .partners-card {
   background: var(--primary-gradient);
+  background-size: 100% 100%;
+  background-position: center;
   border-radius: 40px;
   padding: 3rem;
   box-shadow: 0 20px 40px rgba(128, 166, 209, 0.2);
