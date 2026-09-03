@@ -99,8 +99,7 @@ ul {
 .about-card,
 .partners-card,
 .partners-section,
-.reviews-section,
-.footer {
+.reviews-section {
   position: relative;
   overflow: hidden;
 }
@@ -108,8 +107,7 @@ ul {
 .about-card::after,
 .partners-card::after,
 .partners-section::after,
-.reviews-section::after,
-.footer::after {
+.reviews-section::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -125,8 +123,7 @@ ul {
 .about-card > *,
 .partners-card > *,
 .partners-section > *,
-.reviews-section > *,
-.footer > * {
+.reviews-section > * {
   position: relative;
   z-index: 1;
 }
