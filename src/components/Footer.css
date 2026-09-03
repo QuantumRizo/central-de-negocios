@@ -1,7 +1,27 @@
 .footer {
   padding: 4.5rem 0 2.5rem;
-  background-color: var(--primary-dark);
+  background: var(--primary-gradient);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.035) 0,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 52px
+  );
+  pointer-events: none;
+}
+
+.footer > .container {
+  position: relative;
 }
 
 .footer-content {

@@ -7,7 +7,7 @@
   --primary: #0B5EB7;
   --primary-dark: #062E67;
   --primary-light: #8FAEDD;
-  --primary-gradient: linear-gradient(135deg, #A8BDE3 0%, #0B5EB7 52%, #062E67 100%);
+  --primary-gradient: linear-gradient(135deg, #DCE5F5 0%, #8FAFDA 30%, #0B5EB7 70%, #062E67 100%);
   
   /* Dynamic Secondary Accent Color (Default: PMS Cool Gray 6 C #959B9B) */
   --accent: #959B9B; /* PMS Cool Gray 6 C */
@@ -120,7 +120,7 @@ ul {
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
+  background: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
