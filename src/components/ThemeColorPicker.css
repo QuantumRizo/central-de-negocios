@@ -271,14 +271,42 @@
 /* Responsive */
 @media (max-width: 768px) {
   .theme-picker-container {
-    bottom: 16px;
-    right: 16px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    align-items: center;
   }
+
+  .theme-trigger-bar {
+    max-width: 100%;
+    padding: 0.35rem 0.55rem;
+    gap: 0.45rem;
+  }
+
+  .theme-trigger-btn {
+    flex-shrink: 0;
+  }
+
   .theme-picker-popover {
-    width: calc(100vw - 32px);
-    max-width: 360px;
+    width: min(calc(100vw - 24px), 360px);
   }
+
   .trigger-label {
     display: none;
+  }
+
+  .trigger-pantone-text {
+    display: none;
+  }
+
+  .trigger-quick-swatches {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .quick-swatch-btn {
+    width: 20px;
+    height: 20px;
   }
 }
