@@ -7,7 +7,10 @@
   --primary: #0B5EB7;
   --primary-dark: #062E67;
   --primary-light: #8FAEDD;
-  --primary-gradient: linear-gradient(135deg, #DCE5F5 0%, #8FAFDA 30%, #0B5EB7 70%, #062E67 100%);
+  --primary-gradient:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 56px),
+    radial-gradient(ellipse at 92% 86%, rgba(4, 35, 83, 0.84) 0%, rgba(4, 35, 83, 0.48) 23%, transparent 54%),
+    linear-gradient(135deg, #E7ECF7 0%, #B8CBE8 28%, #6F9DD3 62%, #0A3777 100%);
   
   /* Dynamic Secondary Accent Color (Default: PMS Cool Gray 6 C #959B9B) */
   --accent: #959B9B; /* PMS Cool Gray 6 C */
