@@ -73,7 +73,7 @@ const ThemeColorPicker = () => {
   const [selectedColor, setSelectedColor] = useState(DEFAULT_COLOR)
   const [isOpen, setIsOpen] = useState(false)
 
-  const applyColor = (nextHue, nextSaturation, nextLightness) => {
+  const applyColor = (nextHue, nextSaturation, nextLightness, { persist = false } = {}) => {
     const color = hslToHex(nextHue, nextSaturation, nextLightness)
     const hover = hslToHex(nextHue, nextSaturation, Math.max(10, nextLightness - 12))
     setHue(nextHue)
@@ -83,16 +83,27 @@ const ThemeColorPicker = () => {
     document.documentElement.style.setProperty('--accent', color)
     document.documentElement.style.setProperty('--accent-hover', hover)
 
-    try {
-      localStorage.setItem('central_theme_accent', color)
-    } catch {
-      // The picker still works when storage is unavailable.
+    if (persist) {
+      try {
+        localStorage.setItem('central_theme_accent', color)
+      } catch {
+        // The picker still works when storage is unavailable.
+      }
     }
   }
 
-  const applyHexColor = (color) => {
+  const applyHexColor = (color, options) => {
     const nextHsl = hexToHsl(color)
-    applyColor(nextHsl.hue, nextHsl.saturation, nextHsl.lightness)
+    applyColor(nextHsl.hue, nextHsl.saturation, nextHsl.lightness, options)
+  }
+
+  const saveColor = () => {
+    try {
+      localStorage.setItem('central_theme_accent', selectedColor)
+    } catch {
+      // The selected color remains active for the current visit.
+    }
+    setIsOpen(false)
   }
 
   useEffect(() => {
@@ -166,6 +177,10 @@ const ThemeColorPicker = () => {
             aria-label="Ajustar luminosidad"
             style={{ '--picker-hue': hue, '--picker-saturation': `${saturation}%` }}
           />
+
+          <button className="picker-save-btn" type="button" onClick={saveColor}>
+            Guardar
+          </button>
 
           <input
             className="picker-native-fallback"
