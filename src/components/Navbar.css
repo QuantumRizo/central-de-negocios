@@ -12,9 +12,9 @@
 /* Scrolled navbar using the supplied blue brand gradient */
 .navbar.scrolled {
   background-image:
-    linear-gradient(115deg, rgba(11, 94, 183, 0.9), rgba(6, 46, 103, 0.94)),
+    linear-gradient(115deg, rgba(11, 94, 183, 0.72), rgba(6, 46, 103, 0.82)),
     url('/centralmx-brand-background.jpg?v=2');
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
