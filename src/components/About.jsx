@@ -29,25 +29,29 @@ const About = () => {
       name: 'Fanny García',
       role: 'CEO',
       area: 'Leadership & Business Strategy',
-      isCeo: true
+      isCeo: true,
+      image: '/team/fanny-garcia.png'
     },
     {
       name: 'Patricia Martínez',
       alias: 'Paty',
       role: 'Head of Innovative Media Solutions',
-      area: 'Innovative Media'
+      area: 'Innovative Media',
+      image: '/team/patricia-martinez.jpg'
     },
     {
       name: 'Juan Pablo Millán',
       alias: 'JP',
       role: 'Head of Strategy & Operations',
-      area: 'Commercial'
+      area: 'Commercial',
+      image: '/team/juan-pablo-millan.jpg'
     },
     {
       name: 'Carolina Anaya',
       alias: 'Caro',
       role: 'Head of Digital & Creative Media',
-      area: 'Digital & Creative'
+      area: 'Digital & Creative',
+      image: '/team/carolina-anaya.jpg'
     }
   ]
 
@@ -100,7 +104,16 @@ const About = () => {
                 ref={el => elementsRef.current[1 + index] = el}
               >
                 <div className="leader-photo-wrapper">
-                  <div className="member-photo-placeholder"></div>
+                  {leader.image ? (
+                    <img 
+                      src={leader.image} 
+                      alt={leader.name} 
+                      className="leader-photo" 
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="member-photo-placeholder"></div>
+                  )}
                 </div>
                 <div className="leader-info">
                   <span className="leader-area-tag">{leader.area}</span>
