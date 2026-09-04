@@ -12,7 +12,7 @@ const secondaryColorOptions = [
   { id: 'pms-166', color: '#DE5425', hover: '#C44317' },
 ]
 
-const DEFAULT_COLOR = secondaryColorOptions[0].color
+const DEFAULT_COLOR = '#5E7D95'
 
 const hexToHsl = (hex) => {
   const value = hex.replace('#', '')

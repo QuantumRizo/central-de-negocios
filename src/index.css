@@ -11,9 +11,9 @@
     linear-gradient(180deg, rgba(7, 43, 94, 0.08) 0%, rgba(3, 26, 69, 0.14) 100%),
     url('/centralmx-brand-texture.jpg');
   
-  /* Dynamic Secondary Accent Color (Default: PMS Cool Gray 6 C #959B9B) */
-  --accent: #959B9B; /* PMS Cool Gray 6 C */
-  --accent-hover: #7A8080;
+  /* Secondary Accent Color (Defined from picker: #5E7D95) */
+  --accent: #5E7D95;
+  --accent-hover: #435B6D;
   
   --text-main: #243333;
   --text-muted: #5F7373;
