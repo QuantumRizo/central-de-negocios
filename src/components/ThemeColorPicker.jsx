@@ -3,6 +3,7 @@ import './ThemeColorPicker.css'
 
 // Kept for backwards compatibility with previously saved selections.
 const secondaryColorOptions = [
+  { id: 'central-slate-blue', color: '#5E7D95', hover: '#435B6D' },
   { id: 'pms-cool-gray-6-c', color: '#959B9B', hover: '#7A8080' },
   { id: 'pms-874', color: '#B29158', hover: '#997B44' },
   { id: 'pms-548', color: '#2B4C5F', hover: '#1F3947' },
@@ -109,10 +110,11 @@ const ThemeColorPicker = () => {
   useEffect(() => {
     try {
       const saved = localStorage.getItem('central_theme_accent')
-      const legacyOption = secondaryColorOptions.find((option) => option.id === saved)
-      if (isHexColor(saved)) applyHexColor(saved)
-      else if (legacyOption) applyHexColor(legacyOption.color)
-      else applyHexColor(DEFAULT_COLOR)
+      if (saved && isHexColor(saved)) {
+        applyHexColor(saved)
+      } else {
+        applyHexColor(DEFAULT_COLOR, { persist: true })
+      }
     } catch {
       applyHexColor(DEFAULT_COLOR)
     }

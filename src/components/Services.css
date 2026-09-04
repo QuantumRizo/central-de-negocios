@@ -1,73 +1,74 @@
 .services {
   background-color: var(--bg-secondary); 
-  padding: 5.5rem 0 6rem;
-  overflow: hidden;
+  padding: 6rem 0 6.5rem;
+  position: relative;
 }
 
 /* Header */
 .services-header {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto 3.5rem auto;
 }
 
 .services-area-badge {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: var(--accent);
   text-transform: uppercase;
   display: inline-block;
   margin-bottom: 0.8rem;
+  background: rgba(94, 125, 149, 0.1);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
 }
 
 .services-main-title {
-  font-size: 3.8rem;
-  line-height: 0.95;
+  font-size: 3.5rem;
+  line-height: 1;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 1.2rem;
-  letter-spacing: -2px;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+  letter-spacing: -1.5px;
 }
 
 .services-header-subtitle {
-  font-size: 1.18rem;
+  font-size: 1.12rem;
   color: var(--text-muted);
   font-weight: 500;
   line-height: 1.6;
 }
 
-/* Compact Grid Layout with 3D Perspective */
+/* Services Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.8rem;
-  perspective: 1200px;
 }
 
-/* Service Card (Compact & 3D Interactive) */
+/* Service Card - Unified Minimalist High-End Look */
 .service-card {
-  border-radius: var(--radius-lg);
-  padding: 2.2rem 2.2rem;
-  min-height: 210px;
-  box-shadow: var(--shadow-sm);
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-light, #E0EAEA);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  min-height: 190px;
+  box-shadow: 0 4px 16px rgba(6, 46, 103, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transform-style: preserve-3d;
-  will-change: transform, box-shadow;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
   cursor: default;
-  opacity: 1;
-  transform: translateY(0);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
 }
 
-/* Base Hover Shadow Elevation */
 .service-card:hover {
-  box-shadow: 0 18px 45px rgba(34, 48, 70, 0.16);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(94, 125, 149, 0.16);
+  border-color: var(--accent);
 }
 
 /* Card Top Section */
@@ -75,130 +76,65 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
 .service-number {
   font-size: 0.88rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
+  color: var(--accent);
+  background: rgba(94, 125, 149, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-number {
+  background: rgba(94, 125, 149, 0.2);
+  color: var(--accent);
 }
 
 .service-corner-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(94, 125, 149, 0.1);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-corner-icon svg {
+  stroke: var(--accent);
+  transition: stroke 0.3s ease;
 }
 
 .service-card:hover .service-corner-icon {
-  transform: translateZ(24px) scale(1.12);
+  background: var(--accent);
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+.service-card:hover .service-corner-icon svg {
+  stroke: #FFFFFF;
 }
 
 .service-title {
-  font-size: 1.38rem;
+  font-size: 1.28rem;
   font-weight: 800;
   margin: 0;
-  line-height: 1.28;
+  line-height: 1.32;
   letter-spacing: -0.3px;
+  color: var(--text-main);
+  transition: color 0.3s ease;
 }
 
-/* Card Theme 1: White Card */
-.service-card.card-theme-white {
-  background: white;
-  border: 1px solid var(--border-light);
-}
-
-.service-card.card-theme-white .service-number {
+.service-card:hover .service-title {
   color: var(--accent);
-}
-
-/* Card Theme 1: White Card */
-.service-card.card-theme-white {
-  background: white;
-  border: 1px solid var(--border-light, #E0EAEA);
-}
-
-.service-card.card-theme-white .service-number {
-  color: var(--primary);
-}
-
-.service-card.card-theme-white .service-title {
-  color: var(--primary);
-}
-
-.service-card.card-theme-white .service-corner-icon {
-  background: var(--bg-secondary, #F2F7F6);
-  color: var(--primary);
-}
-
-.service-card.card-theme-white .service-corner-icon svg {
-  stroke: var(--primary);
-}
-
-/* Card Theme 2: Primary brand blue gradient */
-.service-card.card-theme-primary,
-.service-card.card-theme-blue {
-  background: var(--primary-gradient);
-  background-size: 100% 100%;
-  background-position: center;
-  border: 1px solid var(--primary);
-  color: white;
-}
-
-.service-card.card-theme-primary .service-number,
-.service-card.card-theme-blue .service-number {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.service-card.card-theme-primary .service-title,
-.service-card.card-theme-blue .service-title {
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-primary .service-corner-icon,
-.service-card.card-theme-blue .service-corner-icon {
-  background: rgba(255, 255, 255, 0.18);
-  color: white;
-}
-
-.service-card.card-theme-primary .service-corner-icon svg,
-.service-card.card-theme-blue .service-corner-icon svg {
-  stroke: white;
-}
-
-/* Card Theme 3: Secondary Accent Color (Dynamic: Cool Gray 6 C, Gold, etc.) */
-.service-card.card-theme-accent,
-.service-card.card-theme-orange {
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  color: white;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.service-card.card-theme-accent .service-number,
-.service-card.card-theme-orange .service-number {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.service-card.card-theme-accent .service-title,
-.service-card.card-theme-orange .service-title {
-  color: #FFFFFF;
-}
-
-.service-card.card-theme-accent .service-corner-icon,
-.service-card.card-theme-orange .service-corner-icon {
-  background: rgba(255, 255, 255, 0.22);
-  color: white;
-}
-
-.service-card.card-theme-accent .service-corner-icon svg,
-.service-card.card-theme-orange .service-corner-icon svg {
-  stroke: white;
 }
 
 /* Responsive */
@@ -211,7 +147,7 @@
 
 @media (max-width: 768px) {
   .services {
-    padding: 3.5rem 0 4rem;
+    padding: 4rem 0 4.5rem;
   }
   .services-header {
     margin-bottom: 2.2rem;
@@ -224,13 +160,13 @@
     gap: 1.2rem;
   }
   .service-card {
-    padding: 1.6rem 1.5rem;
-    min-height: 150px;
+    padding: 1.8rem 1.6rem;
+    min-height: 160px;
   }
   .service-title {
-    font-size: 1.22rem;
+    font-size: 1.2rem;
   }
   .service-card-top {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
   }
 }

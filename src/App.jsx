@@ -45,8 +45,8 @@ function App() {
           <>
             <Hero />
             <About />
-            <PartnersCarousel />
             <Services />
+            <PartnersCarousel />
             <SuccessStories />
             <ReviewsCarousel />
             <ValueProposition />
