@@ -1,4 +1,5 @@
 .hero {
+  --digital-left: max(54%, calc(clamp(2rem, 6vw, 6.5rem) + 524px));
   min-height: 92vh;
   display: flex;
   align-items: center;
@@ -43,6 +44,22 @@
 
 .hero-cables-mobile {
   display: none;
+}
+
+.hero-digital-cable {
+  position:absolute;
+  left:28%;
+  top:46%;
+  width:calc(var(--digital-left) - 28%);
+  height:12%;
+  overflow:visible;
+  pointer-events:none;
+  z-index:2;
+}
+.hero-node-item.node-digital {
+  left:calc(var(--digital-left) - 5px);
+  top:58%;
+  translate:0 -50%;
 }
 
 .cable-base {
@@ -245,6 +262,7 @@
   }
   .hero-cables-desktop,
   .hero-cables-mobile,
+  .hero-digital-cable,
   .hero-nodes-layer {
     display: none !important;
   }

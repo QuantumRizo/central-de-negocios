@@ -1,4 +1,5 @@
 import './Services.css'
+import { DrawInView } from './BrandMotion'
 
 const servicesData = [
   {
@@ -81,6 +82,7 @@ const Services = () => {
         {/* Unified Modern Grid Layout */}
         <div className="services-grid">
           {servicesData.map((service) => (
+            <DrawInView key={service.id}>
             <div 
               key={service.id}
               className="service-card"
@@ -93,6 +95,7 @@ const Services = () => {
               </div>
               <h3 className="service-title">{service.title}</h3>
             </div>
+            </DrawInView>
           ))}
         </div>
 

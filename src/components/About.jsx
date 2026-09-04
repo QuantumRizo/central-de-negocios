@@ -104,6 +104,7 @@ const About = () => {
                 ref={el => elementsRef.current[1 + index] = el}
               >
                 <div className="leader-photo-wrapper">
+                  <svg className="leader-orbit" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" pathLength="1" /></svg>
                   {leader.image ? (
                     <img 
                       src={leader.image} 

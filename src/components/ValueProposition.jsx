@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import './ValueProposition.css'
+import { ScrollWords } from './BrandMotion'
 
 const ValueProposition = () => {
   const elementsRef = useRef([])
@@ -61,7 +62,7 @@ const ValueProposition = () => {
             WHY<br/>CENTRAL
           </h2>
           <p className="vp-description scroll-animate-left delay-100" ref={el => elementsRef.current[1] = el}>
-            Aceleramos tu negocio con infraestructura propia, enfoque ágil y un ecosistema de distribución robusto.
+            <ScrollWords>Aceleramos tu negocio con infraestructura propia, enfoque ágil y un ecosistema de distribución robusto.</ScrollWords>
           </p>
           
           <div className="vp-cta-card scroll-animate-up delay-200" ref={el => elementsRef.current[2] = el}>
