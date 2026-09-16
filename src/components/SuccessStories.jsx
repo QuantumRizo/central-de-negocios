@@ -37,8 +37,6 @@ const caseStudies = [
     badge: 'Patrocinio Oficial',
     title: 'Gestión Integral de Proyectos 360',
     description: 'Una relación integral para activar soluciones de negocio, marca y medios de principio a fin.',
-    ctaText: 'Conoce la Estrategia Sika →',
-    ctaLink: '#contact',
     services: [
       'Campañas ON & OFF (Full Service)',
       'Estudios de Consumidor y Mercado',
@@ -64,8 +62,6 @@ const caseStudies = [
     badge: 'Aliado Estratégico 4+ Años',
     title: 'Estrategia Retail Media & Medios Waldo\'s',
     description: 'Gestión integral de campañas digitales always-on, formatos OFF y activaciones de tráfico a tiendas retail.',
-    ctaText: 'Conoce la Estrategia Retail →',
-    ctaLink: '#contact',
     services: [
       'Campañas Digitales Always-On (Meta, Google & TikTok Ads)',
       'Retail Media & Geolocalización de Alta Conversión',
