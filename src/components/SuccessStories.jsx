@@ -35,15 +35,17 @@ const caseStudies = [
     themeClass: 'theme-sika',
     logo: '/partners/sika.png',
     badge: 'Patrocinio Oficial',
-    title: 'Patrocinio Sika × Club América',
-    description: 'Consultoría estratégica, coordinación y gestión operativa del patrocinio de SIKA con el Club América.',
+    title: 'Gestión Integral de Proyectos 360',
+    description: 'Una relación integral para activar soluciones de negocio, marca y medios de principio a fin.',
     ctaText: 'Conoce la Estrategia Sika →',
     ctaLink: '#contact',
     services: [
-      'Consultoría Estratégica & Valuación de Patrocinio Deportivo',
-      'Negociación y Coordinación Operativa con Club América',
-      'Presencia en Cancha, Vallas LED & Uniforme Oficial',
-      'Hospitality VIP & Amplificación Digital en Redes'
+      'Campañas ON & OFF (Full Service)',
+      'Estudios de Consumidor y Mercado',
+      'Diseño & Creative',
+      'Patrocinios Deportivos',
+      'Data Analytics & Business Intelligence',
+      'Consultoría de Negocio'
     ],
     visual: {
       number: '02',

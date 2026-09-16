@@ -5,10 +5,11 @@ const channels = [
   ['TV', .24, .22, '#ffb800'],
   ['OOH', .77, .16, '#ff6238'],
   ['RADIO', .36, .34, '#bb75ff'],
-  ['PR & INFLUENCERS', .62, .46, '#ff9079'],
-  ['DIGITAL', .24, .62, '#31d5ea'],
-  ['RETAIL', .52, .76, '#62d3a0'],
-  ['ANALYTICS', .82, .88, '#74aaff'],
+  ['ANALYTICS', .82, .46, '#74aaff'],
+  ['DIGITAL', .24, .56, '#31d5ea'],
+  ['PATROCINIOS', .62, .74, '#ffca28'],
+  ['RETAIL', .52, .83, '#62d3a0'],
+  ['PR & INFLUENCERS', .78, .92, '#ff9079'],
 ]
 
 export default function HeroNetwork() {

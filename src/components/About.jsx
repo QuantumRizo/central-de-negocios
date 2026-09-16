@@ -35,15 +35,15 @@ const About = () => {
     {
       name: 'Patricia Martínez',
       alias: 'Paty',
-      role: 'Head of Innovative Media Solutions',
-      area: 'Innovative Media',
+      role: 'COO',
+      area: 'Operations & Leadership',
       image: '/team/patricia-martinez.jpg'
     },
     {
       name: 'Juan Pablo Millán',
       alias: 'JP',
-      role: 'Head of Strategy & Operations',
-      area: 'Commercial',
+      role: 'Commercial Lead & Sports Marketing',
+      area: 'Commercial & Sports',
       image: '/team/juan-pablo-millan.jpg'
     },
     {
