@@ -6,7 +6,6 @@ import Services from './components/Services'
 import PartnersCarousel from './components/PartnersCarousel'
 import SuccessStories from './components/SuccessStories'
 import CentralSimi from './components/CentralSimi'
-import ReviewsCarousel from './components/ReviewsCarousel'
 import ValueProposition from './components/ValueProposition'
 import Footer from './components/Footer'
 import NetworkStatus from './components/NetworkStatus'
@@ -47,7 +46,6 @@ function App() {
             <PartnersCarousel />
             <SuccessStories />
             <About />
-            <ReviewsCarousel />
             <ValueProposition />
           </>
         )}

@@ -461,8 +461,10 @@
   border-radius: 0;
   padding: 0 0 0 2.5rem;
   box-shadow: none;
-  max-height: none;
-  overflow: visible;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--case-border-tint) transparent;
 }
 
 .sticky-brand-bar {
