@@ -342,6 +342,10 @@
   margin-top: 0.5rem;
 }
 
+.sticky-cta-wrapper-primary {
+  margin: -0.7rem 0 2rem;
+}
+
 .btn-sticky-cta {
   width: 100%;
   display: block;

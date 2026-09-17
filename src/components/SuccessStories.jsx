@@ -258,6 +258,15 @@ const SuccessStories = () => {
             <h3 className="sticky-case-title">{activeCase.title}</h3>
             <p className="sticky-case-desc">{activeCase.description}</p>
 
+            {/* CTA kept close to the case introduction so it remains visible above the service list. */}
+            {activeCase.ctaLink && (
+              <div className="sticky-cta-wrapper sticky-cta-wrapper-primary">
+                <a href={activeCase.ctaLink} className="btn btn-sticky-cta">
+                  {activeCase.ctaText}
+                </a>
+              </div>
+            )}
+
             {/* Services provided to this company */}
             <div className="sticky-services-block">
               <span className="services-lead-label">Servicios a la empresa:</span>
@@ -270,15 +279,6 @@ const SuccessStories = () => {
                 ))}
               </ul>
             </div>
-
-            {/* CTA Button */}
-            {activeCase.ctaLink && (
-              <div className="sticky-cta-wrapper">
-                <a href={activeCase.ctaLink} className="btn btn-sticky-cta">
-                  {activeCase.ctaText}
-                </a>
-              </div>
-            )}
 
           </div>
 
