@@ -10,7 +10,6 @@ import ReviewsCarousel from './components/ReviewsCarousel'
 import ValueProposition from './components/ValueProposition'
 import Footer from './components/Footer'
 import NetworkStatus from './components/NetworkStatus'
-import ThemeColorPicker from './components/ThemeColorPicker'
 
 function App() {
   const [currentView, setCurrentView] = useState('home')
@@ -44,10 +43,10 @@ function App() {
         ) : (
           <>
             <Hero />
-            <About />
             <Services />
             <PartnersCarousel />
             <SuccessStories />
+            <About />
             <ReviewsCarousel />
             <ValueProposition />
           </>
@@ -55,7 +54,6 @@ function App() {
       </main>
 
       <Footer />
-      <ThemeColorPicker />
     </>
   )
 }

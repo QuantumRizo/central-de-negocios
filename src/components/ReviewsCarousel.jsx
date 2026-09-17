@@ -24,7 +24,7 @@ const reviewsData = [
   {
     id: 3,
     partnerName: "Waldo's",
-    partnerLogo: '/partners/waldos.png',
+    partnerLogo: '/partners/waldos-logo.png',
     author: 'Dirección de Marketing Digital & Retail',
     company: "Waldo's México",
     rating: 5,
@@ -92,8 +92,7 @@ const ReviewsCarousel = () => {
       <div className="container">
         {/* Header */}
         <div className="reviews-header text-center">
-          <span className="reviews-eyebrow">TESTIMONIOS & FEEDBACK</span>
-          <h2 className="reviews-title">LO QUE DICEN NUESTROS SOCIOS</h2>
+          <h2 className="reviews-title">WHAT OUR PARTNERS SAY</h2>
           <p className="reviews-subtitle">
             La confianza de marcas líderes respaldada por resultados tangibles, gobernanza y visión de negocio.
           </p>

@@ -58,7 +58,7 @@
   line-height: 1;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-main);
+  color: var(--accent);
   margin-bottom: 0.8rem;
   letter-spacing: -1.2px;
 }
@@ -414,5 +414,184 @@
   .scene-single-image-card.card-sika-america,
   .scene-single-image-card.card-general {
     height: 240px;
+  }
+}
+
+.success-cases.theme-simi .sticky-case-title {
+  font-size: clamp(1.7rem, 2.7vw, 2.55rem);
+  line-height: 1.1;
+}
+
+@media (max-width: 576px) {
+  .success-cases.theme-simi .sticky-case-title {
+    font-size: 1.65rem;
+  }
+}
+
+/* Editorial case layout: open content instead of nested cards */
+.story-scene-item {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--case-border-tint, #E0EAEA);
+  border-radius: 0;
+  padding: 0 0 3.5rem;
+  box-shadow: none;
+  opacity: 0.3;
+  transform: translateY(18px) scale(0.975);
+  will-change: opacity, transform;
+  scroll-margin-top: 7.5rem;
+  transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-scene-item.scene-active {
+  border-color: var(--case-border-tint, #E0EAEA);
+  box-shadow: none;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.cases-sticky-right {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--case-border-tint);
+  border-radius: 0;
+  padding: 0 0 0 2.5rem;
+  box-shadow: none;
+  max-height: none;
+  overflow: visible;
+}
+
+.sticky-brand-bar {
+  margin-bottom: 1.7rem;
+  align-items: flex-start;
+}
+
+.sticky-logo-card {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sticky-client-logo {
+  height: 48px;
+  max-width: 155px;
+}
+
+.sticky-badge {
+  background: transparent;
+  color: var(--case-primary);
+  padding: 0.25rem 0;
+  border-radius: 0;
+  white-space: normal;
+  text-align: right;
+}
+
+.sticky-case-title {
+  max-width: 520px;
+  font-size: clamp(2rem, 3.4vw, 3.3rem);
+  line-height: 1.06;
+  margin-bottom: 1rem;
+  letter-spacing: -1.1px;
+}
+
+.sticky-case-desc {
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 2.1rem;
+}
+
+.sticky-services-block {
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
+.services-lead-label {
+  margin-bottom: 0.8rem;
+}
+
+.sticky-services-list {
+  gap: 0;
+  border-top: 1px solid var(--case-border-tint);
+}
+
+.sticky-service-chip {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--case-border-tint);
+  border-radius: 0;
+  padding: 0.8rem 0;
+  box-shadow: none;
+  transition: color 0.2s ease, padding-left 0.25s ease;
+}
+
+.sticky-service-chip:hover {
+  transform: none;
+  border-color: var(--case-border-tint);
+  color: var(--case-primary);
+  padding-left: 0.35rem;
+}
+
+.chip-bullet {
+  color: var(--case-primary);
+}
+
+.sticky-cta-wrapper {
+  margin-top: 0.5rem;
+}
+
+.btn-sticky-cta {
+  width: auto;
+  display: inline-flex;
+  background: transparent;
+  border: 1px solid var(--case-primary);
+  border-radius: 0;
+  color: var(--case-primary);
+  box-shadow: none;
+}
+
+.btn-sticky-cta:hover {
+  background: var(--case-primary);
+  color: #FFFFFF;
+  filter: none;
+  box-shadow: none;
+}
+
+@media (max-width: 992px) {
+  .story-scene-item {
+    padding-bottom: 2.6rem;
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  .mobile-case-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-case-services {
+    padding-top: 1.4rem;
+  }
+
+  .mobile-case-services .sticky-services-list {
+    border-top: 1px solid var(--case-border-tint);
+  }
+}
+
+@media (max-width: 576px) {
+  .sticky-client-logo {
+    height: 42px;
+    max-width: 135px;
+  }
+
+  .sticky-badge {
+    max-width: 50%;
+    font-size: 0.62rem;
+  }
+
+  .sticky-case-title {
+    font-size: 2rem;
   }
 }

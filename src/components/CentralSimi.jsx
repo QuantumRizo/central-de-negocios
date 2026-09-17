@@ -48,7 +48,7 @@ const CentralSimi = () => {
   ]
 
   const jugadaMaestraSteps = [
-    { step: '01', title: 'Identificación de oportunidad antes que nadie', desc: 'Detección temprana del potencial del Mundial 2026 y posicionamiento estratégico en la sede Monterrey.' },
+    { step: '01', title: 'Identificación de oportunidad estratégica de alto valor', desc: 'Detección temprana del potencial del Mundial 2026 y posicionamiento estratégico en la sede Monterrey.' },
     { step: '02', title: 'Estrategia y propuesta a la medida', desc: 'Diseño conceptual y comercial alineado a los objetivos de alcance e imagen del grupo.' },
     { step: '03', title: 'Negociación de presupuesto & assets', desc: 'Optimización de inversión logrando la maximización de activos incluidos en el convenio.' },
     { step: '04', title: 'Gestión legal & comercial ante FIFA', desc: 'Negociación directa y participación coordinada de las marcas clave del portafolio.' },
@@ -103,7 +103,6 @@ const CentralSimi = () => {
         {/* Core Scope & Pillars */}
         <div className="cs-scope-section">
           <div className="cs-section-header text-center animate-fade-in-up">
-            <span className="cs-tag-label">PORTAFOLIO OFF & PROYECTOS ESPECIALES</span>
             <h2>Gestionamos el portafolio OFF de Farmacias Similares</h2>
             <p className="cs-scope-tags">OOH • TV • RADIO • PRENSA • DERRAME DIGITAL • PROYECTOS ESPECIALES</p>
           </div>
@@ -131,7 +130,6 @@ const CentralSimi = () => {
         {/* Featured Showcase: Host City Supporter Monterrey 2026 */}
         <div className="cs-showcase-card">
           <div className="cs-showcase-header">
-            <div className="cs-showcase-badge">CASO EMBLEMÁTICO MUNDIAL 2026</div>
             <h2>Host City Supporter Monterrey</h2>
             <p className="cs-showcase-tagline">
               "La sede más pasional del Mundial: récord de asistencia, el mejor entretenimiento y un legado que trasciende al torneo."

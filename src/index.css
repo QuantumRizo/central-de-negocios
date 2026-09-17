@@ -80,6 +80,15 @@ ul {
   position: relative;
 }
 
+/* Keep anchored section headings clear of the fixed navigation. */
+#services,
+#partners,
+#cases,
+#reviews,
+#contact {
+  scroll-margin-top: 6rem;
+}
+
 .text-center {
   text-align: center;
 }

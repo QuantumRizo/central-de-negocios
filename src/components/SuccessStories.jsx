@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './SuccessStories.css'
-import DualImageGallery from './DualImageGallery'
+import HoverImageGallery from './HoverImageGallery'
 
 const caseStudies = [
   {
@@ -24,9 +24,11 @@ const caseStudies = [
       label: 'CASO EMBLEMÁTICO MUNDIAL 2026',
       title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
-      image: '/simi-monterrey-landscape.png',
-      secondaryImage: '/simi-monterrey-photo.jpg',
-      isDualGallery: true
+      images: [
+        { src: '/simi-monterrey-landscape.png', alt: 'Host City Supporter Monterrey 2026', kind: 'graphic' },
+        { src: '/simi-monterrey-photo.jpg', alt: 'Activación Sede Monterrey' },
+        { src: '/cases/centralsimi-fabrica-alegria.jpg', alt: 'La Fábrica de la Alegría' }
+      ]
     }
   },
   {
@@ -34,8 +36,8 @@ const caseStudies = [
     name: 'Sika',
     themeClass: 'theme-sika',
     logo: '/partners/sika.png',
-    badge: 'Patrocinio Oficial',
-    title: 'Gestión Integral de Proyectos 360',
+    badge: null,
+    title: '8-Year Business Partnership',
     description: 'Una relación integral para activar soluciones de negocio, marca y medios de principio a fin.',
     services: [
       'Campañas ON & OFF (Full Service)',
@@ -50,15 +52,18 @@ const caseStudies = [
       label: 'SPONSORSHIP & BRAND AWARENESS',
       title: 'Patrocinio Oficial Club América',
       description: 'Negociación de patrocinio de alto rendimiento en la liga nacional, presencia de marca y amplificación digital.',
-      image: '/sika-america.jpg',
-      isSingleImage: true
+      images: [
+        { src: '/sika-america.jpg', alt: 'Patrocinio Oficial Club América', kind: 'graphic' },
+        { src: '/cases/sika-product-bag.png', alt: 'Producto SikaCeram 240 Solución Total' },
+        { src: '/cases/sika-club-america-event.png', alt: 'Activación Sika x Club América' }
+      ]
     }
   },
   {
     id: 'waldos',
     name: "Waldo's",
     themeClass: 'theme-waldos',
-    logo: '/partners/waldos.webp',
+    logo: '/partners/waldos-logo.png',
     badge: 'Aliado Estratégico 4+ Años',
     title: 'Estrategia Retail Media & Medios Waldo\'s',
     description: 'Gestión integral de campañas digitales always-on, formatos OFF y activaciones de tráfico a tiendas retail.',
@@ -73,8 +78,11 @@ const caseStudies = [
       label: 'RETAIL MEDIA & PERFORMANCE',
       title: 'Campañas Always-On & Tráfico a Tiendas',
       description: 'Estrategias geolocalizadas de gran formato y optimización continua con atribución medible a sucursales.',
-      image: '/partners/waldos.webp',
-      isSingleImage: true
+      images: [
+        { src: '/partners/waldos-logo.png', alt: 'Waldo\'s', kind: 'graphic' },
+        { src: '/cases/waldos-event.png', alt: 'Activación Waldo\'s' },
+        { src: '/cases/waldos-social.png', alt: 'Campaña digital Waldo\'s' }
+      ]
     }
   }
 ]
@@ -102,6 +110,22 @@ const SuccessStories = () => {
   }
 
   // IntersectionObserver to auto-switch right panel content as user scrolls left cards
+  useEffect(() => {
+    const syncCaseFromHash = () => {
+      const caseId = window.location.hash.match(/^#case-([a-z-]+)$/)?.[1]
+      const caseIndex = caseStudies.findIndex((item) => item.id === caseId)
+      if (caseIndex !== -1) {
+        activeIdxRef.current = caseIndex
+        setActiveIdx(caseIndex)
+        setIsFading(false)
+      }
+    }
+
+    syncCaseFromHash()
+    window.addEventListener('hashchange', syncCaseFromHash)
+    return () => window.removeEventListener('hashchange', syncCaseFromHash)
+  }, [])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -133,8 +157,7 @@ const SuccessStories = () => {
         
         {/* Section Header */}
         <div className="cases-header text-center animate-fade-in-up">
-          <span className="cases-eyebrow">SELECTED WORK</span>
-          <h2 className="cases-title">CASOS DE ÉXITO</h2>
+          <h2 className="cases-title">SUCCESS STORIES</h2>
           <p className="cases-subtitle">
             Resultados reales construidos a través de estrategia, negociación y ejecución de alto impacto.
           </p>
@@ -148,6 +171,7 @@ const SuccessStories = () => {
             {caseStudies.map((item, idx) => (
               <div 
                 key={item.id} 
+                id={`case-${item.id}`}
                 data-case-idx={idx}
                 className={`story-scene-item ${activeIdx === idx ? 'scene-active' : ''}`}
                 ref={el => cardRefs.current[idx] = el}
@@ -159,7 +183,7 @@ const SuccessStories = () => {
                     <div className="sticky-logo-card">
                       <img src={item.logo} alt={item.name} className="sticky-client-logo" />
                     </div>
-                    <span className="sticky-badge">{item.badge}</span>
+                    {item.badge && <span className="sticky-badge">{item.badge}</span>}
                   </div>
                   <h3 className="sticky-case-title">{item.title}</h3>
                 </div>
@@ -172,31 +196,7 @@ const SuccessStories = () => {
 
                 {/* Visual Image / Gallery Container */}
                 <div className="scene-visual-wrapper">
-                  {item.visual.isDualGallery ? (
-                    <DualImageGallery 
-                      primaryImage={item.visual.image}
-                      secondaryImage={item.visual.secondaryImage}
-                      title={item.visual.title}
-                    />
-                  ) : item.id === 'sika' ? (
-                    <div className="scene-single-image-card card-sika-america">
-                      <img 
-                        src={item.visual.image} 
-                        alt={item.visual.title} 
-                        className="scene-hero-image-sika" 
-                        loading="lazy" 
-                      />
-                    </div>
-                  ) : (
-                    <div className="scene-single-image-card card-general">
-                      <img 
-                        src={item.visual.image} 
-                        alt={item.visual.title} 
-                        className="scene-hero-image-contained" 
-                        loading="lazy" 
-                      />
-                    </div>
-                  )}
+                  <HoverImageGallery images={item.visual.images} title={item.visual.title} />
                 </div>
 
                 {/* Card Text: Only Title & Narrative (No metrics) */}
@@ -236,7 +236,7 @@ const SuccessStories = () => {
               <div className="sticky-logo-card">
                 <img src={activeCase.logo} alt={activeCase.name} className="sticky-client-logo" />
               </div>
-              <span className="sticky-badge">{activeCase.badge}</span>
+              {activeCase.badge && <span className="sticky-badge">{activeCase.badge}</span>}
             </div>
 
             <h3 className="sticky-case-title">{activeCase.title}</h3>

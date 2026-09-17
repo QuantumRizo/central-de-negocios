@@ -28,7 +28,6 @@ const About = () => {
     {
       name: 'Fanny García',
       role: 'CEO',
-      area: 'Leadership & Business Strategy',
       isCeo: true,
       image: '/team/fanny-garcia.png'
     },
@@ -36,21 +35,18 @@ const About = () => {
       name: 'Patricia Martínez',
       alias: 'Paty',
       role: 'COO',
-      area: 'Operations & Leadership',
       image: '/team/patricia-martinez.jpg'
     },
     {
       name: 'Juan Pablo Millán',
       alias: 'JP',
       role: 'Commercial Lead & Sports Marketing',
-      area: 'Commercial & Sports',
       image: '/team/juan-pablo-millan.jpg'
     },
     {
       name: 'Carolina Anaya',
       alias: 'Caro',
       role: 'Head of Digital & Creative Media',
-      area: 'Digital & Creative',
       image: '/team/carolina-anaya.jpg'
     }
   ]
@@ -117,7 +113,6 @@ const About = () => {
                   )}
                 </div>
                 <div className="leader-info">
-                  <span className="leader-area-tag">{leader.area}</span>
                   <h3>{leader.name}</h3>
                   <p className="leader-role">{leader.role}</p>
                 </div>

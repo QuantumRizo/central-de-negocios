@@ -7,7 +7,7 @@ const channels = [
   ['RADIO', .36, .34, '#bb75ff'],
   ['ANALYTICS', .82, .46, '#74aaff'],
   ['DIGITAL', .24, .56, '#31d5ea'],
-  ['PATROCINIOS', .62, .74, '#ffca28'],
+  ['SPONSORSHIPS', .62, .74, '#ffca28'],
   ['RETAIL', .52, .83, '#62d3a0'],
   ['PR & INFLUENCERS', .78, .92, '#ff9079'],
 ]

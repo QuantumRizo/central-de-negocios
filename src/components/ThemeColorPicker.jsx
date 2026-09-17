@@ -1,18 +1,6 @@
 import { useEffect, useState } from 'react'
 import './ThemeColorPicker.css'
 
-// Kept for backwards compatibility with previously saved selections.
-const secondaryColorOptions = [
-  { id: 'central-slate-blue', color: '#5E7D95', hover: '#435B6D' },
-  { id: 'pms-cool-gray-6-c', color: '#959B9B', hover: '#7A8080' },
-  { id: 'pms-874', color: '#B29158', hover: '#997B44' },
-  { id: 'pms-548', color: '#2B4C5F', hover: '#1F3947' },
-  { id: 'pms-554', color: '#486856', hover: '#375243' },
-  { id: 'pms-2765', color: '#484164', hover: '#36304E' },
-  { id: 'pms-445', color: '#565C62', hover: '#42474C' },
-  { id: 'pms-166', color: '#DE5425', hover: '#C44317' },
-]
-
 const DEFAULT_COLOR = '#5E7D95'
 
 const hexToHsl = (hex) => {

@@ -40,108 +40,199 @@
   line-height: 1.6;
 }
 
-/* Services Grid */
-.services-grid {
+/* Services explorer */
+.services-explorer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
 }
 
-/* Service Card - Unified Minimalist High-End Look */
-.service-card {
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-light, #E0EAEA);
-  border-radius: 20px;
-  padding: 2.2rem 2rem;
-  min-height: 190px;
-  box-shadow: 0 4px 16px rgba(6, 46, 103, 0.04);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s ease;
-  cursor: default;
+.services-list {
+  display: grid;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(94, 125, 149, 0.16);
-  border-color: var(--accent);
+.services-list .brand-draw-block {
+  height: auto;
 }
 
-/* Card Top Section */
-.service-card-top {
-  display: flex;
-  justify-content: space-between;
+.services-list .brand-draw-block::after {
+  display: none;
+}
+
+.services-list .brand-draw-block > .service-list-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s ease,
+              padding-left 0.25s ease;
+}
+
+.services-list .brand-draw-block.has-drawn > .service-list-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-list .brand-draw-block:nth-child(2) > .service-list-item { transition-delay: 0.08s; }
+.services-list .brand-draw-block:nth-child(3) > .service-list-item { transition-delay: 0.16s; }
+.services-list .brand-draw-block:nth-child(4) > .service-list-item { transition-delay: 0.24s; }
+.services-list .brand-draw-block:nth-child(5) > .service-list-item { transition-delay: 0.32s; }
+.services-list .brand-draw-block:nth-child(6) > .service-list-item { transition-delay: 0.4s; }
+
+.service-list-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2.5rem 2.25rem minmax(0, 1fr) auto;
+  gap: 1.05rem;
   align-items: center;
-  margin-bottom: 1.8rem;
+  padding: 1.35rem 0;
+  border: 0;
+  border-top: 1px solid var(--border-light, #E0EAEA);
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  scroll-margin-top: 7.5rem;
+  transition: color 0.25s ease, padding-left 0.25s ease;
 }
 
-.service-number {
-  font-size: 0.88rem;
+.services-list .brand-draw-block:last-child .service-list-item {
+  border-bottom: 1px solid var(--border-light, #E0EAEA);
+}
+
+.service-list-item:hover,
+.service-list-item.is-active {
+  color: var(--accent);
+  padding-left: 0.45rem;
+}
+
+.service-list-number {
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
-  color: var(--accent);
-  background: rgba(94, 125, 149, 0.1);
-  padding: 0.3rem 0.8rem;
-  border-radius: 9999px;
-  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  color: currentColor;
 }
 
-.service-card:hover .service-number {
-  background: rgba(94, 125, 149, 0.2);
-  color: var(--accent);
-}
-
-.service-corner-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: rgba(94, 125, 149, 0.1);
-  color: var(--accent);
+.service-list-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: currentColor;
 }
 
-.service-corner-icon svg {
-  stroke: var(--accent);
-  transition: stroke 0.3s ease;
+.service-list-icon svg {
+  width: 27px;
+  height: 27px;
+  stroke: currentColor;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-corner-icon {
-  background: var(--accent);
-  color: #FFFFFF;
-  transform: scale(1.08);
+.service-list-item:hover .service-list-icon svg,
+.service-list-item.is-active .service-list-icon svg {
+  transform: translateY(-2px) rotate(-5deg) scale(1.08);
 }
 
-.service-card:hover .service-corner-icon svg {
-  stroke: #FFFFFF;
+.service-list-title {
+  font-size: clamp(1rem, 1.45vw, 1.22rem);
+  font-weight: 700;
+  line-height: 1.3;
 }
 
-.service-title {
-  font-size: 1.28rem;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1.32;
-  letter-spacing: -0.3px;
+.service-list-arrow {
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-0.4rem);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.service-list-item:hover .service-list-arrow,
+.service-list-item.is-active .service-list-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.services-detail-panel {
+  padding: 0.9rem 0 0 2.6rem;
+  border-left: 1px solid var(--border-light, #E0EAEA);
   color: var(--text-main);
-  transition: color 0.3s ease;
+  animation: serviceDetailReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.service-card:hover .service-title {
+@keyframes serviceDetailReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    clip-path: inset(0 0 8% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0);
+  }
+}
+
+.service-detail-number {
+  display: block;
   color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 0.9rem;
+}
+
+.service-detail-title {
+  max-width: 520px;
+  margin: 0 0 1.8rem;
+  font-size: clamp(2rem, 3.3vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  color: var(--text-main);
+}
+
+.service-detail-list {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 580px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.service-detail-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+}
+
+.service-detail-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.58rem;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.services-mobile-accordion {
+  display: none;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+  .services-explorer {
+    grid-template-columns: 1fr;
+  }
+
+  .services-detail-panel {
+    min-height: auto;
   }
 }
 
@@ -155,18 +246,83 @@
   .services-main-title {
     font-size: 2.5rem;
   }
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+  .services-explorer {
+    display: none;
   }
-  .service-card {
-    padding: 1.8rem 1.6rem;
-    min-height: 160px;
+  .services-mobile-accordion {
+    display: grid;
+    gap: 0;
   }
-  .service-title {
-    font-size: 1.2rem;
+
+  .mobile-service-item {
+    border-top: 1px solid var(--border-light, #E0EAEA);
+    overflow: hidden;
   }
-  .service-card-top {
-    margin-bottom: 1.4rem;
+
+  .mobile-service-item:last-child {
+    border-bottom: 1px solid var(--border-light, #E0EAEA);
+  }
+
+  .mobile-service-trigger {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.9rem;
+    align-items: center;
+    padding: 1.15rem 1.1rem;
+    border: 0;
+    background: transparent;
+    color: var(--text-main);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mobile-service-trigger .service-list-number {
+    color: var(--accent);
+  }
+
+  .mobile-service-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .mobile-service-toggle {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .mobile-service-detail {
+    padding: 0 1.1rem 1.25rem 3rem;
+    animation: serviceDetailReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .mobile-service-detail li {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+  }
+
+  .mobile-service-detail li::before {
+    background: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-list .brand-draw-block > .service-list-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .services-detail-panel,
+  .mobile-service-detail {
+    animation: none;
+  }
+
+  .service-list-icon svg {
+    transition: none;
   }
 }
