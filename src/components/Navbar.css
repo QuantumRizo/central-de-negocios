@@ -210,33 +210,52 @@
   white-space: nowrap;
 }
 
-/* CentralSimi highlight link */
+/* CentralSimi highlight link: brand marker, while Contact Us remains the only pill CTA. */
 .nav-highlight-link {
   font-weight: 700 !important;
-  padding: 0.4rem 1.1rem;
-  border-radius: var(--radius-pill);
+  position: relative;
+  padding: 0.35rem 0.1rem;
   transition: all var(--transition-normal);
 }
 
 .navbar.view-home:not(.scrolled) .nav-highlight-link,
 .navbar.scrolled .nav-highlight-link {
-  background-color: rgba(255, 255, 255, 0.16);
   color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .navbar.scrolled .nav-highlight-link:hover,
 .navbar.view-home:not(.scrolled) .nav-highlight-link:hover {
-  background-color: rgba(255, 255, 255, 0.28) !important;
   color: white !important;
-  box-shadow: var(--shadow-sm);
+}
+
+.navbar.view-home:not(.scrolled) .nav-highlight-link::after,
+.navbar.scrolled .nav-highlight-link::after {
+  background-color: #FFFFFF;
 }
 
 .navbar.view-centralsimi:not(.scrolled) .nav-highlight-link,
 .navbar.view-centralsimi:not(.scrolled) .nav-highlight-link.active {
-  background-color: #0B5EB7 !important;
-  color: white !important;
-  box-shadow: var(--shadow-sm);
+  color: var(--primary) !important;
+}
+
+.nav-highlight-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0.08rem;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-normal);
+}
+
+.nav-highlight-link:hover::after,
+.nav-highlight-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .navbar.scrolled .btn-accent {

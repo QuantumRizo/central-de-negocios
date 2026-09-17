@@ -1,6 +1,23 @@
 import { useState, useEffect, useRef } from 'react'
 import './SuccessStories.css'
-import HoverImageGallery from './HoverImageGallery'
+
+const CaseImageCollage = ({ images, title, caseId }) => {
+  const collageImages = images.slice(0, 3)
+  if (!collageImages.length) return null
+
+  return (
+    <div className={`case-image-collage case-image-collage-${caseId}`} aria-label={`Imágenes de ${title}`}>
+      <figure className="case-collage-main">
+        <img className={collageImages[0].kind === 'graphic' ? 'is-graphic' : ''} src={collageImages[0].src} alt={collageImages[0].alt || title} loading="lazy" />
+      </figure>
+      {collageImages.slice(1).map((image, index) => (
+        <figure className={`case-collage-small case-collage-small-${index === 0 ? 'top' : 'bottom'} ${image.kind === 'phone' ? 'case-collage-phone' : ''}`} key={image.src}>
+          <img className={image.kind === 'graphic' ? 'is-graphic' : image.kind === 'phone' ? 'is-phone' : ''} src={image.src} alt={image.alt || title} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  )
+}
 
 const caseStudies = [
   {
@@ -25,9 +42,8 @@ const caseStudies = [
       title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
       images: [
-        { src: '/simi-monterrey-landscape.png', alt: 'Host City Supporter Monterrey 2026', kind: 'graphic' },
         { src: '/simi-monterrey-photo.jpg', alt: 'Activación Sede Monterrey' },
-        { src: '/cases/centralsimi-fabrica-alegria.jpg', alt: 'La Fábrica de la Alegría' }
+        { src: '/estatua-simi.png', alt: 'Personaje de CentralSimi', kind: 'graphic' }
       ]
     }
   },
@@ -80,8 +96,8 @@ const caseStudies = [
       description: 'Estrategias geolocalizadas de gran formato y optimización continua con atribución medible a sucursales.',
       images: [
         { src: '/partners/waldos-logo.png', alt: 'Waldo\'s', kind: 'graphic' },
-        { src: '/cases/waldos-event.png', alt: 'Activación Waldo\'s' },
-        { src: '/cases/waldos-social.png', alt: 'Campaña digital Waldo\'s' }
+        { src: '/cases/waldos-event.png', alt: 'Activación Waldo\'s', kind: 'phone' },
+        { src: '/cases/waldos-social.png', alt: 'Campaña digital Waldo\'s', kind: 'phone' }
       ]
     }
   }
@@ -196,7 +212,7 @@ const SuccessStories = () => {
 
                 {/* Visual Image / Gallery Container */}
                 <div className="scene-visual-wrapper">
-                  <HoverImageGallery images={item.visual.images} title={item.visual.title} />
+                  <CaseImageCollage images={item.visual.images} title={item.visual.title} caseId={item.id} />
                 </div>
 
                 {/* Card Text: Only Title & Narrative (No metrics) */}

@@ -595,3 +595,139 @@
     font-size: 2rem;
   }
 }
+
+/* Image-led collage used by every case: one campaign image supported by two offset details. */
+.scene-visual-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.case-image-collage {
+  position: relative;
+  min-height: clamp(460px, 46vw, 670px);
+  width: 100%;
+}
+
+.case-image-collage figure {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.case-image-collage figure::after {
+  display: none;
+}
+
+.case-image-collage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-image-collage figure:hover img {
+  transform: scale(1.045);
+}
+
+.case-collage-main {
+  top: 3rem;
+  right: 0;
+  width: 78%;
+  height: calc(100% - 6rem);
+}
+
+.case-collage-small {
+  z-index: 2;
+  left: 0;
+  width: 39%;
+  height: 32%;
+}
+
+.case-collage-small-top {
+  top: 0;
+}
+
+.case-collage-small-bottom {
+  bottom: 0;
+}
+
+.case-image-collage img.is-graphic {
+  padding: 0;
+  object-fit: contain;
+  background: transparent;
+}
+
+.case-image-collage img.is-phone {
+  padding: 0;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* CentralSimi keeps the character at the same full height as the Monterrey image,
+   offset to its left so the two visuals read as one editorial composition. */
+.case-image-collage-simi .case-collage-small-top {
+  top: 3rem;
+  left: 0;
+  width: 48%;
+  height: calc(100% - 6rem);
+  overflow: visible;
+}
+
+.case-image-collage-simi .case-collage-main {
+  width: 76%;
+}
+
+/* The Simi PNG uses its real height so the character overlaps Monterrey directly. */
+.case-image-collage-simi .case-collage-small-top img.is-graphic {
+  width: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Waldo's phone captures float at their native proportions, without a card or canvas. */
+.case-image-collage-waldos .case-collage-phone {
+  width: 22%;
+  height: 46%;
+  overflow: visible;
+}
+
+.case-image-collage-waldos .case-collage-phone {
+  background: transparent;
+}
+
+@media (max-width: 992px) {
+  .case-image-collage {
+    min-height: 540px;
+  }
+}
+
+@media (max-width: 576px) {
+  .case-image-collage {
+    min-height: 390px;
+  }
+
+  .case-collage-main {
+    top: 2rem;
+    width: 80%;
+    height: calc(100% - 4rem);
+  }
+
+  .case-collage-small {
+    width: 43%;
+    height: 32%;
+    border-width: 6px;
+  }
+
+  .case-image-collage-simi .case-collage-small-top {
+    top: 2rem;
+    width: 48%;
+    height: calc(100% - 4rem);
+  }
+
+  .case-image-collage-waldos .case-collage-phone {
+    width: 30%;
+    height: 42%;
+  }
+}
