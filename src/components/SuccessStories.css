@@ -210,7 +210,7 @@
 
 .cases-sticky-right {
   position: sticky;
-  top: max(100px, calc(50vh - 240px));
+  top: 140px;
   background: var(--case-bg-tint);
   border: 1.5px solid var(--case-border-tint);
   border-radius: var(--radius-lg, 24px);

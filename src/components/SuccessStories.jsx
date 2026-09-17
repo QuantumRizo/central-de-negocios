@@ -26,7 +26,7 @@ const caseStudies = [
     themeClass: 'theme-simi',
     logo: '/centralsimi.webp',
     badge: 'Agencia Única Exclusiva',
-    title: 'CentralSimi: Agencia Única & Ecosistema de Farmacias Similares',
+    title: 'Agencia Única & Ecosistema de Farmacias Similares',
     description: 'Ecosistema de medios dedicado a la gestión estratégica, compra e innovación publicitaria nacional de Farmacias Similares.',
     ctaText: 'Ver Caso Completo CentralSimi & Mundial 2026 →',
     ctaLink: '#centralsimi',
