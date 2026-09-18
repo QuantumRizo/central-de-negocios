@@ -49,7 +49,8 @@ const caseStudies = [
       description: 'Negociación de patrocinio de alto rendimiento en la liga nacional, presencia de marca y amplificación digital.',
       heroImage: { src: '/sika-america.jpg', alt: 'Bienvenida Patrocinio Oficial Club América x Sika', kind: 'graphic' },
       accentImages: [
-        { src: '/cases/sika-club-america-event.webp', alt: 'Activación Sika x Club América' }
+        { src: '/cases/sika-club-america-event.webp', alt: 'Activación Sika x Club América' },
+        { src: '/cases/sika-carrera-podium.webp', alt: 'Podio Carrera Grandes de Corazón Sika x Club América' }
       ]
     }
   },

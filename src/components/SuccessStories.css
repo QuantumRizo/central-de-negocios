@@ -193,20 +193,21 @@
   justify-content: flex-end;
 }
 
-.theme-sika .story-visual-accent-group:not(.has-two),
-.theme-waldos .story-visual-accent-group:not(.has-two) {
+.theme-sika .story-visual-accent-group,
+.theme-waldos .story-visual-accent-group {
   max-width: none;
 }
 
-/* Match the accent's footprint to the hero shot so both read at a
-   similar weight instead of one big photo and one small thumbnail. */
-.theme-sika .story-visual-accent-group:not(.has-two) .story-visual-accent,
-.theme-waldos .story-visual-accent-group:not(.has-two) .story-visual-accent {
+/* Match the accent's footprint to the hero shot so it reads at a
+   similar weight instead of one big photo and a small thumbnail —
+   also applies when there are two accents sitting side by side. */
+.theme-sika .story-visual-accent-group .story-visual-accent,
+.theme-waldos .story-visual-accent-group .story-visual-accent {
   height: clamp(200px, 22vw, 300px);
 }
 
-.theme-sika .story-visual-accent-group:not(.has-two) .story-visual-accent img,
-.theme-waldos .story-visual-accent-group:not(.has-two) .story-visual-accent img {
+.theme-sika .story-visual-accent-group .story-visual-accent img,
+.theme-waldos .story-visual-accent-group .story-visual-accent img {
   height: 100%;
   object-fit: cover;
 }
