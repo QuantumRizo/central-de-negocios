@@ -169,6 +169,13 @@ const Services = () => {
           </div>
 
           <div className="services-detail-panel" key={activeService.id} aria-live="polite">
+            <div className="service-detail-visual">
+              <img
+                src="/brand-showcase.webp"
+                alt="Activos de marca CENTRAL MX aplicados a espectaculares, video, editorial, digital e impresos"
+                loading="lazy"
+              />
+            </div>
             <span className="service-detail-number">{activeService.id}</span>
             <h3 className="service-detail-title">{activeService.title}</h3>
             <ul className="service-detail-list">

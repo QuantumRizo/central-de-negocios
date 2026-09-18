@@ -38,16 +38,16 @@ const About = () => {
       image: '/team/patricia-martinez.jpg'
     },
     {
-      name: 'Juan Pablo Millán',
-      alias: 'JP',
-      role: 'Commercial Lead & Sports Marketing',
-      image: '/team/juan-pablo-millan.jpg'
-    },
-    {
       name: 'Carolina Anaya',
       alias: 'Caro',
       role: 'Head of Digital & Creative Media',
       image: '/team/carolina-anaya.jpg'
+    },
+    {
+      name: 'Juan Pablo Millán',
+      alias: 'JP',
+      role: 'Commercial Lead & Sports Marketing',
+      image: '/team/juan-pablo-millan.jpg'
     }
   ]
 
@@ -94,8 +94,8 @@ const About = () => {
           {/* Right Column: Leadership Heads */}
           <div className="leadership-grid">
             {leadershipTeam.map((leader, index) => (
-              <div 
-                className={`leader-card ${leader.isCeo ? 'ceo-card' : ''} scroll-animate-up delay-${(index + 1) * 100}`} 
+              <div
+                className={`leader-card scroll-animate-up delay-${(index + 1) * 100}`}
                 key={index}
                 ref={el => elementsRef.current[1 + index] = el}
               >

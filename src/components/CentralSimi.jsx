@@ -29,7 +29,7 @@ const capabilities = [
     eyebrow: 'Planeación & compra',
     title: 'Una operación OFF diseñada para crecer',
     description: 'Arquitectura de medios, negociación directa y control de inversión para que cada campaña tenga escala, eficiencia y trazabilidad.',
-    image: '/cases/centralsimi-campaign.png',
+    image: '/cases/centralsimi-campaign.webp',
     alt: 'Campaña de Farmacias Similares en publicidad exterior',
     tags: ['OOH', 'TV', 'Radio', 'Prensa'],
   },
@@ -93,7 +93,7 @@ const CentralSimi = () => {
 
           <div className="cs-hero-visual" aria-hidden="true">
             <div className="cs-hero-orbit" />
-            <img src="/estatua-simi.png" alt="" />
+            <img src="/estatua-simi.webp" alt="" />
             <div className="cs-hero-stamp">
               <strong>100%</strong>
               <span>Cobertura<br />nacional</span>
@@ -124,7 +124,7 @@ const CentralSimi = () => {
 
             <div className="cs-overview-collage cs-reveal" ref={(element) => { revealRefs.current[1] = element }}>
               <figure className="cs-collage-main">
-                <img src="/cases/centralsimi-campaign.png" alt="Campaña de Farmacias Similares en publicidad exterior" />
+                <img src="/cases/centralsimi-campaign.webp" alt="Campaña de Farmacias Similares en publicidad exterior" />
                 <figcaption>Presencia que se ve. Estrategia que se mide.</figcaption>
               </figure>
               <figure className="cs-collage-small cs-collage-small-top">
@@ -182,7 +182,7 @@ const CentralSimi = () => {
 
               <div className="cs-case-gallery cs-reveal" ref={(element) => { revealRefs.current[4] = element }}>
                 <figure className="cs-gallery-wide">
-                  <img src="/simi-monterrey-landscape.png" alt="Identidad de Host City Supporter Monterrey 2026" />
+                  <img src="/simi-monterrey-landscape.webp" alt="Identidad de Host City Supporter Monterrey 2026" />
                 </figure>
                 <figure className="cs-gallery-tall">
                   <img src="/cases/monterrey-stage.jpg" alt="Activación de CentralSimi en Monterrey" />
@@ -191,7 +191,7 @@ const CentralSimi = () => {
                   <img src="/cases/centralsimi-fabrica-alegria.jpg" alt="La Fábrica de la Alegría" />
                 </figure>
                 <figure className="cs-gallery-portrait">
-                  <img src="/simi-monterrey-portrait.png" alt="Personaje de Farmacias Similares en Monterrey" />
+                  <img src="/simi-monterrey-portrait.webp" alt="Personaje de Farmacias Similares en Monterrey" />
                 </figure>
               </div>
             </div>

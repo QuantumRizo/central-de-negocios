@@ -4,7 +4,7 @@
 .network-signal { fill:none; stroke:var(--channel-color); stroke-width:2; stroke-linecap:round; stroke-dasharray:.025 .975; animation:networkTravel 4.8s linear infinite; animation-delay:var(--channel-delay); }
 .network-node { fill:var(--channel-color); }
 .network-halo { fill:var(--channel-color); opacity:.15; }
-.brand-network text { fill:white; font:700 11px 'Outfit',sans-serif; letter-spacing:1.4px; paint-order:stroke; stroke:rgba(8,15,30,.65); stroke-width:3px; }
+.brand-network text { fill:white; font:700 11px 'Inter',sans-serif; letter-spacing:1.4px; paint-order:stroke; stroke:rgba(8,15,30,.65); stroke-width:3px; }
 .network-origin { fill:white; }
 .network-origin-ring { fill:none; stroke:rgba(220,236,255,.5); stroke-width:1; stroke-dasharray:6 4; }
 @keyframes networkTravel { from { stroke-dashoffset:.025; } to { stroke-dashoffset:-.975; } }

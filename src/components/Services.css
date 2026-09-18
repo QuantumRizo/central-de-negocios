@@ -1,13 +1,13 @@
 .services {
-  background-color: var(--bg-secondary); 
-  padding: 6rem 0 6.5rem;
+  background-color: var(--bg-secondary);
+  padding: 5rem 0 5rem;
   position: relative;
 }
 
 /* Header */
 .services-header {
   max-width: 760px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 2.5rem auto;
 }
 
 .services-area-badge {
@@ -24,12 +24,12 @@
 }
 
 .services-main-title {
-  font-size: 3.5rem;
+  font-size: 2.6rem;
   line-height: 1;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.8rem;
   letter-spacing: -1.5px;
 }
 
@@ -86,7 +86,7 @@
   grid-template-columns: 2.5rem 2.25rem minmax(0, 1fr) auto;
   gap: 1.05rem;
   align-items: center;
-  padding: 1.35rem 0;
+  padding: 1rem 0;
   border: 0;
   border-top: 1px solid var(--border-light, #E0EAEA);
   background: transparent;
@@ -162,6 +162,23 @@
   animation: serviceDetailReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.service-detail-visual {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 1.4rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.service-detail-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @keyframes serviceDetailReveal {
   from {
     opacity: 0;
@@ -186,27 +203,34 @@
 
 .service-detail-title {
   max-width: 520px;
-  margin: 0 0 1.8rem;
-  font-size: clamp(2rem, 3.3vw, 3.25rem);
-  line-height: 1.08;
-  letter-spacing: -1.4px;
+  margin: 0 0 1.2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: -1px;
   color: var(--text-main);
 }
 
 .service-detail-list {
   display: grid;
-  gap: 0.85rem;
-  max-width: 580px;
+  gap: 0.6rem;
+  max-width: 640px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+@media (min-width: 1300px) {
+  .service-detail-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.6rem;
+  }
+}
+
 .service-detail-list li {
   position: relative;
   padding-left: 1.2rem;
-  font-size: 1rem;
-  line-height: 1.42;
+  font-size: 0.92rem;
+  line-height: 1.4;
   color: var(--text-muted);
 }
 

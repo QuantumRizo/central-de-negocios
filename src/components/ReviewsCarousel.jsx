@@ -24,7 +24,7 @@ const reviewsData = [
   {
     id: 3,
     partnerName: "Waldo's",
-    partnerLogo: '/partners/waldos-logo.png',
+    partnerLogo: '/partners/waldos-logo.webp',
     author: 'Dirección de Marketing Digital & Retail',
     company: "Waldo's México",
     rating: 5,

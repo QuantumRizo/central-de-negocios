@@ -1,46 +1,20 @@
 /* =========================================================
-   Success Stories — Editorial Scroll-Driven Presentation
-   Left: Case Study Images (Scrollable)
-   Right: Company Services & Info (Sticky)
-   Minimalist: No metrics, clean typography & imagery
+   Success Stories — same soft off-white background as the rest
+   of the site; each brand's color shows up only in text, badges,
+   bullets and the CTA. Each case is its own independent row (no
+   shared sticky panel), so every case always shows its full
+   image + copy + services.
    ========================================================= */
 
 .success-cases {
-  background-color: var(--bg-color);
-  padding: 5rem 0 6.5rem;
-  transition: background-color 350ms ease;
+  background-color: var(--bg-secondary);
+  padding: 5.5rem 0 0;
   position: relative;
 }
 
-/* Client Brand Colors Dynamic Palette */
-.success-cases.theme-simi {
-  --case-primary: #0B5EB7;
-  --case-accent: #C73B4A;
-  --case-bg-tint: #F3F7FC;
-  --case-border-tint: #D6E4F5;
-  --case-card-bg: #FFFFFF;
-}
-
-.success-cases.theme-sika {
-  --case-primary: #E30613;
-  --case-accent: #D48800;
-  --case-bg-tint: #FDF9F3;
-  --case-border-tint: #FCE6D6;
-  --case-card-bg: #FFFFFF;
-}
-
-.success-cases.theme-waldos {
-  --case-primary: #00A651;
-  --case-accent: #E31E24;
-  --case-bg-tint: #F4FAF5;
-  --case-border-tint: #DAEEDF;
-  --case-card-bg: #FFFFFF;
-}
-
-/* Section Header */
 .cases-header {
   max-width: 740px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 3rem auto;
 }
 
 .cases-eyebrow {
@@ -70,670 +44,369 @@
   line-height: 1.5;
 }
 
-/* Two-Column Scroll-Driven Layout */
-.cases-story-layout {
-  display: grid;
-  grid-template-columns: 1fr 390px;
-  gap: 3.5rem;
-  align-items: flex-start;
+/* =========================================================
+   Per-brand palette — white background throughout; only text,
+   badges and small accents pick up each brand's color.
+   ========================================================= */
+
+.story-row.theme-simi {
+  --row-accent: #0b5eb7;
+  --row-cta-bg: #0b5eb7;
+  --row-cta-fg: #ffffff;
+}
+
+.story-row.theme-sika {
+  --row-accent: #c1121f;
+  --row-cta-bg: #c1121f;
+  --row-cta-fg: #ffffff;
+}
+
+.story-row.theme-waldos {
+  --row-accent: #00a651;
+  --row-cta-bg: #00a651;
+  --row-cta-fg: #ffffff;
 }
 
 /* =========================================================
-   LEFT COLUMN: SCROLLABLE CASE STUDY IMAGE CARDS
+   Row shell
    ========================================================= */
 
-.cases-story-scroll-left {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-}
-
-.story-scene-item {
-  background: white;
-  border: 1.5px solid var(--case-border-tint, #E0EAEA);
-  border-radius: var(--radius-lg, 24px);
-  padding: 2.2rem;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
-  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+.story-row {
+  --row-fg: var(--text-main);
+  --row-fg-muted: var(--text-muted);
+  --row-hairline: var(--border-light);
+  background: var(--bg-secondary);
+  padding: 4rem 0;
   position: relative;
 }
 
-.story-scene-item.scene-active {
-  border-color: var(--case-primary);
-  box-shadow: 0 12px 32px rgba(6, 46, 103, 0.08);
-}
-
-.scene-header-line {
-  display: flex;
-  justify-content: space-between;
+.story-row-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
   align-items: center;
-  margin-bottom: 1.4rem;
-  gap: 1rem;
 }
 
-.scene-num-badge {
+.story-row-reverse .story-row-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+}
+
+.story-row-reverse .story-visual { order: 2; }
+.story-row-reverse .story-content { order: 1; }
+
+/* =========================================================
+   Visual: one framed hero shot + a smaller overlapping accent
+   ========================================================= */
+
+.story-visual {
+  position: relative;
+  min-height: clamp(300px, 30vw, 400px);
+}
+
+.story-visual-main {
+  margin: 0;
+  width: 88%;
+  height: 100%;
+  border-radius: var(--radius-lg, 24px);
+  overflow: hidden;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+}
+
+.story-row-reverse .story-visual-main {
+  margin-left: auto;
+}
+
+.story-visual-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Flat brand graphics (logo marks, printed cards) stay fully visible
+   instead of being cropped by an object-fit: cover — no added matte,
+   so a transparent logo sits directly on the row's own brand color. */
+.story-visual-main.is-graphic {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.story-visual-main.is-graphic img {
+  object-fit: contain;
+}
+
+.story-visual-accent-group {
+  position: absolute;
+  bottom: -1.4rem;
+  left: 0;
+  display: flex;
+  gap: 0.6rem;
+  width: 46%;
+  max-width: 220px;
+}
+
+.story-row-reverse .story-visual-accent-group {
+  left: auto;
+  right: 0;
+}
+
+.story-visual-accent-group.has-two {
+  width: 62%;
+  max-width: 320px;
+}
+
+/* Simi's single accent (the CentralSimi character) reads better a bit larger. */
+.theme-simi .story-visual-accent-group:not(.has-two) {
+  max-width: 270px;
+}
+
+/* Sika & Waldo's: keep the hero shot and the accent image(s) fully
+   separate — stacked instead of overlapping, even if the visual
+   column runs a little taller. */
+.theme-sika .story-visual,
+.theme-waldos .story-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  min-height: 0;
+}
+
+.theme-sika .story-visual-main,
+.theme-waldos .story-visual-main {
+  width: 100%;
+  height: clamp(240px, 24vw, 320px);
+}
+
+.theme-sika .story-visual-accent-group,
+.theme-waldos .story-visual-accent-group {
+  position: static;
+  width: 100%;
+  max-width: none;
+  justify-content: flex-start;
+}
+
+.theme-sika.story-row-reverse .story-visual-accent-group,
+.theme-waldos.story-row-reverse .story-visual-accent-group {
+  justify-content: flex-end;
+}
+
+.theme-sika .story-visual-accent-group:not(.has-two),
+.theme-waldos .story-visual-accent-group:not(.has-two) {
+  max-width: none;
+}
+
+/* Match the accent's footprint to the hero shot so both read at a
+   similar weight instead of one big photo and one small thumbnail. */
+.theme-sika .story-visual-accent-group:not(.has-two) .story-visual-accent,
+.theme-waldos .story-visual-accent-group:not(.has-two) .story-visual-accent {
+  height: clamp(200px, 22vw, 300px);
+}
+
+.theme-sika .story-visual-accent-group:not(.has-two) .story-visual-accent img,
+.theme-waldos .story-visual-accent-group:not(.has-two) .story-visual-accent img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-visual-accent {
+  flex: 1 1 0;
+  margin: 0;
+  background: #ffffff;
+  border-radius: var(--radius-md, 16px);
+  padding: 0.6rem;
+  box-shadow: var(--shadow-md);
+}
+
+.story-visual-accent img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-md, 16px) - 6px);
+  object-fit: contain;
+}
+
+.story-visual-accent.is-graphic {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.story-visual-accent.is-graphic img {
+  border-radius: 0;
+}
+
+/* =========================================================
+   Content
+   ========================================================= */
+
+.story-content {
+  color: var(--row-fg);
+}
+
+.story-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.story-logo-card {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: var(--radius-md, 14px);
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.story-logo-img {
+  height: 32px;
+  max-width: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+/* The relationship badge ("8-Year Business Partnership") reads as a
+   real bold headline in the row's brand color, not a small pill. */
+.story-partnership-title {
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  color: var(--row-accent);
+  margin: 0.6rem 0 1.4rem;
+}
+
+.story-case-eyebrow {
+  display: block;
   font-size: 0.72rem;
   font-weight: 800;
-  color: var(--case-primary);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  background: var(--case-bg-tint);
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
+  color: var(--row-accent);
+  margin-bottom: 0.6rem;
 }
 
-.scene-capability-tag {
-  font-size: 0.7rem;
+.story-title {
+  font-size: clamp(1.3rem, 1.9vw, 1.7rem);
   font-weight: 800;
-  letter-spacing: 1.2px;
-  color: var(--case-accent);
-  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  color: var(--row-fg);
+  margin-bottom: 0.7rem;
 }
 
-/* Visual Wrapper */
-.scene-visual-wrapper {
-  width: 100%;
+.story-desc {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--row-fg-muted);
+  font-weight: 500;
+  max-width: 480px;
   margin-bottom: 1.6rem;
 }
 
-/* Sika America Single Image Card - Widescreen full-bleed */
-.scene-single-image-card.card-sika-america {
-  width: 100%;
-  height: 310px;
-  background: #FFFFFF;
-  border: 1px solid var(--case-border-tint, #FCE6D6);
-  border-radius: var(--radius-md, 18px);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-}
-
-.scene-hero-image-sika {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-  display: block;
-  user-select: none;
-}
-
-/* Waldo's General Card */
-.scene-single-image-card.card-general {
-  width: 100%;
-  height: 310px;
-  background: #FFFFFF;
-  border: 1px solid var(--case-border-tint, #E0EAEA);
-  border-radius: var(--radius-md, 18px);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.2rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-}
-
-.scene-hero-image-contained {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  user-select: none;
-}
-
-/* Case Title & Narrative Text (Minimalist, without KPI pill) */
-.scene-body-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.scene-title {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--case-primary);
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
-}
-
-.scene-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* =========================================================
-   RIGHT COLUMN: STICKY SERVICES & COMPANY INFO
-   ========================================================= */
-
-.cases-sticky-right {
-  position: sticky;
-  top: 140px;
-  background: var(--case-bg-tint);
-  border: 1.5px solid var(--case-border-tint);
-  border-radius: var(--radius-lg, 24px);
-  padding: 2.2rem 2rem;
-  box-shadow: var(--shadow-sm);
-  transition: opacity 180ms ease,
-              transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 350ms ease,
-              border-color 350ms ease;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  will-change: opacity, transform;
-}
-
-.cases-sticky-right.is-fading {
-  opacity: 0.15;
-  transform: translateY(-8px) scale(0.98);
-}
-
-.sticky-brand-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.1rem;
-  gap: 0.8rem;
-}
-
-.sticky-logo-card {
-  background: white;
-  border: 1px solid var(--case-border-tint);
-  padding: 0.4rem 0.95rem;
-  border-radius: var(--radius-md, 14px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  display: flex;
-  align-items: center;
-}
-
-.sticky-client-logo {
-  height: 36px;
-  max-width: 120px;
-  object-fit: contain;
-}
-
-.sticky-badge {
-  background: var(--case-primary);
-  color: white;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-pill);
-  transition: background-color 300ms ease;
-  white-space: nowrap;
-}
-
-.sticky-case-title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--case-primary);
-  line-height: 1.25;
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.3px;
-  transition: color 300ms ease;
-}
-
-.sticky-case-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
-/* Services to Company List */
-.sticky-services-block {
-  margin-bottom: 1.8rem;
-}
-
-.services-lead-label {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--case-primary);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.sticky-services-list {
+.story-services {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+  padding: 1rem 0 0;
+  margin: 0 0 1.8rem;
+  border-top: 1px solid var(--row-hairline);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem 1.5rem;
+  max-width: 560px;
 }
 
-.sticky-service-chip {
-  background: white;
-  border: 1px solid var(--case-border-tint);
-  border-radius: var(--radius-sm, 12px);
-  padding: 0.55rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.35;
+.story-services li {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--row-fg);
 }
 
-.sticky-service-chip:hover {
-  transform: translateX(3px);
-  border-color: var(--case-primary);
-}
-
-.chip-bullet {
-  color: var(--case-primary);
-  font-size: 1rem;
-  line-height: 1;
+.story-service-bullet {
   flex-shrink: 0;
-}
-
-/* Sticky CTA */
-.sticky-cta-wrapper {
+  width: 5px;
+  height: 5px;
   margin-top: 0.5rem;
+  border-radius: 50%;
+  background: var(--row-accent);
 }
 
-.sticky-cta-wrapper-primary {
-  margin: -0.7rem 0 2rem;
-}
-
-.btn-sticky-cta {
-  width: 100%;
-  display: block;
-  text-align: center;
-  background: var(--case-primary);
-  color: white;
+.story-cta {
+  display: inline-flex;
+  background: var(--row-cta-bg);
+  color: var(--row-cta-fg);
   font-weight: 800;
   font-size: 0.88rem;
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 1.5rem;
   border-radius: var(--radius-pill);
-  transition: all var(--transition-normal);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.btn-sticky-cta:hover {
-  filter: brightness(1.1);
+.story-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
-}
-
-/* Mobile-Only Blocks (Hidden on Desktop) */
-.mobile-case-header,
-.mobile-case-services {
-  display: none;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
 }
 
 /* =========================================================
-   Responsive Breakpoints
+   Responsive
    ========================================================= */
 
 @media (max-width: 992px) {
-  .cases-story-layout {
+  .story-row-inner,
+  .story-row-reverse .story-row-inner {
+    grid-template-columns: 1fr;
+    gap: 2.6rem;
+  }
+
+  .story-row-reverse .story-visual,
+  .story-row-reverse .story-content {
+    order: initial;
+  }
+
+  .story-visual {
+    min-height: clamp(280px, 62vw, 380px);
+  }
+
+  .story-visual-main,
+  .story-row-reverse .story-visual-main {
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  .story-visual-accent-group,
+  .story-row-reverse .story-visual-accent-group {
+    left: 4%;
+    right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .story-row {
+    padding: 3rem 0;
+  }
+
+  .cases-title {
+    font-size: 2.2rem;
+  }
+
+  .story-services {
     grid-template-columns: 1fr;
   }
 
-  .cases-sticky-right {
-    display: none;
+  .story-visual-accent-group,
+  .theme-simi .story-visual-accent-group:not(.has-two) {
+    max-width: 160px;
   }
 
-  .mobile-case-header {
-    display: block;
-    margin-bottom: 1.2rem;
-  }
-
-  .mobile-case-services {
-    display: block;
-    margin-top: 1.4rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--case-border-tint);
-  }
-
-  .cases-title {
-    font-size: 2.5rem;
-  }
-
-  .story-scene-item {
-    padding: 1.6rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .cases-title {
-    font-size: 2.1rem;
-  }
-
-  .story-scene-item {
-    padding: 1.2rem;
-  }
-
-  .scene-single-image-card.card-sika-america,
-  .scene-single-image-card.card-general {
-    height: 240px;
-  }
-}
-
-.success-cases.theme-simi .sticky-case-title {
-  font-size: clamp(1.7rem, 2.7vw, 2.55rem);
-  line-height: 1.1;
-}
-
-@media (max-width: 576px) {
-  .success-cases.theme-simi .sticky-case-title {
-    font-size: 1.65rem;
-  }
-}
-
-/* Editorial case layout: open content instead of nested cards */
-.story-scene-item {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--case-border-tint, #E0EAEA);
-  border-radius: 0;
-  padding: 0 0 3.5rem;
-  box-shadow: none;
-  opacity: 0.3;
-  transform: translateY(18px) scale(0.975);
-  will-change: opacity, transform;
-  scroll-margin-top: 7.5rem;
-  transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.story-scene-item.scene-active {
-  border-color: var(--case-border-tint, #E0EAEA);
-  box-shadow: none;
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.cases-sticky-right {
-  background: transparent;
-  border: 0;
-  border-left: 1px solid var(--case-border-tint);
-  border-radius: 0;
-  padding: 0 0 0 2.5rem;
-  box-shadow: none;
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--case-border-tint) transparent;
-}
-
-.sticky-brand-bar {
-  margin-bottom: 1.7rem;
-  align-items: flex-start;
-}
-
-.sticky-logo-card {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.sticky-client-logo {
-  height: 48px;
-  max-width: 155px;
-}
-
-.sticky-badge {
-  background: transparent;
-  color: var(--case-primary);
-  padding: 0.25rem 0;
-  border-radius: 0;
-  white-space: normal;
-  text-align: right;
-}
-
-.sticky-case-title {
-  max-width: 520px;
-  font-size: clamp(2rem, 3.4vw, 3.3rem);
-  line-height: 1.06;
-  margin-bottom: 1rem;
-  letter-spacing: -1.1px;
-}
-
-.sticky-case-desc {
-  max-width: 520px;
-  font-size: 1rem;
-  line-height: 1.55;
-  margin-bottom: 2.1rem;
-}
-
-.sticky-services-block {
-  max-width: 540px;
-  margin-bottom: 2rem;
-}
-
-.services-lead-label {
-  margin-bottom: 0.8rem;
-}
-
-.sticky-services-list {
-  gap: 0;
-  border-top: 1px solid var(--case-border-tint);
-}
-
-.sticky-service-chip {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--case-border-tint);
-  border-radius: 0;
-  padding: 0.8rem 0;
-  box-shadow: none;
-  transition: color 0.2s ease, padding-left 0.25s ease;
-}
-
-.sticky-service-chip:hover {
-  transform: none;
-  border-color: var(--case-border-tint);
-  color: var(--case-primary);
-  padding-left: 0.35rem;
-}
-
-.chip-bullet {
-  color: var(--case-primary);
-}
-
-.sticky-cta-wrapper {
-  margin-top: 0.5rem;
-}
-
-.btn-sticky-cta {
-  width: auto;
-  display: inline-flex;
-  background: transparent;
-  border: 1px solid var(--case-primary);
-  border-radius: 0;
-  color: var(--case-primary);
-  box-shadow: none;
-}
-
-.btn-sticky-cta:hover {
-  background: var(--case-primary);
-  color: #FFFFFF;
-  filter: none;
-  box-shadow: none;
-}
-
-@media (max-width: 992px) {
-  .story-scene-item {
-    padding-bottom: 2.6rem;
-    opacity: 1;
-    transform: none;
-    will-change: auto;
-  }
-
-  .mobile-case-header {
-    margin-bottom: 1.5rem;
-  }
-
-  .mobile-case-services {
-    padding-top: 1.4rem;
-  }
-
-  .mobile-case-services .sticky-services-list {
-    border-top: 1px solid var(--case-border-tint);
-  }
-}
-
-@media (max-width: 576px) {
-  .sticky-client-logo {
-    height: 42px;
-    max-width: 135px;
-  }
-
-  .sticky-badge {
-    max-width: 50%;
-    font-size: 0.62rem;
-  }
-
-  .sticky-case-title {
-    font-size: 2rem;
-  }
-}
-
-/* Image-led collage used by every case: one campaign image supported by two offset details. */
-.scene-visual-wrapper {
-  margin-bottom: 2.5rem;
-}
-
-.case-image-collage {
-  position: relative;
-  min-height: clamp(460px, 46vw, 670px);
-  width: 100%;
-}
-
-.case-image-collage figure {
-  position: absolute;
-  margin: 0;
-  overflow: hidden;
-  background: transparent;
-}
-
-.case-image-collage figure::after {
-  display: none;
-}
-
-.case-image-collage img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.case-image-collage figure:hover img {
-  transform: scale(1.045);
-}
-
-.case-collage-main {
-  top: 3rem;
-  right: 0;
-  width: 78%;
-  height: calc(100% - 6rem);
-}
-
-.case-collage-small {
-  z-index: 2;
-  left: 0;
-  width: 39%;
-  height: 32%;
-}
-
-.case-collage-small-top {
-  top: 0;
-}
-
-.case-collage-small-bottom {
-  bottom: 0;
-}
-
-.case-image-collage img.is-graphic {
-  padding: 0;
-  object-fit: contain;
-  background: transparent;
-}
-
-.case-image-collage img.is-phone {
-  padding: 0;
-  object-fit: contain;
-  background: transparent;
-}
-
-/* CentralSimi keeps the character at the same full height as the Monterrey image,
-   offset to its left so the two visuals read as one editorial composition. */
-.case-image-collage-simi .case-collage-small-top {
-  top: 3rem;
-  left: 0;
-  width: 48%;
-  height: calc(100% - 6rem);
-  overflow: visible;
-}
-
-.case-image-collage-simi .case-collage-main {
-  width: 76%;
-}
-
-/* The Simi PNG uses its real height so the character overlaps Monterrey directly. */
-.case-image-collage-simi .case-collage-small-top img.is-graphic {
-  width: auto;
-  max-width: none;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Waldo's phone captures float at their native proportions, without a card or canvas. */
-.case-image-collage-waldos .case-collage-phone {
-  width: 22%;
-  height: 46%;
-  overflow: visible;
-}
-
-.case-image-collage-waldos .case-collage-phone {
-  background: transparent;
-}
-
-@media (max-width: 992px) {
-  .case-image-collage {
-    min-height: 540px;
-  }
-}
-
-@media (max-width: 576px) {
-  .case-image-collage {
-    min-height: 390px;
-  }
-
-  .case-collage-main {
-    top: 2rem;
-    width: 80%;
-    height: calc(100% - 4rem);
-  }
-
-  .case-collage-small {
-    width: 43%;
-    height: 32%;
-    border-width: 6px;
-  }
-
-  .case-image-collage-simi .case-collage-small-top {
-    top: 2rem;
-    width: 48%;
-    height: calc(100% - 4rem);
-  }
-
-  .case-image-collage-waldos .case-collage-phone {
-    width: 30%;
-    height: 42%;
+  .story-visual-accent-group.has-two {
+    max-width: 220px;
   }
 }

@@ -3,7 +3,7 @@ import './PartnersCarousel.css'
 const partnerLogos = [
   { name: 'Farmacias Similares', src: '/partners/farmacias-similares-color.png', sizeClass: 'logo-simi' },
   { name: 'Sika', src: '/partners/sika.png', sizeClass: 'logo-sika' },
-  { name: "Waldo's", src: '/partners/waldos-logo.png' },
+  { name: "Waldo's", src: '/partners/waldos-logo.webp' },
   { name: 'Dongfeng', src: '/partners/dongfeng.png' },
   { name: 'Sansui', src: '/partners/sansui.png', sizeClass: 'logo-xlarge' },
   { name: 'Senosiain', src: '/partners/senosiain logo.webp', sizeClass: 'logo-large-extra' },
