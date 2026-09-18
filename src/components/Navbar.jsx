@@ -17,9 +17,9 @@ const Navbar = ({ currentView = 'home' }) => {
   ]
 
   const cases = [
-    { id: 'simi', title: 'CentralSimi: Agencia Única & Ecosistema de Farmacias Similares' },
-    { id: 'sika', title: '8-Year Business Partnership' },
-    { id: 'waldos', title: 'Estrategia Retail Media & Medios Waldo\'s' },
+    { id: 'simi', title: 'Host City Supporter Monterrey 2026' },
+    { id: 'sika', title: 'Patrocinio Oficial Club América' },
+    { id: 'waldos', title: 'Campañas Always-On & Tráfico a Tiendas' },
   ]
 
   const closeMenus = () => {

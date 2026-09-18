@@ -17,7 +17,7 @@ const caseStudies = [
     ],
     visual: {
       number: '01',
-      label: 'CASO EMBLEMÁTICO MUNDIAL 2026',
+      label: '2026 WORLD CUP FLAGSHIP',
       title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
       heroImage: { src: '/simi-monterrey-photo.jpg', alt: 'Activación de CentralSimi en Monterrey' },
