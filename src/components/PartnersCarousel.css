@@ -1,5 +1,5 @@
 .partners-section {
-  padding: 4.5rem 0;
+  padding: 6.5rem 0;
   background: var(--primary-gradient);
   background-size: 100% 100%;
   background-position: center;
@@ -9,21 +9,21 @@
 }
 
 .partners-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .partners-subtitle {
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 2.5px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.85);
   text-transform: uppercase;
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .partners-title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: -0.5px;
@@ -48,7 +48,7 @@
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  gap: 4.5rem;
   width: max-content;
   animation: marqueeScroll 40s linear infinite;
 }
@@ -62,7 +62,9 @@
 }
 
 .partner-logo-card {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-radius: var(--radius-md);
   padding: 0.8rem 1.6rem;
   height: 85px;
@@ -70,15 +72,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: background-color var(--transition-normal), transform var(--transition-normal);
   flex-shrink: 0;
 }
 
 .partner-logo-card:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.62);
+  transform: translateY(-3px);
 }
 
 .partner-logo-img {
@@ -88,7 +90,7 @@
   height: auto;
   object-fit: contain;
   opacity: 1;
-  filter: drop-shadow(0 2px 5px rgba(4, 19, 54, 0.22));
+  filter: drop-shadow(0 2px 8px rgba(4, 19, 54, 0.35));
   transition: transform var(--transition-normal);
 }
 

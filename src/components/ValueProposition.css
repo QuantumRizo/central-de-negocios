@@ -1,3 +1,72 @@
+/* Full-bleed proof strip — same solid-color stat band pattern used
+   on the CentralSimi subpage, as a separator leading into Why Central.
+   Same brand gradient/texture background as Our Partners. */
+.proof-strip {
+  padding: 2.8rem 0;
+  color: #ffffff;
+  background: var(--primary-gradient);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.proof-stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.proof-stat:last-child {
+  border-right: 0;
+}
+
+.proof-stat strong {
+  color: #ffffff;
+  font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.proof-stat.light strong { color: var(--primary-light); }
+
+.proof-stat span {
+  max-width: 130px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .proof-strip {
+    padding: 0.5rem 0;
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-stat {
+    justify-content: flex-start;
+    min-height: 100px;
+    padding: 1rem 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  }
+
+  .proof-stat:last-child {
+    border-bottom: 0;
+  }
+}
+
 .value-prop {
   padding: clamp(5rem, 8vw, 8rem) 0;
   overflow: hidden;

@@ -2,6 +2,12 @@ import { useEffect, useRef } from 'react'
 import './ValueProposition.css'
 import { ScrollWords } from './BrandMotion'
 
+const proofStats = [
+  { value: '+35', label: 'Años de experiencia en Medios', tone: 'white' },
+  { value: '+8', label: 'Años construyendo soluciones boutique', tone: 'light' },
+  { value: '+10', label: 'Categorías de especialización', tone: 'white' },
+]
+
 const benefits = [
   {
     title: 'Especialización Multi-categoría',
@@ -46,7 +52,19 @@ const ValueProposition = () => {
   }, [])
 
   return (
-    <section className="value-prop section bg-secondary">
+    <>
+      <section className="proof-strip" aria-label="Resultados de Central">
+        <div className="container proof-grid">
+          {proofStats.map((stat) => (
+            <div className={`proof-stat ${stat.tone}`} key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="value-prop section bg-secondary">
       <div className="container vp-layout">
         <div className="vp-left">
           <h2 className="vp-title scroll-animate-left" ref={el => elementsRef.current[0] = el}>
@@ -78,7 +96,8 @@ const ValueProposition = () => {
           ))}
         </div>
       </div>
-    </section>
+      </section>
+    </>
   )
 }
 
