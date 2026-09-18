@@ -149,7 +149,7 @@ const CentralSimi = () => {
 
             <div className="cs-overview-collage cs-reveal" ref={(element) => { revealRefs.current[1] = element }}>
               <figure className="cs-collage-main">
-                <img src="/cases/centralsimi-campaign.webp" alt="Campaña de Farmacias Similares en publicidad exterior" />
+                <img src="/cases/centralsimi-somos-el-si.jpg" alt="Campaña Somos el Sí de mi México de Farmacias Similares" />
                 <figcaption>Presencia que se ve. Estrategia que se mide.</figcaption>
               </figure>
               <figure className="cs-collage-small cs-collage-small-top">
@@ -210,14 +210,39 @@ const CentralSimi = () => {
                   <img src="/simi-monterrey-host-city.png" alt="Monterrey Host City Supporter y Farmacias Similares" />
                 </figure>
                 <figure className="cs-gallery-tall">
-                  <img src="/cases/monterrey-stage.jpg" alt="Activación de CentralSimi en Monterrey" />
+                  <img src="/cases/centralsimi-monterrey-familias.jpg" alt="Familias y niñas disfrutando la activación de CentralSimi en Monterrey" loading="lazy" />
                 </figure>
                 <figure className="cs-gallery-square">
-                  <img src="/cases/centralsimi-fabrica-alegria.jpg" alt="La Fábrica de la Alegría" />
+                  <img src="/cases/centralsimi-monterrey-simi-mano.jpg" alt="Personaje de Simi compartido con una visitante durante el evento" loading="lazy" />
                 </figure>
-                <figure className="cs-gallery-portrait">
-                  <img src="/simi-monterrey-portrait.webp" alt="Personaje de Farmacias Similares en Monterrey" />
+                <figure className="cs-gallery-bottom-wide">
+                  <img src="/cases/centralsimi-monterrey-taller.jpg" alt="Personas haciendo manualidades con personajes de Simi durante la activación" loading="lazy" />
                 </figure>
+              </div>
+
+              <div className="cs-event-gallery">
+                <div className="cs-event-gallery-heading">
+                  <span className="cs-eyebrow cs-eyebrow-dark">La experiencia en Monterrey</span>
+                  <h3>Una alianza que se vive, se comparte y se recuerda.</h3>
+                </div>
+                <div className="cs-event-gallery-grid">
+                  <figure>
+                    <img src="/cases/centralsimi-monterrey-activacion.jpg" alt="Visitantes interactuando con la activación de CentralSimi" loading="lazy" />
+                    <figcaption>Activación interactiva</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="/cases/centralsimi-monterrey-comunidad.jpg" alt="Visitantes posando con personajes y productos de Simi" loading="lazy" />
+                    <figcaption>Comunidad y experiencia de marca</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="/cases/centralsimi-monterrey-taller.jpg" alt="Elaboración y personalización de personajes de Simi" loading="lazy" />
+                    <figcaption>Diseño y elaboración de personajes</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="/cases/centralsimi-monterrey-detalle.jpg" alt="Detalle de una actividad de personalización de Simi" loading="lazy" />
+                    <figcaption>Detalle de activación</figcaption>
+                  </figure>
+                </div>
               </div>
             </div>
           </div>

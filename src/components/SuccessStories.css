@@ -160,6 +160,77 @@
   object-position: left center;
 }
 
+/* Keep the football Simi as the hero accent. The new event photos sit below
+   it as an intentionally offset, editorial collage. */
+.theme-simi .story-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: 0;
+}
+
+.theme-simi .story-row-inner {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.theme-simi .story-visual-main {
+  flex: 0 0 clamp(360px, 30vw, 440px);
+  height: clamp(360px, 30vw, 440px);
+}
+
+.theme-simi .story-visual-primary {
+  position: absolute;
+  top: clamp(165px, 15vw, 225px);
+  left: 4%;
+  z-index: 2;
+  width: min(280px, 38%);
+  margin: 0;
+  pointer-events: none;
+}
+
+.story-visual-primary.is-graphic {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.story-visual-primary img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.2));
+}
+
+.theme-simi .story-visual-accent-group.has-two {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  width: 100%;
+  max-width: none;
+  gap: 1.25rem;
+  padding: 0;
+}
+
+.theme-simi .story-visual-accent-group .story-visual-accent {
+  aspect-ratio: 1;
+  height: auto;
+  min-height: 0;
+}
+
+.theme-simi .story-visual-accent-group .story-visual-accent:first-child {
+  margin-top: clamp(4rem, 6vw, 6rem);
+}
+
+.theme-simi .story-visual-accent-group .story-visual-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .story-visual-accent-group {
   position: absolute;
   bottom: -1.4rem;
@@ -395,6 +466,11 @@
     gap: 2.6rem;
   }
 
+  .theme-simi .story-row-inner {
+    grid-template-columns: 1fr;
+    gap: 2.6rem;
+  }
+
   .story-row-reverse .story-visual,
   .story-row-reverse .story-content {
     order: initial;
@@ -420,6 +496,11 @@
     width: 100%;
     max-width: 100%;
     object-position: center;
+  }
+
+  .theme-simi .story-visual-primary {
+    top: clamp(150px, 25vw, 215px);
+    width: min(230px, 34%);
   }
 
   .story-visual-accent-group,
@@ -452,7 +533,34 @@
   }
 
   .theme-simi .story-visual {
-    min-height: 300px;
+    min-height: 0;
+  }
+
+  .theme-simi .story-visual-main {
+    flex-basis: clamp(300px, 72vw, 390px);
+    height: clamp(300px, 72vw, 390px);
+  }
+
+  .theme-simi .story-visual-primary {
+    top: clamp(145px, 34vw, 180px);
+    left: 1%;
+    width: min(180px, 34%);
+  }
+
+  .theme-simi .story-visual-accent-group.has-two {
+    width: 100%;
+    max-width: none;
+    gap: 0.7rem;
+    padding: 0;
+  }
+
+  .theme-simi .story-visual-accent-group .story-visual-accent:first-child {
+    margin-top: 2.5rem;
+  }
+
+  .theme-simi .story-visual-accent-group .story-visual-accent {
+    aspect-ratio: 1;
+    height: auto;
   }
 
 }

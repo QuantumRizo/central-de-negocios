@@ -501,9 +501,74 @@
   object-position: center;
 }
 
-.cs-gallery-portrait img {
-  object-fit: contain;
-  background: #f9e5db;
+.cs-gallery-bottom-wide img {
+  object-fit: cover;
+}
+
+.cs-event-gallery {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid rgba(199, 59, 74, 0.4);
+}
+
+.cs-event-gallery-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+}
+
+.cs-event-gallery-heading h3 {
+  max-width: 630px;
+  margin: 0;
+  color: var(--cs-ink);
+  font-size: clamp(1.65rem, 3vw, 2.7rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.cs-event-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.cs-event-gallery-grid figure {
+  position: relative;
+  height: 235px;
+  margin: 0;
+  overflow: hidden;
+  background: #ead9d1;
+  box-shadow: 0 13px 30px rgba(19, 35, 61, 0.12);
+}
+
+.cs-event-gallery-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-event-gallery-grid figure:hover img {
+  transform: scale(1.045);
+}
+
+.cs-event-gallery-grid figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2.4rem 0.85rem 0.75rem;
+  color: white;
+  background: linear-gradient(transparent, rgba(19, 35, 61, 0.86));
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
 /* Supporting media proof from the CentralSimi campaign assets. */
@@ -832,6 +897,27 @@
     max-width: 500px;
   }
 
+  .cs-event-gallery {
+    margin-top: 0;
+    padding-top: 2.5rem;
+  }
+
+  .cs-event-gallery-heading {
+    display: block;
+  }
+
+  .cs-event-gallery-heading h3 {
+    margin-top: 0.7rem;
+  }
+
+  .cs-event-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cs-event-gallery-grid figure {
+    height: 190px;
+  }
+
   .cs-case-gallery {
     grid-template-rows: 145px 180px 145px;
   }
@@ -927,6 +1013,14 @@
 
   .cs-case-gallery figure {
     border-width: 5px;
+  }
+
+  .cs-event-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-event-gallery-grid figure {
+    height: 220px;
   }
 }
 

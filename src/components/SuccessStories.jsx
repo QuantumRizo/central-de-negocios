@@ -21,8 +21,10 @@ const caseStudies = [
       title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
       heroImage: { src: '/simi-monterrey-host-city.png', alt: 'Monterrey Host City Supporter y Farmacias Similares', kind: 'graphic' },
+      primaryAccent: { src: '/estatua-simi.webp', alt: 'Simi futbolista con balón', kind: 'graphic' },
       accentImages: [
-        { src: '/estatua-simi.webp', alt: 'Personaje de CentralSimi', kind: 'graphic' }
+        { src: '/cases/centralsimi-monterrey-comunidad.jpg', alt: 'Visitantes compartiendo la experiencia de CentralSimi en Monterrey' },
+        { src: '/cases/centralsimi-monterrey-taller.jpg', alt: 'Personas haciendo manualidades con personajes de Simi durante la activación' }
       ]
     }
   },
@@ -85,6 +87,7 @@ const StoryRow = ({ item, index }) => {
   const { visual } = item
   const reversed = item.imageSide === 'right'
   const accents = visual.accentImages || []
+  const primaryAccent = visual.primaryAccent
 
   return (
     <div
@@ -97,6 +100,11 @@ const StoryRow = ({ item, index }) => {
           <figure className={`story-visual-main ${visual.heroImage.kind === 'graphic' ? 'is-graphic' : ''}`}>
             <img src={visual.heroImage.src} alt={visual.heroImage.alt} loading="lazy" />
           </figure>
+          {primaryAccent && (
+            <figure className={`story-visual-primary ${primaryAccent.kind === 'graphic' ? 'is-graphic' : ''}`}>
+              <img src={primaryAccent.src} alt={primaryAccent.alt} loading="lazy" />
+            </figure>
+          )}
           {accents.length > 0 && (
             <div className={`story-visual-accent-group ${accents.length > 1 ? 'has-two' : ''}`}>
               {accents.map((accent) => (
