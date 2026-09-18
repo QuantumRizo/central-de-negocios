@@ -20,7 +20,7 @@ const caseStudies = [
       label: '2026 WORLD CUP FLAGSHIP',
       title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
-      heroImage: { src: '/simi-monterrey-photo.jpg', alt: 'Activación de CentralSimi en Monterrey' },
+      heroImage: { src: '/simi-monterrey-host-city.png', alt: 'Monterrey Host City Supporter y Farmacias Similares', kind: 'graphic' },
       accentImages: [
         { src: '/estatua-simi.webp', alt: 'Personaje de CentralSimi', kind: 'graphic' }
       ]

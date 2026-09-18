@@ -29,8 +29,8 @@ const capabilities = [
     eyebrow: 'Planeación & compra',
     title: 'Una operación OFF diseñada para crecer',
     description: 'Arquitectura de medios, negociación directa y control de inversión para que cada campaña tenga escala, eficiencia y trazabilidad.',
-    image: '/cases/centralsimi-campaign.webp',
-    alt: 'Campaña de Farmacias Similares en publicidad exterior',
+    image: '/cases/centralsimi-airport-media.png',
+    alt: 'Pantalla digital de Farmacias Similares en un aeropuerto',
     tags: ['OOH', 'TV', 'Radio', 'Prensa'],
   },
   {
@@ -38,8 +38,8 @@ const capabilities = [
     eyebrow: 'Brand experience',
     title: 'La marca también se construye en la calle',
     description: 'Convertimos presencia nacional en experiencias memorables: activaciones, patrocinios y proyectos especiales que conectan con la comunidad.',
-    image: '/cases/centralsimi-fabrica-alegria.jpg',
-    alt: 'Activación de CentralSimi en La Fábrica de la Alegría',
+    image: '/cases/centralsimi-bus-activation.png',
+    alt: 'Activación de Simi y un atleta en una pantalla urbana',
     tags: ['Experiencias', 'BTL', 'Promotoría'],
   },
   {
@@ -47,9 +47,34 @@ const capabilities = [
     eyebrow: 'Data & governance',
     title: 'Decisiones claras para una inversión más inteligente',
     description: 'Reporting, automatización y analítica para convertir la cobertura en aprendizaje accionable y mejores decisiones comerciales.',
-    image: '/cases/monterrey-stage.jpg',
-    alt: 'Escenario de activación en Monterrey',
+    image: '/cases/centralsimi-simi-space.png',
+    alt: 'Pantalla de Simi Space en un circuito de medios',
     tags: ['Analytics', 'Reporting', 'Automatización'],
+  },
+]
+
+const mediaHighlights = [
+  {
+    image: '/cases/centralsimi-station-billboard.png',
+    alt: 'Pantalla exterior de Farmacias Similares en una estación',
+    label: 'OOH urbano',
+  },
+  {
+    image: '/cases/centralsimi-highway-billboard.png',
+    alt: 'Espectacular de Farmacias Similares sobre una avenida',
+    label: 'Circuitos viales',
+  },
+  {
+    image: '/cases/centralsimi-totem-media.png',
+    alt: 'Formato vertical de Simi Space en un parque',
+    label: 'Formatos especiales',
+    variant: 'portrait',
+  },
+  {
+    image: '/cases/centralsimi-street-media.png',
+    alt: 'Mupi de Farmacias Similares en un entorno urbano',
+    label: 'Cobertura de proximidad',
+    variant: 'portrait',
   },
 ]
 
@@ -182,7 +207,7 @@ const CentralSimi = () => {
 
               <div className="cs-case-gallery cs-reveal" ref={(element) => { revealRefs.current[4] = element }}>
                 <figure className="cs-gallery-wide">
-                  <img src="/simi-monterrey-landscape.webp" alt="Identidad de Host City Supporter Monterrey 2026" />
+                  <img src="/simi-monterrey-host-city.png" alt="Monterrey Host City Supporter y Farmacias Similares" />
                 </figure>
                 <figure className="cs-gallery-tall">
                   <img src="/cases/monterrey-stage.jpg" alt="Activación de CentralSimi en Monterrey" />
@@ -194,6 +219,27 @@ const CentralSimi = () => {
                   <img src="/simi-monterrey-portrait.webp" alt="Personaje de Farmacias Similares en Monterrey" />
                 </figure>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="cs-media-proof cs-section">
+          <div className="container">
+            <div className="cs-media-proof-heading">
+              <span className="cs-eyebrow cs-eyebrow-dark">Presencia en medios</span>
+              <h2>Una operación que se ve en cada punto de contacto.</h2>
+              <p>
+                Del circuito urbano a los formatos de alto impacto, CentralSimi convierte la planeación en presencia visible y medible.
+              </p>
+            </div>
+
+            <div className="cs-media-proof-grid">
+              {mediaHighlights.map((item) => (
+                <figure className={`cs-media-proof-card ${item.variant ? `is-${item.variant}` : ''}`} key={item.image}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                  <figcaption>{item.label}</figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>

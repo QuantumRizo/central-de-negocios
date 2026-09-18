@@ -84,9 +84,10 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
+  min-width: 0;
 }
 
 .story-row-reverse .story-row-inner {
@@ -103,12 +104,15 @@
 .story-visual {
   position: relative;
   min-height: clamp(300px, 30vw, 400px);
+  min-width: 0;
+  width: 100%;
 }
 
 .story-visual-main {
   margin: 0;
   width: 88%;
   height: 100%;
+  min-width: 0;
   border-radius: var(--radius-lg, 24px);
   overflow: hidden;
   box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
@@ -136,6 +140,24 @@
 
 .story-visual-main.is-graphic img {
   object-fit: contain;
+}
+
+/* The Monterrey banner is the lead visual for this case. Give it the full
+   visual column so the complete identity remains legible at desktop widths. */
+.theme-simi .story-visual {
+  min-height: clamp(360px, 34vw, 500px);
+}
+
+.theme-simi .story-visual-main,
+.story-row-reverse .theme-simi .story-visual-main {
+  width: 100%;
+  margin: 0;
+}
+
+.theme-simi .story-visual-main img {
+  width: 130%;
+  max-width: none;
+  object-position: left center;
 }
 
 .story-visual-accent-group {
@@ -245,6 +267,7 @@
 
 .story-content {
   color: var(--row-fg);
+  min-width: 0;
 }
 
 .story-brand-row {
@@ -279,6 +302,7 @@
   letter-spacing: -1px;
   color: var(--row-accent);
   margin: 0.6rem 0 1.4rem;
+  overflow-wrap: anywhere;
 }
 
 .story-case-eyebrow {
@@ -298,6 +322,7 @@
   letter-spacing: -0.4px;
   color: var(--row-fg);
   margin-bottom: 0.7rem;
+  overflow-wrap: anywhere;
 }
 
 .story-desc {
@@ -307,6 +332,7 @@
   font-weight: 500;
   max-width: 480px;
   margin-bottom: 1.6rem;
+  overflow-wrap: anywhere;
 }
 
 .story-services {
@@ -318,6 +344,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.6rem 1.5rem;
   max-width: 560px;
+  min-width: 0;
 }
 
 .story-services li {
@@ -328,6 +355,7 @@
   font-weight: 600;
   line-height: 1.35;
   color: var(--row-fg);
+  overflow-wrap: anywhere;
 }
 
 .story-service-bullet {
@@ -382,6 +410,18 @@
     margin: 0 auto;
   }
 
+  .theme-simi .story-visual-main,
+  .story-row-reverse .theme-simi .story-visual-main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .theme-simi .story-visual-main img {
+    width: 100%;
+    max-width: 100%;
+    object-position: center;
+  }
+
   .story-visual-accent-group,
   .story-row-reverse .story-visual-accent-group {
     left: 4%;
@@ -410,4 +450,9 @@
   .story-visual-accent-group.has-two {
     max-width: 220px;
   }
+
+  .theme-simi .story-visual {
+    min-height: 300px;
+  }
+
 }
