@@ -21,12 +21,15 @@
   filter: blur(2px);
 }
 
+/* Same directional fade as the Hero: strong tint behind the copy,
+   easing off toward the far side so the image reads through more
+   clearly instead of sitting under one flat scrim. */
 .services::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(125deg, rgba(4, 11, 24, 0.94) 0%, rgba(4, 11, 24, 0.82) 45%, rgba(4, 11, 24, 0.7) 100%);
+  background: linear-gradient(100deg, rgba(4, 11, 24, 0.97) 0%, rgba(4, 11, 24, 0.9) 26%, rgba(4, 11, 24, 0.48) 52%, rgba(4, 11, 24, 0.1) 82%, rgba(4, 11, 24, 0) 100%);
 }
 
 .services > .container {
@@ -216,6 +219,7 @@
   font-weight: 800;
   letter-spacing: 1px;
   margin-bottom: 0.9rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
 
 .service-detail-title {
@@ -225,6 +229,7 @@
   line-height: 1.12;
   letter-spacing: -1px;
   color: #ffffff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85);
 }
 
 .service-detail-list {
@@ -248,7 +253,8 @@
   padding-left: 1.2rem;
   font-size: 0.92rem;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
 }
 
 .service-detail-list li::before {

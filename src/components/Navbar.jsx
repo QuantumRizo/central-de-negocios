@@ -100,7 +100,6 @@ const Navbar = ({ currentView = 'home' }) => {
                   key={service.id}
                   onClick={closeMenus}
                 >
-                  <span className="nav-service-number">{service.id}</span>
                   <span>{service.title}</span>
                 </a>
               ))}
@@ -128,7 +127,6 @@ const Navbar = ({ currentView = 'home' }) => {
                   key={item.id}
                   onClick={closeMenus}
                 >
-                  <span className="nav-service-number">{item.id.toUpperCase()}</span>
                   <span>{item.title}</span>
                 </a>
               ))}
