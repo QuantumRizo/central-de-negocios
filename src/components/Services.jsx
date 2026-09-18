@@ -1,6 +1,5 @@
 import './Services.css'
 import { useEffect, useState } from 'react'
-import { DrawInView } from './BrandMotion'
 
 const servicesData = [
   {
@@ -112,7 +111,6 @@ const servicesData = [
 
 const Services = () => {
   const [activeServiceId, setActiveServiceId] = useState(servicesData[0].id)
-  const [expandedServiceId, setExpandedServiceId] = useState(servicesData[0].id)
   const activeService = servicesData.find((service) => service.id === activeServiceId) || servicesData[0]
 
   useEffect(() => {
@@ -120,7 +118,6 @@ const Services = () => {
       const serviceId = window.location.hash.match(/^#service-(\d{2})$/)?.[1]
       if (serviceId && servicesData.some((service) => service.id === serviceId)) {
         setActiveServiceId(serviceId)
-        setExpandedServiceId(serviceId)
       }
     }
 
@@ -129,16 +126,9 @@ const Services = () => {
     return () => window.removeEventListener('hashchange', syncServiceFromHash)
   }, [])
 
-  const selectService = (serviceId) => {
-    setActiveServiceId(serviceId)
-    setExpandedServiceId(serviceId)
-  }
-
   return (
     <section id="services" className="services section">
       <div className="container">
-        
-        {/* Section Header */}
         <div className="services-header text-center">
           <h2 className="services-main-title">WHAT WE DO</h2>
           <p className="services-header-subtitle">
@@ -147,27 +137,23 @@ const Services = () => {
         </div>
 
         <div className="services-explorer">
-          <div className="services-list" aria-label="Servicios">
+          <div className="services-list" aria-label="Nuestros seis servicios">
             {servicesData.map((service) => (
-              <DrawInView key={service.id}>
-                <button
-                  type="button"
-                  id={`service-${service.id}`}
-                  className={`service-list-item ${activeServiceId === service.id ? 'is-active' : ''}`}
-                  aria-pressed={activeServiceId === service.id}
-                  onClick={() => selectService(service.id)}
-                >
-                  <span className="service-list-number">{service.id}</span>
-                  <span className="service-list-icon" aria-hidden="true">
-                    {service.icon}
-                  </span>
-                  <span className="service-list-title">{service.title}</span>
-                  <span className="service-list-arrow" aria-hidden="true">→</span>
-                </button>
-              </DrawInView>
+              <button
+                type="button"
+                className={`service-list-item ${activeServiceId === service.id ? 'is-active' : ''}`}
+                id={`service-${service.id}`}
+                key={service.id}
+                aria-pressed={activeServiceId === service.id}
+                onClick={() => setActiveServiceId(service.id)}
+              >
+                <span className="service-list-number">{service.id}</span>
+                <span className="service-list-icon" aria-hidden="true">{service.icon}</span>
+                <span className="service-list-title">{service.title}</span>
+                <span className="service-list-arrow" aria-hidden="true">→</span>
+              </button>
             ))}
           </div>
-
           <div className="services-detail-panel" key={activeService.id} aria-live="polite">
             <span className="service-detail-number">{activeService.id}</span>
             <h3 className="service-detail-title">{activeService.title}</h3>
@@ -176,32 +162,6 @@ const Services = () => {
             </ul>
           </div>
         </div>
-
-        <div className="services-mobile-accordion">
-          {servicesData.map((service) => {
-            const isExpanded = expandedServiceId === service.id
-            return (
-              <div className={`mobile-service-item ${isExpanded ? 'is-expanded' : ''}`} key={service.id}>
-                <button
-                  type="button"
-                  className="mobile-service-trigger"
-                  aria-expanded={isExpanded}
-                  onClick={() => setExpandedServiceId(isExpanded ? null : service.id)}
-                >
-                  <span className="service-list-number">{service.id}</span>
-                  <span className="mobile-service-title">{service.title}</span>
-                  <span className="mobile-service-toggle" aria-hidden="true">{isExpanded ? '−' : '+'}</span>
-                </button>
-                {isExpanded && (
-                  <ul className="service-detail-list mobile-service-detail">
-                    {service.details.map((detail) => <li key={detail}>{detail}</li>)}
-                  </ul>
-                )}
-              </div>
-            )
-          })}
-        </div>
-
       </div>
     </section>
   )
