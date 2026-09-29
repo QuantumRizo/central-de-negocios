@@ -31,6 +31,14 @@
   --radius-lg: 28px;
   --radius-pill: 9999px;
   
+  /* Section title scale shared by every section heading (matches CentralSimi) */
+  --title-size: clamp(2.25rem, 4.2vw, 4.4rem);
+  --title-leading: 0.99;
+  --title-tracking: -0.04em;
+
+  /* Vertical rhythm */
+  --section-space: clamp(5.3rem, 9vw, 8rem);
+
   /* Micro-interactions */
   --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -76,7 +84,7 @@ ul {
 }
 
 .section {
-  padding: 5.5rem 0;
+  padding: var(--section-space) 0;
   position: relative;
 }
 
@@ -281,8 +289,5 @@ ul {
 @media (max-width: 768px) {
   .grid-cols-2, .grid-cols-3, .grid-cols-4 {
     grid-template-columns: 1fr;
-  }
-  .section {
-    padding: 3.5rem 0;
   }
 }

@@ -68,7 +68,7 @@
 }
 
 .value-prop {
-  padding: clamp(5rem, 8vw, 8rem) 0;
+  padding: var(--section-space) 0;
   overflow: hidden;
   background-color: var(--bg-secondary);
 }
@@ -88,10 +88,10 @@
 .vp-title {
   margin: 0 0 1.6rem;
   color: var(--accent);
-  font-size: clamp(3.5rem, 5vw, 5.5rem);
   font-weight: 800;
-  line-height: 0.91;
-  letter-spacing: -0.055em;
+  font-size: var(--title-size);
+  line-height: var(--title-leading);
+  letter-spacing: var(--title-tracking);
   text-transform: uppercase;
 }
 
@@ -221,14 +221,6 @@
 }
 
 @media (max-width: 576px) {
-  .value-prop {
-    padding: 4.5rem 0;
-  }
-
-  .vp-title {
-    font-size: clamp(3rem, 13vw, 4rem);
-  }
-
   .vp-line-item {
     grid-template-columns: 2.2rem minmax(0, 1fr);
     gap: 0.75rem;

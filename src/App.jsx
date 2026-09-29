@@ -42,9 +42,9 @@ function App() {
         ) : (
           <>
             <Hero />
+            <About />
             <Services />
             <PartnersCarousel />
-            <About />
             <SuccessStories />
             <ValueProposition />
           </>

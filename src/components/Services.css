@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 90vh;
   overflow: hidden;
-  padding: clamp(6rem, 8vw, 8rem) 0;
+  padding: var(--section-space) 0;
   background: #091526;
   color: #fff;
 }
@@ -39,10 +39,10 @@
 .services-main-title {
   margin: 0 0 0.8rem;
   color: #a8bfd0;
-  font-size: clamp(2.5rem, 3.6vw, 3.9rem);
-  font-weight: 850;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  font-size: var(--title-size);
+  line-height: var(--title-leading);
+  letter-spacing: var(--title-tracking);
+  font-weight: 800;
 }
 
 .services-header-subtitle {
@@ -200,7 +200,7 @@
 @media (max-width: 700px) {
   .services {
     min-height: 0;
-    padding: 5rem 0;
+    padding: var(--section-space) 0;
   }
 
   .services::before {

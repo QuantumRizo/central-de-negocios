@@ -8,13 +8,13 @@
 
 .success-cases {
   background-color: var(--bg-secondary);
-  padding: 5.5rem 0 0;
+  padding: var(--section-space) 0 calc(var(--section-space) - 4rem);
   position: relative;
 }
 
 .cases-header {
   max-width: 740px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 3.5rem auto;
 }
 
 .cases-eyebrow {
@@ -28,13 +28,13 @@
 }
 
 .cases-title {
-  font-size: 3.2rem;
-  line-height: 1;
+  font-size: var(--title-size);
+  line-height: var(--title-leading);
   font-weight: 800;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.8rem;
-  letter-spacing: -1.2px;
+  margin-bottom: 1.2rem;
+  letter-spacing: var(--title-tracking);
 }
 
 .cases-subtitle {
@@ -76,7 +76,7 @@
   --row-fg-muted: var(--text-muted);
   --row-hairline: var(--border-light);
   background: var(--bg-secondary);
-  padding: 4rem 0;
+  padding: 5rem 0;
   position: relative;
 }
 
@@ -113,9 +113,9 @@
   width: 88%;
   height: 100%;
   min-width: 0;
-  border-radius: var(--radius-lg, 24px);
   overflow: hidden;
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+  border: 8px solid #ffffff;
+  box-shadow: 0 13px 30px rgba(19, 35, 61, 0.14);
 }
 
 .story-row-reverse .story-visual-main {
@@ -135,6 +135,7 @@
 .story-visual-main.is-graphic {
   background: transparent;
   padding: 0;
+  border: 0;
   box-shadow: none;
 }
 
@@ -308,28 +309,28 @@
 .story-visual-accent {
   flex: 1 1 0;
   margin: 0;
+  overflow: hidden;
   background: #ffffff;
-  border-radius: var(--radius-md, 16px);
-  padding: 0.6rem;
-  box-shadow: var(--shadow-md);
+  border: 8px solid #ffffff;
+  box-shadow: 0 13px 30px rgba(19, 35, 61, 0.14);
 }
 
 .story-visual-accent img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: calc(var(--radius-md, 16px) - 6px);
   object-fit: contain;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-visual-accent:hover img {
+  transform: scale(1.045);
 }
 
 .story-visual-accent.is-graphic {
   background: transparent;
-  padding: 0;
+  border: 0;
   box-shadow: none;
-}
-
-.story-visual-accent.is-graphic img {
-  border-radius: 0;
 }
 
 /* =========================================================
@@ -351,14 +352,10 @@
 .story-logo-card {
   display: inline-flex;
   align-items: center;
-  background: #ffffff;
-  border-radius: var(--radius-md, 14px);
-  padding: 0.5rem 1rem;
-  box-shadow: var(--shadow-sm);
 }
 
 .story-logo-img {
-  height: 32px;
+  height: 40px;
   max-width: 120px;
   object-fit: contain;
   display: block;
@@ -440,19 +437,19 @@
 
 .story-cta {
   display: inline-flex;
-  background: var(--row-cta-bg);
-  color: var(--row-cta-fg);
+  padding: 0 0 0.45rem;
+  border-bottom: 2px solid var(--row-accent);
+  border-radius: 0;
+  color: var(--row-accent);
   font-weight: 800;
   font-size: 0.88rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: gap var(--transition-normal), opacity var(--transition-normal);
 }
 
 .story-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
 }
 
 /* =========================================================
@@ -513,10 +510,6 @@
 @media (max-width: 576px) {
   .story-row {
     padding: 3rem 0;
-  }
-
-  .cases-title {
-    font-size: 2.2rem;
   }
 
   .story-services {

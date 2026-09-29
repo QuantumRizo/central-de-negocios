@@ -1,5 +1,5 @@
 .partners-section {
-  padding: 6.5rem 0;
+  padding: var(--section-space) 0;
   background: var(--primary-gradient);
   background-size: 100% 100%;
   background-position: center;
@@ -23,10 +23,11 @@
 }
 
 .partners-title {
-  font-size: 2.4rem;
   font-weight: 800;
   color: #FFFFFF;
-  letter-spacing: -0.5px;
+  font-size: var(--title-size);
+  line-height: var(--title-leading);
+  letter-spacing: var(--title-tracking);
   text-transform: uppercase;
 }
 
@@ -48,7 +49,7 @@
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 4.5rem;
+  gap: 1rem;
   width: max-content;
   animation: marqueeScroll 40s linear infinite;
 }
@@ -62,25 +63,19 @@
 }
 
 .partner-logo-card {
-  background: rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.9);
   padding: 0.8rem 1.6rem;
-  height: 85px;
-  min-width: 170px;
+  height: 96px;
+  min-width: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: background-color var(--transition-normal), transform var(--transition-normal);
+  transition: background-color var(--transition-normal);
   flex-shrink: 0;
 }
 
 .partner-logo-card:hover {
-  background: rgba(255, 255, 255, 0.62);
-  transform: translateY(-3px);
+  background: #ffffff;
 }
 
 .partner-logo-img {
@@ -90,7 +85,6 @@
   height: auto;
   object-fit: contain;
   opacity: 1;
-  filter: drop-shadow(0 2px 8px rgba(4, 19, 54, 0.35));
   transition: transform var(--transition-normal);
 }
 
@@ -137,15 +131,10 @@
 }
 
 @media (max-width: 768px) {
-  .partners-section {
-    padding: 3.5rem 0;
-  }
-  .partners-title {
-    font-size: 1.5rem;
-  }
   .partner-logo-card {
-    height: 65px;
-    padding: 0.6rem 1.2rem;
+    height: 68px;
+    min-width: 140px;
+    padding: 0.6rem 1rem;
   }
   .partner-logo-img {
     max-height: 50px;
