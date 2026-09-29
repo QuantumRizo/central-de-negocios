@@ -6,6 +6,7 @@ const Navbar = ({ currentView = 'home' }) => {
   const [openDropdown, setOpenDropdown] = useState(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const dropdownCloseTimer = useRef(null)
+  const menuToggleRef = useRef(null)
 
   const services = [
     { id: '01', title: 'Estrategia de Medios & Planeación de Negocio' },
@@ -49,11 +50,39 @@ const Navbar = ({ currentView = 'home' }) => {
     }, 180)
   }
 
-  const toggleDropdownOnMobile = (dropdown) => {
-    if (window.innerWidth <= 768) {
+  // Mouse users on desktop open dropdowns by hovering; touch and keyboard users
+  // (a keyboard click reports event.detail === 0) toggle them explicitly.
+  const toggleDropdown = (event, dropdown) => {
+    if (window.innerWidth <= 768 || event.detail === 0) {
       setOpenDropdown((current) => current === dropdown ? null : dropdown)
     }
   }
+
+  const closeDropdownOnFocusOut = (event) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setOpenDropdown(null)
+    }
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key !== 'Escape') return
+      if (mobileMenuOpen) {
+        closeMenus()
+        menuToggleRef.current?.focus()
+      } else {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [mobileMenuOpen])
+
+  // Keep the page from scrolling behind the open mobile menu.
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileMenuOpen])
 
   useEffect(() => {
     let ticking = false
@@ -77,19 +106,20 @@ const Navbar = ({ currentView = 'home' }) => {
           <img src="/Logo_CN_2025_Negro.webp" alt="Central MX" className="logo-img" />
         </a>
 
-        <ul className="nav-links">
+        <ul className="nav-links" id="primary-navigation">
           <li><a href="#hero" onClick={() => setMobileMenuOpen(false)}>About Us</a></li>
           <li
             className={`nav-services ${openDropdown === 'services' ? 'is-open' : ''}`}
             onMouseEnter={() => openDropdownOnHover('services')}
             onMouseLeave={closeDropdownOnLeave}
+            onBlur={closeDropdownOnFocusOut}
           >
             <button
               type="button"
               className="nav-services-trigger"
               aria-expanded={openDropdown === 'services'}
               aria-controls="services-menu"
-              onClick={() => toggleDropdownOnMobile('services')}
+              onClick={(event) => toggleDropdown(event, 'services')}
             >
               Services <span className="nav-services-chevron" aria-hidden="true">⌄</span>
             </button>
@@ -110,13 +140,14 @@ const Navbar = ({ currentView = 'home' }) => {
             className={`nav-services nav-cases ${openDropdown === 'cases' ? 'is-open' : ''}`}
             onMouseEnter={() => openDropdownOnHover('cases')}
             onMouseLeave={closeDropdownOnLeave}
+            onBlur={closeDropdownOnFocusOut}
           >
             <button
               type="button"
               className="nav-services-trigger"
               aria-expanded={openDropdown === 'cases'}
               aria-controls="cases-menu"
-              onClick={() => toggleDropdownOnMobile('cases')}
+              onClick={(event) => toggleDropdown(event, 'cases')}
             >
               Success Stories <span className="nav-services-chevron" aria-hidden="true">⌄</span>
             </button>
@@ -149,9 +180,14 @@ const Navbar = ({ currentView = 'home' }) => {
           <button
             type="button"
             className="mobile-menu-toggle"
+            ref={menuToggleRef}
+            aria-controls="primary-navigation"
             aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={mobileMenuOpen}
-            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+            onClick={() => {
+              setOpenDropdown(null)
+              setMobileMenuOpen((isOpen) => !isOpen)
+            }}
           >
             <span />
             <span />
