@@ -9,7 +9,7 @@
   min-height: 100svh;
   padding: calc(var(--nav-height) + 3rem) 0 4rem;
   overflow: hidden;
-  background: var(--night) url('/Hero.webp') right center / cover no-repeat;
+  background: var(--night) url('/Hero.webp') right top / cover no-repeat;
   color: #FFFFFF;
   color-scheme: dark;
 }
@@ -76,7 +76,7 @@
     align-items: flex-end;
     min-height: 88svh;
     padding-bottom: 3rem;
-    background-position: 68% center;
+    background-position: 68% top;
   }
 
   .hero::before {
