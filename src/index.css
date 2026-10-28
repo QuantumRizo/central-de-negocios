@@ -198,20 +198,18 @@ img {
 }
 
 /*
-  Brand texture surface (partners carousel, footer). The navy veil keeps white text
-  at 4.5:1 or more even over the lightest part of the texture.
+  Brand texture surface (partners carousel, footer), shown as is. The texture is
+  mostly light, so text on it uses dark navy ink.
 */
 .brand-texture {
-  --tex-ink: #FFFFFF;
-  --tex-ink-2: rgba(255, 255, 255, 0.82);
-  --tex-line: rgba(255, 255, 255, 0.2);
-  --tex-link: #D3E2EE;
+  --tex-ink: #0B2547;
+  --tex-ink-2: #2A4263;
+  --tex-line: rgba(11, 37, 71, 0.18);
+  --tex-link: #0B4F9C;
 
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(100deg, rgba(5, 24, 56, 0.74) 0%, rgba(5, 24, 56, 0.64) 55%, rgba(5, 24, 56, 0.5) 100%),
-    #0A3777 url('/centralmx-brand-texture.jpg') center / cover no-repeat;
+  background: #EEF3FC url('/centralmx-brand-texture.jpg') center / cover no-repeat;
   color: var(--tex-ink);
 }
 
