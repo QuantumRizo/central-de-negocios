@@ -1,4 +1,15 @@
 {
+  "headers": [
+    {
+      "source": "/partners/televisa.webp",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
