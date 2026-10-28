@@ -5,18 +5,8 @@ const NetworkStatus = () => {
   const [isOffline, setIsOffline] = useState(!navigator.onLine)
   const [showRestored, setShowRestored] = useState(false)
   const [isSlow, setIsSlow] = useState(false)
-  const [loadingProgress, setLoadingProgress] = useState(15)
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Top Progress Bar animation on mount
-    const timer1 = setTimeout(() => setLoadingProgress(60), 300)
-    const timer2 = setTimeout(() => setLoadingProgress(90), 800)
-    const timer3 = setTimeout(() => {
-      setLoadingProgress(100)
-      setTimeout(() => setIsLoading(false), 400)
-    }, 1400)
-
     // Slow connection detection timer (> 3.5s or via Network Information API)
     const slowTimer = setTimeout(() => {
       if (document.readyState !== 'complete') {
@@ -54,9 +44,6 @@ const NetworkStatus = () => {
     window.addEventListener('online', handleOnline)
 
     return () => {
-      clearTimeout(timer1)
-      clearTimeout(timer2)
-      clearTimeout(timer3)
       clearTimeout(slowTimer)
       window.removeEventListener('offline', handleOffline)
       window.removeEventListener('online', handleOnline)
@@ -65,16 +52,6 @@ const NetworkStatus = () => {
 
   return (
     <>
-      {/* Top Slim Loading Progress Bar */}
-      {isLoading && (
-        <div className="top-progress-bar-container">
-          <div 
-            className="top-progress-bar"
-            style={{ width: `${loadingProgress}%` }}
-          />
-        </div>
-      )}
-
       {/* Network Banners & Toasts Overlay */}
       <div className="network-toasts-container">
         
@@ -112,9 +89,9 @@ const NetworkStatus = () => {
             </div>
             <div className="toast-content">
               <span className="toast-title">Conexión lenta detectada</span>
-              <span className="toast-desc">Optimizando activos para una carga más rápida.</span>
+              <span className="toast-desc">Algunas imágenes pueden tardar en cargar.</span>
             </div>
-            <button className="toast-close-btn" onClick={() => setIsSlow(false)}>×</button>
+            <button type="button" className="toast-close-btn" aria-label="Cerrar aviso" onClick={() => setIsSlow(false)}>×</button>
           </div>
         )}
 

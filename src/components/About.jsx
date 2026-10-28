@@ -55,30 +55,16 @@ const About = () => {
     <section id="about" className="about section">
       <div className="container">
 
-        {/* Header: title, description & stats */}
         <div
-          className="about-header scroll-animate-up"
+          className="section-header scroll-animate-up"
           ref={el => elementsRef.current[0] = el}
         >
-          <h2 className="about-title">LEADERSHIP<br/>TEAM</h2>
-          <div className="about-header-right">
-            <p className="about-description">
-              Un equipo directivo senior con décadas de experiencia liderando la estrategia de medios, analítica y visión creativa para marcas líderes.
-            </p>
-            <div className="about-stats">
-              <div className="stat-item">
-                <h4>+35 años</h4>
-                <p>Experiencia acumulada en Medios</p>
-              </div>
-              <div className="stat-item">
-                <h4>+8 años</h4>
-                <p>Construyendo soluciones boutique</p>
-              </div>
-            </div>
-          </div>
+          <span className="section-eyebrow">Equipo</span>
+          <h2 className="section-title">Leadership team.</h2>
+          <p className="section-lede">
+            Un equipo directivo senior con décadas de experiencia liderando la estrategia de medios, analítica y visión creativa para marcas líderes.
+          </p>
         </div>
-
-        <h3 className="about-subheading">Liderazgo</h3>
 
         {/* Leadership Heads */}
         <div className="leadership-grid">

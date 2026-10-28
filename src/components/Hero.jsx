@@ -19,8 +19,9 @@ const Hero = () => {
           </p>
           <div className="hero-actions">
             <a href="#services" className="btn btn-hero-primary">
-              Descubre nuestras soluciones <span className="btn-arrow">→</span>
+              Descubre nuestras soluciones
             </a>
+            <a href="#contact" className="link-chevron">Hablemos</a>
           </div>
         </div>
       </div>

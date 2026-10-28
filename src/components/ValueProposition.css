@@ -1,235 +1,142 @@
-/* Full-bleed proof strip — same solid-color stat band pattern used
-   on the CentralSimi subpage, as a separator leading into Why Central.
-   Same brand gradient/texture background as Our Partners. */
+/* Proof row: three facts, quiet type, hairline dividers. */
 .proof-strip {
-  padding: 2.8rem 0;
-  color: #ffffff;
-  background: var(--primary-gradient);
-  background-size: 100% 100%;
-  background-position: center;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .proof-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .proof-stat {
   display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0 2rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.28);
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
 }
 
-.proof-stat:last-child {
-  border-right: 0;
+.proof-stat + .proof-stat {
+  border-left: 1px solid var(--hairline);
 }
 
 .proof-stat strong {
-  color: #ffffff;
-  font-size: clamp(2.5rem, 4.5vw, 4.4rem);
-  line-height: 0.9;
-  letter-spacing: -0.06em;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--ink);
 }
-
-.proof-stat.light strong { color: var(--primary-light); }
 
 .proof-stat span {
-  max-width: 130px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  max-width: 220px;
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  line-height: 1.35;
 }
 
-@media (max-width: 768px) {
-  .proof-strip {
-    padding: 0.5rem 0;
-  }
-
-  .proof-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .proof-stat {
-    justify-content: flex-start;
-    min-height: 100px;
-    padding: 1rem 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
-  }
-
-  .proof-stat:last-child {
-    border-bottom: 0;
-  }
-}
-
+/* Why Central */
 .value-prop {
-  padding: var(--section-space) 0;
-  overflow: hidden;
-  background-color: var(--bg-secondary);
+  background: var(--surface);
 }
 
 .vp-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.5fr);
-  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
   align-items: start;
 }
 
 .vp-left {
   position: sticky;
-  top: 120px;
+  top: calc(var(--nav-height) + 2rem);
 }
 
 .vp-title {
-  margin: 0 0 1.6rem;
-  color: var(--accent);
-  font-weight: 800;
   font-size: var(--title-size);
   line-height: var(--title-leading);
   letter-spacing: var(--title-tracking);
-  text-transform: uppercase;
 }
 
 .vp-description {
-  max-width: 26rem;
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 1.12rem;
-  font-weight: 500;
-  line-height: 1.6;
+  margin-top: 1.25rem;
+  font-size: var(--lede-size);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--ink);
 }
 
 .vp-cta {
-  max-width: 25rem;
-  margin-top: clamp(2.4rem, 5vw, 4.8rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(39, 76, 119, 0.27);
+  margin-top: 2.5rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
 }
 
 .vp-cta h3 {
-  margin: 0 0 0.55rem;
-  color: var(--text-main);
-  font-size: 1.35rem;
-  font-weight: 800;
-  line-height: 1.2;
+  font-family: var(--font-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .vp-cta p {
-  margin: 0 0 1.25rem;
-  color: var(--text-muted);
-  font-size: 0.98rem;
-  line-height: 1.55;
-}
-
-.vp-contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0 0 0.45rem;
-  border-bottom: 2px solid var(--accent);
-  color: var(--text-main);
-  font-size: 1rem;
-  font-weight: 800;
-  text-decoration: none;
-  transition: gap 180ms ease, color 180ms ease;
-}
-
-.vp-contact-link:hover,
-.vp-contact-link:focus-visible {
-  gap: 1rem;
-  color: var(--accent-hover);
-}
-
-.vp-contact-link:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 5px;
+  margin: 0.5rem 0 1.5rem;
+  color: var(--ink-2);
 }
 
 .vp-list {
-  border-top: 1px solid rgba(39, 76, 119, 0.27);
+  display: flex;
+  flex-direction: column;
 }
 
 .vp-line-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 3.2rem minmax(0, 1fr);
-  gap: 1.15rem;
-  padding: clamp(1.35rem, 2.2vw, 2rem) 0;
-  border-bottom: 1px solid rgba(39, 76, 119, 0.27);
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--hairline);
 }
 
-.vp-line-item::before {
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--accent);
-  content: '';
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.vp-line-item:hover::before {
-  transform: scaleX(1);
-}
-
-.vp-line-number {
-  padding-top: 0.2rem;
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.vp-line-item:last-child {
+  border-bottom: 1px solid var(--hairline);
 }
 
 .vp-line-content h3 {
-  margin: 0 0 0.45rem;
-  color: var(--text-main);
-  font-size: clamp(1.28rem, 2vw, 1.65rem);
-  font-weight: 800;
-  line-height: 1.2;
+  font-family: var(--font-text);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .vp-line-content p {
-  max-width: 41rem;
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.55;
+  margin-top: 0.4rem;
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  line-height: 1.47;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .vp-layout {
     grid-template-columns: 1fr;
-    gap: 3rem;
   }
 
   .vp-left {
     position: static;
   }
-
-  .vp-cta {
-    max-width: none;
-    margin-top: 2.5rem;
-  }
 }
 
-@media (max-width: 576px) {
-  .vp-line-item {
-    grid-template-columns: 2.2rem minmax(0, 1fr);
-    gap: 0.75rem;
+@media (max-width: 640px) {
+  .proof-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .vp-contact-link,
-  .vp-line-item::before {
-    transition: none;
+  .proof-stat + .proof-stat {
+    padding-top: 2rem;
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
   }
 }

@@ -1,559 +1,223 @@
-/* =========================================================
-   Success Stories — same soft off-white background as the rest
-   of the site; each brand's color shows up only in text, badges,
-   bullets and the CTA. Each case is its own independent row (no
-   shared sticky panel), so every case always shows its full
-   image + copy + services.
-   ========================================================= */
-
 .success-cases {
-  background-color: var(--bg-secondary);
-  padding: var(--section-space) 0 calc(var(--section-space) - 4rem);
-  position: relative;
+  background: var(--surface-2);
 }
 
-.cases-header {
-  max-width: 740px;
-  margin: 0 auto 3.5rem auto;
-}
-
-.cases-eyebrow {
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--accent);
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.cases-title {
-  font-size: var(--title-size);
-  line-height: var(--title-leading);
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-  letter-spacing: var(--title-tracking);
-}
-
-.cases-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-/* =========================================================
-   Per-brand palette — white background throughout; only text,
-   badges and small accents pick up each brand's color.
-   ========================================================= */
-
-.story-row.theme-simi {
-  --row-accent: #0b5eb7;
-  --row-cta-bg: #0b5eb7;
-  --row-cta-fg: #ffffff;
-}
-
-.story-row.theme-sika {
-  --row-accent: #c1121f;
-  --row-cta-bg: #c1121f;
-  --row-cta-fg: #ffffff;
-}
-
-.story-row.theme-waldos {
-  --row-accent: #00a651;
-  --row-cta-bg: #00a651;
-  --row-cta-fg: #ffffff;
-}
-
-/* =========================================================
-   Row shell
-   ========================================================= */
-
-.story-row {
-  --row-fg: var(--text-main);
-  --row-fg-muted: var(--text-muted);
-  --row-hairline: var(--border-light);
-  background: var(--bg-secondary);
-  padding: 5rem 0;
-  position: relative;
+.story-rows {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .story-row-inner {
-  position: relative;
-  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
-  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
 }
 
 .story-row-reverse .story-row-inner {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  padding-right: clamp(1rem, 2vw, 1.5rem);
+  padding-left: clamp(1.5rem, 4vw, 4rem);
 }
 
-.story-row-reverse .story-visual { order: 2; }
-.story-row-reverse .story-content { order: 1; }
+.story-row-reverse .story-visual {
+  order: 2;
+}
 
-/* =========================================================
-   Visual: one framed hero shot + a smaller overlapping accent
-   ========================================================= */
-
+/* Visual: one lead image, then supporting photos underneath. */
 .story-visual {
-  position: relative;
-  min-height: clamp(300px, 30vw, 400px);
-  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.story-visual figure {
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 0.75rem);
+  background: var(--surface-2);
+}
+
+.story-visual img {
+  display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.story-visual figure:not(.is-graphic):hover img {
+  transform: scale(1.03);
+}
+
+/* Brand graphics keep their full artwork on a constant white tile. */
+.story-visual .is-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.story-visual .is-graphic img {
+  object-fit: contain;
 }
 
 .story-visual-main {
-  margin: 0;
-  width: 88%;
-  height: 100%;
-  min-width: 0;
-  overflow: hidden;
-  border: 8px solid #ffffff;
-  box-shadow: 0 13px 30px rgba(19, 35, 61, 0.14);
-}
-
-.story-row-reverse .story-visual-main {
-  margin-left: auto;
-}
-
-.story-visual-main img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Flat brand graphics (logo marks, printed cards) stay fully visible
-   instead of being cropped by an object-fit: cover — no added matte,
-   so a transparent logo sits directly on the row's own brand color. */
-.story-visual-main.is-graphic {
-  background: transparent;
-  padding: 0;
-  border: 0;
-  box-shadow: none;
-}
-
-.story-visual-main.is-graphic img {
-  object-fit: contain;
-}
-
-/* The Monterrey banner is the lead visual for this case. Give it the full
-   visual column so the complete identity remains legible at desktop widths. */
-.theme-simi .story-visual {
-  min-height: clamp(360px, 34vw, 500px);
-}
-
-.theme-simi .story-visual-main,
-.story-row-reverse .theme-simi .story-visual-main {
-  width: 100%;
-  margin: 0;
-}
-
-.theme-simi .story-visual-main img {
-  width: 130%;
-  max-width: none;
-  object-position: left center;
-}
-
-/* Keep the football Simi as the hero accent. The new event photos sit below
-   it as an intentionally offset, editorial collage. */
-.theme-simi .story-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  min-height: 0;
-}
-
-.theme-simi .story-row-inner {
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
-  gap: clamp(2.5rem, 5vw, 5rem);
-  align-items: start;
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 10;
 }
 
 .theme-simi .story-visual-main {
-  flex: 0 0 clamp(360px, 30vw, 440px);
-  height: clamp(360px, 30vw, 440px);
-}
-
-.theme-simi .story-visual-primary {
-  position: absolute;
-  top: clamp(165px, 15vw, 225px);
-  left: 4%;
-  z-index: 2;
-  width: min(280px, 38%);
-  margin: 0;
-  pointer-events: none;
-}
-
-.story-visual-primary.is-graphic {
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
-}
-
-.story-visual-primary img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.2));
-}
-
-.theme-simi .story-visual-accent-group.has-two {
-  position: static;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  width: 100%;
-  max-width: none;
-  gap: 1.25rem;
-  padding: 0;
-}
-
-.theme-simi .story-visual-accent-group .story-visual-accent {
+  grid-column: 1;
   aspect-ratio: 1;
-  height: auto;
-  min-height: 0;
 }
 
-.theme-simi .story-visual-accent-group .story-visual-accent:first-child {
-  margin-top: clamp(4rem, 6vw, 6rem);
-}
-
-.theme-simi .story-visual-accent-group .story-visual-accent img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.story-visual-primary {
+  aspect-ratio: 1;
 }
 
 .story-visual-accent-group {
-  position: absolute;
-  bottom: -1.4rem;
-  left: 0;
-  display: flex;
-  gap: 0.6rem;
-  width: 46%;
-  max-width: 220px;
-}
-
-.story-row-reverse .story-visual-accent-group {
-  left: auto;
-  right: 0;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
 }
 
 .story-visual-accent-group.has-two {
-  width: 62%;
-  max-width: 320px;
-}
-
-/* Simi's single accent (the CentralSimi character) reads better a bit larger. */
-.theme-simi .story-visual-accent-group:not(.has-two) {
-  max-width: 270px;
-}
-
-/* Sika & Waldo's: keep the hero shot and the accent image(s) fully
-   separate — stacked instead of overlapping, even if the visual
-   column runs a little taller. */
-.theme-sika .story-visual,
-.theme-waldos .story-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  min-height: 0;
-}
-
-.theme-sika .story-visual-main,
-.theme-waldos .story-visual-main {
-  width: 100%;
-  height: clamp(240px, 24vw, 320px);
-}
-
-.theme-sika .story-visual-accent-group,
-.theme-waldos .story-visual-accent-group {
-  position: static;
-  width: 100%;
-  max-width: none;
-  justify-content: flex-start;
-}
-
-.theme-sika.story-row-reverse .story-visual-accent-group,
-.theme-waldos.story-row-reverse .story-visual-accent-group {
-  justify-content: flex-end;
-}
-
-.theme-sika .story-visual-accent-group,
-.theme-waldos .story-visual-accent-group {
-  max-width: none;
-}
-
-/* Match the accent's footprint to the hero shot so it reads at a
-   similar weight instead of one big photo and a small thumbnail —
-   also applies when there are two accents sitting side by side. */
-.theme-sika .story-visual-accent-group .story-visual-accent,
-.theme-waldos .story-visual-accent-group .story-visual-accent {
-  height: clamp(200px, 22vw, 300px);
-}
-
-.theme-sika .story-visual-accent-group .story-visual-accent img,
-.theme-waldos .story-visual-accent-group .story-visual-accent img {
-  height: 100%;
-  object-fit: cover;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .story-visual-accent {
-  flex: 1 1 0;
-  margin: 0;
-  overflow: hidden;
-  background: #ffffff;
-  border: 8px solid #ffffff;
-  box-shadow: 0 13px 30px rgba(19, 35, 61, 0.14);
+  aspect-ratio: 16 / 9;
 }
 
-.story-visual-accent img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+.has-two .story-visual-accent {
+  aspect-ratio: 4 / 3;
 }
 
-.story-visual-accent:hover img {
-  transform: scale(1.045);
-}
-
-.story-visual-accent.is-graphic {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-/* =========================================================
-   Content
-   ========================================================= */
-
+/* Content */
 .story-content {
-  color: var(--row-fg);
-  min-width: 0;
+  padding: clamp(0.5rem, 2vw, 1.5rem) 0;
 }
 
 .story-brand-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.4rem;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .story-logo-card {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 .story-logo-img {
-  height: 40px;
-  max-width: 120px;
-  object-fit: contain;
   display: block;
+  max-height: 38px;
+  max-width: 140px;
+  width: auto;
+  object-fit: contain;
 }
 
-/* The relationship badge ("8-Year Business Partnership") reads as a
-   real bold headline in the row's brand color, not a small pill. */
 .story-partnership-title {
-  font-size: clamp(2rem, 3.4vw, 2.9rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -1px;
-  color: var(--row-accent);
-  margin: 0.6rem 0 1.4rem;
-  overflow-wrap: anywhere;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.25rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .story-case-eyebrow {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--row-accent);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .story-title {
-  font-size: clamp(1.3rem, 1.9vw, 1.7rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.4px;
-  color: var(--row-fg);
-  margin-bottom: 0.7rem;
-  overflow-wrap: anywhere;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .story-desc {
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--row-fg-muted);
-  font-weight: 500;
-  max-width: 480px;
-  margin-bottom: 1.6rem;
-  overflow-wrap: anywhere;
+  margin-top: 1rem;
+  color: var(--ink-2);
+  font-size: 1.1875rem;
+  line-height: 1.42;
 }
 
 .story-services {
-  list-style: none;
-  padding: 1rem 0 0;
-  margin: 0 0 1.8rem;
-  border-top: 1px solid var(--row-hairline);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6rem 1.5rem;
-  max-width: 560px;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.75rem;
 }
 
 .story-services li {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--row-fg);
-  overflow-wrap: anywhere;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--hairline);
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .story-service-bullet {
   flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  margin-top: 0.5rem;
-  border-radius: 50%;
-  background: var(--row-accent);
+  width: 0.65rem;
+  height: 0.38rem;
+  margin: 0.45rem 0.1rem 0;
+  border-left: 1.75px solid var(--accent);
+  border-bottom: 1.75px solid var(--accent);
+  transform: rotate(-45deg);
 }
 
 .story-cta {
-  display: inline-flex;
-  padding: 0 0 0.45rem;
-  border-bottom: 2px solid var(--row-accent);
-  border-radius: 0;
-  color: var(--row-accent);
-  font-weight: 800;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: gap var(--transition-normal), opacity var(--transition-normal);
+  margin-top: 1.25rem;
 }
 
-.story-cta:hover {
-  opacity: 0.8;
-}
-
-/* =========================================================
-   Responsive
-   ========================================================= */
-
-@media (max-width: 992px) {
+@media (max-width: 960px) {
   .story-row-inner,
   .story-row-reverse .story-row-inner {
     grid-template-columns: 1fr;
-    gap: 2.6rem;
+    gap: 1.5rem;
+    padding: 0.75rem 0.75rem 1.75rem;
   }
 
-  .theme-simi .story-row-inner {
-    grid-template-columns: 1fr;
-    gap: 2.6rem;
+  .story-row-reverse .story-visual {
+    order: 0;
   }
 
-  .story-row-reverse .story-visual,
-  .story-row-reverse .story-content {
-    order: initial;
-  }
-
-  .story-visual {
-    min-height: clamp(280px, 62vw, 380px);
-  }
-
-  .story-visual-main,
-  .story-row-reverse .story-visual-main {
-    width: 92%;
-    margin: 0 auto;
-  }
-
-  .theme-simi .story-visual-main,
-  .story-row-reverse .theme-simi .story-visual-main {
-    width: 100%;
-    margin: 0;
-  }
-
-  .theme-simi .story-visual-main img {
-    width: 100%;
-    max-width: 100%;
-    object-position: center;
-  }
-
-  .theme-simi .story-visual-primary {
-    top: clamp(150px, 25vw, 215px);
-    width: min(230px, 34%);
-  }
-
-  .story-visual-accent-group,
-  .story-row-reverse .story-visual-accent-group {
-    left: 4%;
-    right: auto;
+  .story-content {
+    padding: 0 1rem;
   }
 }
 
-@media (max-width: 576px) {
-  .story-row {
-    padding: 3rem 0;
-  }
-
-  .story-services {
-    grid-template-columns: 1fr;
-  }
-
-  .story-visual-accent-group,
-  .theme-simi .story-visual-accent-group:not(.has-two) {
-    max-width: 160px;
-  }
-
+@media (max-width: 480px) {
   .story-visual-accent-group.has-two {
-    max-width: 220px;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .theme-simi .story-visual {
-    min-height: 0;
-  }
-
-  .theme-simi .story-visual-main {
-    flex-basis: clamp(300px, 72vw, 390px);
-    height: clamp(300px, 72vw, 390px);
-  }
-
-  .theme-simi .story-visual-primary {
-    top: clamp(145px, 34vw, 180px);
-    left: 1%;
-    width: min(180px, 34%);
-  }
-
-  .theme-simi .story-visual-accent-group.has-two {
-    width: 100%;
-    max-width: none;
-    gap: 0.7rem;
-    padding: 0;
-  }
-
-  .theme-simi .story-visual-accent-group .story-visual-accent:first-child {
-    margin-top: 2.5rem;
-  }
-
-  .theme-simi .story-visual-accent-group .story-visual-accent {
+  .has-two .story-visual-accent {
     aspect-ratio: 1;
-    height: auto;
   }
-
 }

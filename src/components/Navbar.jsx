@@ -53,7 +53,7 @@ const Navbar = ({ currentView = 'home' }) => {
   // Mouse users on desktop open dropdowns by hovering; touch and keyboard users
   // (a keyboard click reports event.detail === 0) toggle them explicitly.
   const toggleDropdown = (event, dropdown) => {
-    if (window.innerWidth <= 768 || event.detail === 0) {
+    if (window.innerWidth <= 900 || event.detail === 0) {
       setOpenDropdown((current) => current === dropdown ? null : dropdown)
     }
   }
@@ -89,7 +89,7 @@ const Navbar = ({ currentView = 'home' }) => {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 50)
+          setScrolled(window.scrollY > 24)
           ticking = false
         })
         ticking = true

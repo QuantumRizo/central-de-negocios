@@ -3,9 +3,9 @@ import './ValueProposition.css'
 import { ScrollWords } from './BrandMotion'
 
 const proofStats = [
-  { value: '+35', label: 'Años de experiencia en Medios', tone: 'white' },
-  { value: '+8', label: 'Años construyendo soluciones boutique', tone: 'light' },
-  { value: '+10', label: 'Categorías de especialización', tone: 'white' },
+  { value: '+35', label: 'Años de experiencia en Medios' },
+  { value: '+8', label: 'Años construyendo soluciones boutique' },
+  { value: '+10', label: 'Categorías de especialización' },
 ]
 
 const benefits = [
@@ -56,7 +56,7 @@ const ValueProposition = () => {
       <section className="proof-strip" aria-label="Resultados de Central">
         <div className="container proof-grid">
           {proofStats.map((stat) => (
-            <div className={`proof-stat ${stat.tone}`} key={stat.label}>
+            <div className="proof-stat" key={stat.label}>
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
             </div>
@@ -64,11 +64,12 @@ const ValueProposition = () => {
         </div>
       </section>
 
-      <section className="value-prop section bg-secondary">
+      <section className="value-prop section">
       <div className="container vp-layout">
         <div className="vp-left">
+          <span className="section-eyebrow">Por qué Central</span>
           <h2 className="vp-title scroll-animate-left" ref={el => elementsRef.current[0] = el}>
-            WHY<br />CENTRAL
+            Why Central.
           </h2>
           <p className="vp-description scroll-animate-left delay-100" ref={el => elementsRef.current[1] = el}>
             <ScrollWords>Aceleramos tu negocio con infraestructura propia, enfoque ágil y un ecosistema de distribución robusto.</ScrollWords>
@@ -77,17 +78,16 @@ const ValueProposition = () => {
           <div className="vp-cta scroll-animate-up delay-200" ref={el => elementsRef.current[2] = el}>
             <h3>¿Listo para transformar tu estrategia?</h3>
             <p>Conecta con nuestros especialistas y diseñemos una solución a la medida de tu marca.</p>
-            <a href="#contact" className="vp-contact-link">Contactar a un experto <span aria-hidden="true">↗</span></a>
+            <a href="#contact" className="btn btn-primary vp-contact-link">Contactar a un experto</a>
           </div>
         </div>
 
         <div className="vp-list">
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit) => (
             <div
               className="vp-line-item"
               key={benefit.title}
             >
-              <span className="vp-line-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <div className="vp-line-content">
                 <h3>{benefit.title}</h3>
                 <p>{benefit.desc}</p>

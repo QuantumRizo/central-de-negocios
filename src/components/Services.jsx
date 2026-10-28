@@ -129,9 +129,10 @@ const Services = () => {
   return (
     <section id="services" className="services section">
       <div className="container">
-        <div className="services-header text-center">
-          <h2 className="services-main-title">WHAT WE DO</h2>
-          <p className="services-header-subtitle">
+        <div className="section-header">
+          <span className="section-eyebrow">Servicios</span>
+          <h2 className="section-title">What we do.</h2>
+          <p className="section-lede">
             Estructura de consultoría, medios y ejecución analítica de alto valor diseñada para acelerar la rentabilidad real de tu negocio.
           </p>
         </div>
@@ -147,15 +148,14 @@ const Services = () => {
                 aria-pressed={activeServiceId === service.id}
                 onClick={() => setActiveServiceId(service.id)}
               >
-                <span className="service-list-number">{service.id}</span>
                 <span className="service-list-icon" aria-hidden="true">{service.icon}</span>
                 <span className="service-list-title">{service.title}</span>
-                <span className="service-list-arrow" aria-hidden="true">→</span>
+                <span className="service-list-arrow" aria-hidden="true">›</span>
               </button>
             ))}
           </div>
           <div className="services-detail-panel" key={activeService.id} aria-live="polite">
-            <span className="service-detail-number">{activeService.id}</span>
+            <span className="service-detail-icon" aria-hidden="true">{activeService.icon}</span>
             <h3 className="service-detail-title">{activeService.title}</h3>
             <ul className="service-detail-list">
               {activeService.details.map((detail) => <li key={detail}>{detail}</li>)}

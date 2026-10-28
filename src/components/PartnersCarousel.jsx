@@ -26,10 +26,11 @@ const PartnersCarousel = () => {
   ]
 
   return (
-    <section id="partners" className="partners-section">
+    <section id="partners" className="partners-section section">
       <div className="container">
-        <div className="partners-header text-center">
-          <h3 className="partners-title">BRANDS & STRATEGIC PARTNERS</h3>
+        <div className="section-header">
+          <span className="section-eyebrow">Clientes y aliados</span>
+          <h2 className="section-title">Brands & strategic partners.</h2>
         </div>
       </div>
 
@@ -45,10 +46,14 @@ const PartnersCarousel = () => {
             >
               <div className="marquee-track">
                 {marqueeLogos.map((partner, index) => (
-                  <div className="partner-logo-card" key={`${partner.name}-${index}`}>
+                  <div
+                    className="partner-logo-card"
+                    key={`${partner.name}-${index}`}
+                    aria-hidden={index >= row.length || undefined}
+                  >
                     <img
                       src={partner.src}
-                      alt={partner.name}
+                      alt={index >= row.length ? '' : partner.name}
                       className={`partner-logo-img ${partner.sizeClass || ''}`}
                       loading="lazy"
                     />

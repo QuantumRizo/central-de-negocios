@@ -7,7 +7,7 @@ const caseStudies = [
     themeClass: 'theme-simi',
     logo: '/centralsimi.webp',
     badge: 'Agencia Única Exclusiva',
-    ctaText: 'Ver Caso Completo CentralSimi & Mundial 2026 →',
+    ctaText: 'Ver caso completo CentralSimi & Mundial 2026',
     ctaLink: '#centralsimi',
     services: [
       'Agencia Única & Compra Masiva de Medios (TV, Radio, OOH)',
@@ -17,7 +17,7 @@ const caseStudies = [
     ],
     visual: {
       number: '01',
-      label: '2026 WORLD CUP FLAGSHIP',
+      label: '2026 World Cup flagship',
       title: 'Host City Supporter Monterrey 2026',
       description: 'Planeación 360°, negociación directa de alto impacto y gestión comercial estratégica ante la FIFA con presencia nacional.',
       heroImage: { src: '/simi-monterrey-host-city.png', alt: 'Monterrey Host City Supporter y Farmacias Similares', kind: 'graphic' },
@@ -46,7 +46,7 @@ const caseStudies = [
     ],
     visual: {
       number: '02',
-      label: 'SPONSORSHIP & BRAND AWARENESS',
+      label: 'Sponsorship & brand awareness',
       title: 'Patrocinio Oficial Club América',
       description: 'Negociación de patrocinio de alto rendimiento en la liga nacional, presencia de marca y amplificación digital.',
       heroImage: { src: '/sika-america.jpg', alt: 'Bienvenida Patrocinio Oficial Club América x Sika', kind: 'graphic' },
@@ -72,20 +72,17 @@ const caseStudies = [
     ],
     visual: {
       number: '03',
-      label: 'RETAIL MEDIA & PERFORMANCE',
+      label: 'Retail media & performance',
       title: 'Campañas Always-On & Tráfico a Tiendas',
       description: 'Estrategias geolocalizadas de gran formato y optimización continua con atribución medible a sucursales.',
-      heroImage: { src: '/partners/waldos-logo.webp', alt: "Waldo's", kind: 'graphic' },
-      accentImages: [
-        { src: '/cases/waldos-event.webp', alt: "Activación Waldo's" }
-      ]
+      heroImage: { src: '/cases/waldos-event.webp', alt: "Activación Waldo's" }
     }
   }
 ]
 
 const StoryRow = ({ item, index }) => {
   const { visual } = item
-  const reversed = item.imageSide === 'right'
+  const reversed = index % 2 === 1
   const accents = visual.accentImages || []
   const primaryAccent = visual.primaryAccent
 
@@ -94,60 +91,61 @@ const StoryRow = ({ item, index }) => {
       id={`case-${item.id}`}
       className={`story-row ${item.themeClass} ${reversed ? 'story-row-reverse' : ''}`}
     >
-      <div className="story-row-inner container">
+      <div className="container">
+        <div className="story-row-inner">
 
-        <div className="story-visual">
-          <figure className={`story-visual-main ${visual.heroImage.kind === 'graphic' ? 'is-graphic' : ''}`}>
-            <img src={visual.heroImage.src} alt={visual.heroImage.alt} loading="lazy" />
-          </figure>
-          {primaryAccent && (
-            <figure className={`story-visual-primary ${primaryAccent.kind === 'graphic' ? 'is-graphic' : ''}`}>
-              <img src={primaryAccent.src} alt={primaryAccent.alt} loading="lazy" />
+          <div className="story-visual">
+            <figure className={`story-visual-main ${visual.heroImage.kind === 'graphic' ? 'is-graphic' : ''}`}>
+              <img src={visual.heroImage.src} alt={visual.heroImage.alt} loading="lazy" />
             </figure>
-          )}
-          {accents.length > 0 && (
-            <div className={`story-visual-accent-group ${accents.length > 1 ? 'has-two' : ''}`}>
-              {accents.map((accent) => (
-                <figure
-                  key={accent.src}
-                  className={`story-visual-accent ${accent.kind === 'graphic' ? 'is-graphic' : ''}`}
-                >
-                  <img src={accent.src} alt={accent.alt} loading="lazy" />
-                </figure>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="story-content">
-          <div className="story-brand-row">
-            <span className="story-logo-card">
-              <img src={item.logo} alt={item.name} className="story-logo-img" />
-            </span>
+            {primaryAccent && (
+              <figure className={`story-visual-primary ${primaryAccent.kind === 'graphic' ? 'is-graphic' : ''}`}>
+                <img src={primaryAccent.src} alt={primaryAccent.alt} loading="lazy" />
+              </figure>
+            )}
+            {accents.length > 0 && (
+              <div className={`story-visual-accent-group ${accents.length > 1 ? 'has-two' : ''}`}>
+                {accents.map((accent) => (
+                  <figure
+                    key={accent.src}
+                    className={`story-visual-accent ${accent.kind === 'graphic' ? 'is-graphic' : ''}`}
+                  >
+                    <img src={accent.src} alt={accent.alt} loading="lazy" />
+                  </figure>
+                ))}
+              </div>
+            )}
           </div>
 
-          {item.badge && <h3 className="story-partnership-title">{item.badge}</h3>}
+          <div className="story-content">
+            <div className="story-brand-row">
+              <span className="story-logo-card">
+                <img src={item.logo} alt={item.name} className="story-logo-img" />
+              </span>
+              {item.badge && <span className="story-partnership-title">{item.badge}</span>}
+            </div>
 
-          <span className="story-case-eyebrow">CASE 0{index + 1} · {visual.label}</span>
-          <h4 className="story-title">{visual.title}</h4>
-          <p className="story-desc">{visual.description}</p>
+            <span className="story-case-eyebrow">{visual.label}</span>
+            <h3 className="story-title">{visual.title}</h3>
+            <p className="story-desc">{visual.description}</p>
 
-          <ul className="story-services">
-            {item.services.map((srv) => (
-              <li key={srv}>
-                <span className="story-service-bullet" aria-hidden="true" />
-                <span>{srv}</span>
-              </li>
-            ))}
-          </ul>
+            <ul className="story-services">
+              {item.services.map((srv) => (
+                <li key={srv}>
+                  <span className="story-service-bullet" aria-hidden="true" />
+                  <span>{srv}</span>
+                </li>
+              ))}
+            </ul>
 
-          {item.ctaLink && (
-            <a href={item.ctaLink} className="btn story-cta">
-              {item.ctaText}
-            </a>
-          )}
+            {item.ctaLink && (
+              <a href={item.ctaLink} className="link-chevron story-cta">
+                {item.ctaText}
+              </a>
+            )}
+          </div>
+
         </div>
-
       </div>
     </div>
   )
@@ -157,9 +155,10 @@ const SuccessStories = () => {
   return (
     <section id="cases" className="success-cases section">
       <div className="container">
-        <div className="cases-header text-center animate-fade-in-up">
-          <h2 className="cases-title">SUCCESS STORIES</h2>
-          <p className="cases-subtitle">
+        <div className="section-header">
+          <span className="section-eyebrow">Casos de éxito</span>
+          <h2 className="section-title">Success stories.</h2>
+          <p className="section-lede">
             Resultados reales construidos a través de estrategia, negociación y ejecución de alto impacto.
           </p>
         </div>
