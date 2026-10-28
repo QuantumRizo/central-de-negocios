@@ -26,7 +26,7 @@ const PartnersCarousel = () => {
   ]
 
   return (
-    <section id="partners" className="partners-section section">
+    <section id="partners" className="partners-section section brand-texture">
       <div className="container">
         <div className="section-header">
           <span className="section-eyebrow">Clientes y aliados</span>

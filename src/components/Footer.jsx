@@ -2,13 +2,13 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <footer id="contact" className="footer">
+    <footer id="contact" className="footer brand-texture">
       <div className="container">
         <div className="footer-content">
           <div className="footer-info">
             <h2 className="footer-title">Hablemos.</h2>
             <p className="footer-lede">Cuéntanos sobre tu marca y diseñemos juntos la estrategia.</p>
-            <a href="mailto:hola@centraldenegociosmx.com" className="btn btn-primary">Escríbenos</a>
+            <a href="mailto:hola@centraldenegociosmx.com" className="btn footer-cta">Escríbenos</a>
           </div>
           <dl className="footer-contact">
             <div>

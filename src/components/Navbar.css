@@ -1,14 +1,17 @@
 /*
   Global navigation as a floating glass bar (liquid-glass.md: glass only on the
-  functional layer, never in content). Over the night hero it is clear with light
-  text; once content scrolls underneath it becomes a light or dark glass bar.
+  functional layer, never in content). Over the night hero it is clear; once
+  content scrolls underneath it becomes the brand's metallic-blue glass.
+  White text on the tint stays at 4.5:1 or more.
 */
 .navbar {
-  --nav-ink: var(--ink);
-  --nav-ink-2: var(--ink-2);
-  --nav-bg: var(--glass);
-  --nav-line: var(--hairline);
-  --nav-logo-filter: var(--logo-filter);
+  --nav-ink: #FFFFFF;
+  --nav-ink-2: rgba(255, 255, 255, 0.86);
+  --nav-bg: rgba(78, 106, 128, 0.9);
+  --nav-line: rgba(255, 255, 255, 0.16);
+  --nav-logo-filter: brightness(0) invert(1);
+  --nav-menu-bg: rgba(78, 106, 128, 0.94);
+  --nav-menu-hover: rgba(255, 255, 255, 0.14);
 
   position: fixed;
   top: 0;
@@ -33,23 +36,25 @@
   -webkit-backdrop-filter: none;
 }
 
-.navbar.view-home.mobile-open:not(.scrolled) {
-  --nav-ink: #FFFFFF;
-  --nav-ink-2: rgba(255, 255, 255, 0.78);
-  --nav-bg: var(--glass-dark);
-  --nav-line: rgba(255, 255, 255, 0.12);
-  --nav-logo-filter: brightness(0) invert(1);
+/* CentralSimi opens on a light page, so its bar starts as light glass. */
+.navbar.view-centralsimi:not(.scrolled):not(.mobile-open) {
+  --nav-ink: var(--ink);
+  --nav-ink-2: var(--ink-2);
+  --nav-bg: var(--glass);
+  --nav-line: var(--hairline);
+  --nav-logo-filter: none;
 }
 
 @media (prefers-reduced-transparency: reduce) {
   .navbar {
-    --nav-bg: var(--surface);
+    --nav-bg: #56748B;
+    --nav-menu-bg: #56748B;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
-  .navbar.view-home.mobile-open:not(.scrolled) {
-    --nav-bg: var(--night);
+  .navbar.view-centralsimi:not(.scrolled):not(.mobile-open) {
+    --nav-bg: var(--surface);
   }
 }
 
@@ -130,22 +135,16 @@
   width: min(380px, calc(100vw - 2rem));
   padding: 0.5rem;
   border-radius: var(--radius-md);
-  background: var(--glass);
+  background: var(--nav-menu-bg);
   backdrop-filter: saturate(180%) blur(24px);
   -webkit-backdrop-filter: saturate(180%) blur(24px);
-  box-shadow: 0 0 0 1px var(--hairline), var(--shadow-lg);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), var(--shadow-lg);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translate(-50%, -6px) scale(0.98);
   transform-origin: top center;
   transition: opacity 0.2s var(--ease), transform 0.3s var(--ease-out), visibility 0.2s;
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .nav-services-menu {
-    background: var(--surface);
-  }
 }
 
 /* Keeps the hover path from breaking between the trigger and the menu. */
@@ -171,14 +170,14 @@
   min-height: 44px;
   padding: 0.6rem 0.85rem;
   border-radius: var(--radius-sm);
-  color: var(--ink);
+  color: #FFFFFF;
   font-size: 0.9375rem;
   line-height: 1.3;
   transition: background-color 0.15s var(--ease);
 }
 
 .nav-services-menu a:hover {
-  background: var(--surface-3);
+  background: var(--nav-menu-hover);
 }
 
 /* CentralSimi: marked as the current page, never a second CTA. */
@@ -197,6 +196,23 @@
   min-height: 32px;
   padding: 0.35rem 0.95rem;
   font-size: 0.875rem;
+}
+
+/* On the blue bar the CTA inverts to white so it stays the one prominent action. */
+.navbar.scrolled .btn-accent,
+.navbar.mobile-open .btn-accent {
+  background: #FFFFFF;
+  color: #435B6D;
+}
+
+.navbar.scrolled .btn-accent:hover,
+.navbar.mobile-open .btn-accent:hover {
+  background: #EEF2F5;
+}
+
+.navbar.view-centralsimi:not(.scrolled):not(.mobile-open) .btn-accent {
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 .mobile-menu-toggle {

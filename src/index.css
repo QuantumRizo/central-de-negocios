@@ -197,6 +197,43 @@ img {
   background-color: var(--surface-2);
 }
 
+/*
+  Brand texture surface (partners carousel, footer). The navy veil keeps white text
+  at 4.5:1 or more even over the lightest part of the texture.
+*/
+.brand-texture {
+  --tex-ink: #FFFFFF;
+  --tex-ink-2: rgba(255, 255, 255, 0.82);
+  --tex-line: rgba(255, 255, 255, 0.2);
+  --tex-link: #D3E2EE;
+
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(100deg, rgba(5, 24, 56, 0.74) 0%, rgba(5, 24, 56, 0.64) 55%, rgba(5, 24, 56, 0.5) 100%),
+    #0A3777 url('/centralmx-brand-texture.jpg') center / cover no-repeat;
+  color: var(--tex-ink);
+}
+
+.brand-texture > * {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-texture .section-title,
+.brand-texture h2,
+.brand-texture h3 {
+  color: var(--tex-ink);
+}
+
+.brand-texture .section-eyebrow {
+  color: var(--tex-link);
+}
+
+.brand-texture .section-lede {
+  color: var(--tex-ink-2);
+}
+
 /* Button system: filled pill for the primary action, plain link with chevron for the rest. */
 .btn {
   display: inline-flex;
