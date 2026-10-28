@@ -4,7 +4,9 @@
     actions and status (branding.md › Best practices).
   - Body text uses the system font stack at 17px (typography.md › Ensuring legibility);
     Montserrat is kept for display headlines only.
-  - Contrast (on --surface): --ink 16.8:1, --ink-2 5.0:1, --accent 6.3:1.
+  - Contrast (on --surface): --ink 16.8:1, --ink-2 5.0:1, --accent 4.9:1.
+  - --accent is the brand's metallic blue (#5E7D95), darkened a step so white
+    text on it reaches 4.5:1.
 */
 :root {
   /* Light appearance is the default and only theme. */
@@ -16,11 +18,11 @@
   --ink: #1D1D1F;
   --ink-2: #6E6E73;
   --hairline: rgba(0, 0, 0, 0.1);
-  --accent: #0B5EB7;
-  --accent-hover: #084C96;
+  --accent: #56748B;
+  --accent-hover: #435B6D;
   /* Filled controls keep white text at 4.5:1 or more in both appearances. */
-  --accent-fill: #0B5EB7;
-  --accent-fill-hover: #084C96;
+  --accent-fill: #56748B;
+  --accent-fill-hover: #435B6D;
   --accent-ink: #FFFFFF;
   --night: #050B1A;
   --glass: rgba(255, 255, 255, 0.72);
