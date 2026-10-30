@@ -1,0 +1,7 @@
+# Partner and client logos belong to their owners; keep them out of Google Images
+# so they are never picked as this site's thumbnail.
+User-agent: Googlebot-Image
+Disallow: /partners/
+
+User-agent: *
+Allow: /
